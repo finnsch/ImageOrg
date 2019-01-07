@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "MediaFactory.createImage(from:):MediaFactory.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "image.isValid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaImporter.getContentsOfDirectory(at:):MediaImporter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Media.init(url:):Media.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url.path">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MediaGridViewController.loadMedia(filePaths:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaImporter.getContentsOfPaths():MediaImporter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "VideoViewerViewController.video.didset:VideoViewerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fileURL.path">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Media.== infix(_:_:):Media.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "lhs.url.absoluteString">
+            </PersistentString>
+            <PersistentString
+               value = "rhs.url.absoluteString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DragView.draggingEntered(_:):DragView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.didDrag(filePaths:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaDetailViewController.setupVideoViewer():MediaDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "media.filePath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FileAttributesParser.parse(url:):FileAttributesParser.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaCoreDataService.getMediaItems():MediaCoreDataService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DragView.performDragOperation(_:):DragView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "URL.mimeType.getter:URL+mimeType.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ImageViewerViewController.setupImageView():ImageViewerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "image?.originalImage.isValid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DragView.draggingEntered(_:):DragView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.loadMedia(filePaths:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaFactory.createVideo(from:):MediaFactory.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaSidebarViewController.setupView():MediaSidebarViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ImageViewerViewController.image.didset:ImageViewerViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Image" representedClassName="Image" parentEntity="Media" syncable="YES"/>
+    <entity name="Media" representedClassName="Media" isAbstract="YES" syncable="YES">
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filePath" attributeType="String" syncable="YES"/>
+        <attribute name="fileSize" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hashId" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="mimeType" attributeType="String" syncable="YES"/>
+        <attribute name="modificationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="originalFilePath" attributeType="String" syncable="YES"/>
+        <attribute name="whereFrom" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="thumbnail" maxCount="1" deletionRule="Cascade" destinationEntity="Thumbnail" inverseName="media" inverseEntity="Thumbnail" syncable="YES"/>
+    </entity>
+    <entity name="Thumbnail" representedClassName="Thumbnail" syncable="YES">
+        <attribute name="filePath" attributeType="String" valueTransformerName="ImageTransformer" customClassName="imageorg.NSImage" syncable="YES"/>
+        <attribute name="height" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="width" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="media" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Media" inverseName="thumbnail" inverseEntity="Media" syncable="YES"/>
+    </entity>
+    <entity name="Video" representedClassName="Video" parentEntity="Media" syncable="YES"/>
+    <elements>
+        <element name="Image" positionX="-54" positionY="18" width="128" height="45"/>
+        <element name="Media" positionX="-63" positionY="-18" width="128" height="225"/>
+        <element name="Video" positionX="-36" positionY="27" width="128" height="45"/>
+        <element name="Thumbnail" positionX="-45" positionY="54" width="128" height="105"/>
+    </elements>
+</model>
