@@ -91,6 +91,11 @@
       </ContextState>
       <ContextState
          contextName = "MediaSidebarViewController.setupView():MediaSidebarViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(media)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "ImageViewerViewController.image.didset:ImageViewerViewController.swift">

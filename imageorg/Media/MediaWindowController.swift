@@ -13,11 +13,11 @@ class MediaWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
 
-        guard let mediaSplitViewController = storyboard?.instantiateController(withIdentifier: "MediaSplitViewController") as? MediaSplitViewController else {
+        guard let mediaGallerySplitViewController = storyboard?.instantiateController(withIdentifier: "MediaGallerySplitViewController") as? MediaSplitViewController else {
             return
         }
 
-        let navigationController = NSNavigationController(rootViewController: mediaSplitViewController)
+        let navigationController = NSNavigationController(rootViewController: mediaGallerySplitViewController)
         window?.contentViewController = navigationController
     }
 

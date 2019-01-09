@@ -8,12 +8,7 @@
 
 import Cocoa
 
-protocol MediaDetailDelegate: class {
-    func handlePrevious()
-    func handleNext()
-}
-
-class MediaDetailViewController: NSViewController {
+class MediaDetailViewController: MediaViewController {
 
     @IBOutlet weak var containerView: NSView!
     @IBOutlet weak var zoomControlsStackView: NSStackView!
@@ -22,22 +17,15 @@ class MediaDetailViewController: NSViewController {
     private let leftArrow: UInt16 = 0x7B
     private let rightArrow: UInt16 = 0x7C
 
-    var media: Media!
     var keyDownMonitor: Any!
     var imageViewerViewController: ImageViewerViewController?
     var videoViewerViewController: VideoViewerViewController?
-    weak var delegate: MediaDetailDelegate?
+    var mediaStore = MediaStore.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NSApplication.shared.keyWindow?.title = media.name
-
-        if media is Image {
-            setupImageViewer()
-        } else if media is Video {
-            setupVideoViewer()
-        }
+        NSApplication.shared.keyWindow?.title = mediaStore.selectedMedia?.name ?? ""
 
         keyDownMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] in
             guard let strongSelf = self else {
@@ -49,6 +37,12 @@ class MediaDetailViewController: NSViewController {
             } else {
                 return $0
             }
+        }
+
+        if mediaStore.selectedMedia is Image {
+            setupImageViewer()
+        } else if mediaStore.selectedMedia is Video {
+            setupVideoViewer()
         }
     }
 
@@ -74,7 +68,7 @@ class MediaDetailViewController: NSViewController {
         addChild(imageViewerViewController!)
         containerView.addSubview(imageViewerViewController!.view)
 
-        imageViewerViewController!.image = media as? Image
+        imageViewerViewController!.image = mediaStore.selectedMedia as? Image
         imageViewerViewController!.view.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
@@ -92,7 +86,7 @@ class MediaDetailViewController: NSViewController {
         addChild(videoViewerViewController!)
         containerView.addSubview(videoViewerViewController!.view)
 
-        videoViewerViewController!.video = media as? Video
+        videoViewerViewController!.video = mediaStore.selectedMedia as? Video
         videoViewerViewController!.view.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
@@ -104,7 +98,7 @@ class MediaDetailViewController: NSViewController {
     }
 
     func setupFullscreenImageViewer() {
-        guard let image = media as? Image else {
+        guard let image = mediaStore.selectedMedia as? Image else {
             return
         }
 
@@ -123,10 +117,10 @@ class MediaDetailViewController: NSViewController {
             navigationController?.popViewController(animated: false)
             return true
         case leftArrow:
-            delegate?.handlePrevious()
+            mediaStore.selectPrevious()
             return true
         case rightArrow:
-            delegate?.handleNext()
+            mediaStore.selectNext()
             return true
         default:
             return false
@@ -138,6 +132,10 @@ class MediaDetailViewController: NSViewController {
     }
 
     @IBAction func handleDeleteButton(_ sender: NSButton) {
+        guard let media = mediaStore.selectedMedia else {
+            return
+        }
+
         let mediaCoreDataService = MediaCoreDataService()
         mediaCoreDataService.delete(media: media)
         navigationController?.popViewController(animated: false)

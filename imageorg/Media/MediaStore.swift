@@ -1,0 +1,73 @@
+//
+//  MediaSelection.swift
+//  imageorg
+//
+//  Created by Finn Schlenk on 08.01.19.
+//  Copyright © 2019 Finn Schlenk. All rights reserved.
+//
+
+import Foundation
+
+protocol MediaStoreDelegate: class {
+    func didSelect(media: Media)
+    func didSelectNext()
+    func didSelectPrevious()
+}
+
+extension MediaStoreDelegate {
+    func didSelect(media: Media) {}
+    func didSelectNext() {}
+    func didSelectPrevious() {}
+}
+
+class MediaStore {
+
+    static let shared = MediaStore()
+
+    var delegates: [MediaStoreDelegate] = []
+    var numberOfItems: Int {
+        return mediaItems.count
+    }
+    var mediaItems: [Media] = []
+    var selectedMedia: Media? {
+        didSet {
+            guard let selectedMedia = selectedMedia else {
+                return
+            }
+
+            delegates.forEach { $0.didSelect(media: selectedMedia) }
+        }
+    }
+
+    func selectNext() {
+        guard let index = mediaItems.firstIndex(where: { $0.id == selectedMedia!.id }) else {
+            return
+        }
+
+        let nextIndex: Int = numberOfItems <= index + 1 ? 0 : index + 1
+
+        selectedMedia = mediaItems[nextIndex]
+
+        delegates.forEach { $0.didSelectNext() }
+    }
+
+    func selectPrevious() {
+        guard let index = mediaItems.firstIndex(where: { $0.id == selectedMedia!.id }) else {
+            return
+        }
+
+        let previousIndex: Int = 0 > index - 1 ? mediaItems.count - 1 : index - 1
+
+        selectedMedia = mediaItems[previousIndex]
+
+        delegates.forEach { $0.didSelectPrevious() }
+    }
+
+    func add(delegate: MediaStoreDelegate) {
+        delegates.append(delegate)
+    }
+
+    func remove(delegate: MediaStoreDelegate) {
+        delegates.removeAll { $0 === delegate }
+    }
+}

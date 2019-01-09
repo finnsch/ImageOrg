@@ -54,6 +54,8 @@
 		B6A869D3217F087400D5EE96 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A869D2217F087400D5EE96 /* MediaDetailViewController.swift */; };
 		B6A869D6217F0BCC00D5EE96 /* NSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A869D4217F0BCC00D5EE96 /* NSNavigationController.swift */; };
 		B6A869D9217F0C5D00D5EE96 /* NSViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A869D8217F0C5D00D5EE96 /* NSViewController+Extensions.swift */; };
+		B6AF5E5521E3DB3B00625817 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF5E5421E3DB3B00625817 /* MediaViewController.swift */; };
+		B6AF5E5721E530C500625817 /* MediaStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF5E5621E530C500625817 /* MediaStore.swift */; };
 		B6B3EC5121D6737A000B35B0 /* FileAttributesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3EC5021D6737A000B35B0 /* FileAttributesParser.swift */; };
 		B6B3EC5321D673F2000B35B0 /* FileAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3EC5221D673F2000B35B0 /* FileAttributes.swift */; };
 		B6B3EC5521D6769D000B35B0 /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3EC5421D6769D000B35B0 /* MockFileManager.swift */; };
@@ -135,6 +137,8 @@
 		B6A869D2217F087400D5EE96 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailViewController.swift; sourceTree = "<group>"; };
 		B6A869D4217F0BCC00D5EE96 /* NSNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNavigationController.swift; sourceTree = "<group>"; };
 		B6A869D8217F0C5D00D5EE96 /* NSViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+Extensions.swift"; sourceTree = "<group>"; };
+		B6AF5E5421E3DB3B00625817 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
+		B6AF5E5621E530C500625817 /* MediaStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaStore.swift; path = imageorg/Media/MediaStore.swift; sourceTree = SOURCE_ROOT; };
 		B6B3EC5021D6737A000B35B0 /* FileAttributesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAttributesParser.swift; sourceTree = "<group>"; };
 		B6B3EC5221D673F2000B35B0 /* FileAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAttributes.swift; sourceTree = "<group>"; };
 		B6B3EC5421D6769D000B35B0 /* MockFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFileManager.swift; sourceTree = "<group>"; };
@@ -195,8 +199,7 @@
 				B63146F221E22B2E00D50360 /* CoreData */,
 				B6676BB92180CD64009603E1 /* Extensions */,
 				B6AF5E4F21E3CAF200625817 /* File Handling */,
-				B6676BBB2180CDB6009603E1 /* Media Gallery */,
-				B6676BBA2180CD99009603E1 /* Media Detail */,
+				B6676BBB2180CDB6009603E1 /* Media */,
 				B6676BBE2180CE8B009603E1 /* Navigation */,
 				B6676BBF2180CE9B009603E1 /* Protocols */,
 				B6676BBD2180CE11009603E1 /* Views */,
@@ -272,7 +275,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		B6676BBA2180CD99009603E1 /* Media Detail */ = {
+		B6676BBA2180CD99009603E1 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				B6A869D2217F087400D5EE96 /* MediaDetailViewController.swift */,
@@ -283,24 +286,27 @@
 				B6676BC22180D7F5009603E1 /* FullscreenImageViewerViewController.swift */,
 				B6676BC32180D7F5009603E1 /* FullscreenImageViewerViewController.xib */,
 			);
-			path = "Media Detail";
+			path = Detail;
 			sourceTree = "<group>";
 		};
-		B6676BBB2180CDB6009603E1 /* Media Gallery */ = {
+		B6676BBB2180CDB6009603E1 /* Media */ = {
 			isa = PBXGroup;
 			children = (
 				B6676BBC2180CDE4009603E1 /* Views */,
+				B6676BBA2180CD99009603E1 /* Detail */,
+				B6AF5E5121E3D9D700625817 /* Gallery */,
 				B631470521E22D4100D50360 /* Models */,
 				B6AF5E4C21E2B60900625817 /* CoreData */,
 				B6AF5E4E21E2B63400625817 /* Media Creation */,
 				B6AF5E4D21E2B62600625817 /* Thumbnail Creation */,
 				B631470321E22D3900D50360 /* MimeType.swift */,
+				B6AF5E5621E530C500625817 /* MediaStore.swift */,
 				B618005A217E7F4E003DCFE7 /* MediaWindowController.swift */,
 				B6180054217D0B56003DCFE7 /* MediaSplitViewController.swift */,
-				B6180050217D05A4003DCFE7 /* MediaGridViewController.swift */,
 				B618004E217D0592003DCFE7 /* MediaSidebarViewController.swift */,
+				B6AF5E5421E3DB3B00625817 /* MediaViewController.swift */,
 			);
-			path = "Media Gallery";
+			path = Media;
 			sourceTree = "<group>";
 		};
 		B6676BBC2180CDE4009603E1 /* Views */ = {
@@ -379,6 +385,14 @@
 				B696714621D7B9350083CE9E /* LocalFileManager.swift */,
 			);
 			path = "File Handling";
+			sourceTree = "<group>";
+		};
+		B6AF5E5121E3D9D700625817 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				B6180050217D05A4003DCFE7 /* MediaGridViewController.swift */,
+			);
+			path = Gallery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,6 +505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6AF5E5521E3DB3B00625817 /* MediaViewController.swift in Sources */,
 				B63146F621E22C1600D50360 /* CoreDataStack.swift in Sources */,
 				B6A869D3217F087400D5EE96 /* MediaDetailViewController.swift in Sources */,
 				B62A2528217F866200A098AD /* ClickableTextField.swift in Sources */,
@@ -515,6 +530,7 @@
 				B618005C217E7F4E003DCFE7 /* MediaWindowController.swift in Sources */,
 				B6B3EC5321D673F2000B35B0 /* FileAttributes.swift in Sources */,
 				B6676BB82180B31C009603E1 /* NibLoadable.swift in Sources */,
+				B6AF5E5721E530C500625817 /* MediaStore.swift in Sources */,
 				B62A2526217F834200A098AD /* NSMutableAttributedString+setAsLink.swift in Sources */,
 				B631470121E22CC500D50360 /* Image+CoreDataClass.swift in Sources */,
 				B62A2522217F65BA00A098AD /* URL+Extensions.swift in Sources */,

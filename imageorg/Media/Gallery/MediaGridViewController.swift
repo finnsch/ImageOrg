@@ -11,12 +11,7 @@ import AVKit
 import Quartz
 import QuickLook
 
-protocol MediaGridDelegate: class {
-    func didSelectItem(with media: Media?)
-    func didSelectDetail(with media: Media?)
-}
-
-class MediaGridViewController: NSViewController {
+class MediaGridViewController: MediaViewController {
     
     @IBOutlet weak var collectionView: MediaCollectionView!
     @IBOutlet weak var progressIndicator: NSProgressIndicator! {
@@ -28,11 +23,9 @@ class MediaGridViewController: NSViewController {
     private let space: UInt16 = 0x31
     private let returnKey: UInt16 = 0x24
 
-    var mediaItems: [Media] = []
-    var selectedMedia: Media?
+    var mediaStore = MediaStore.shared
     var keyDownMonitor: Any!
     var sortOrder: SortOrder = .createdAt
-    weak var delegate: MediaGridDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +40,10 @@ class MediaGridViewController: NSViewController {
     }
 
     override func viewDidAppear() {
+        mediaStore.remove(delegate: self)
+
+        NSApplication.shared.keyWindow?.title = "Gallery"
+        
         view.window?.makeFirstResponder(collectionView)
 
         keyDownMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
@@ -84,15 +81,15 @@ class MediaGridViewController: NSViewController {
         progressIndicator.isHidden = false
         progressIndicator.startAnimation(self)
 
-        if mediaItems.count > 0 {
-            mediaItems = []
+        if mediaStore.numberOfItems > 0 {
+            mediaStore.mediaItems = []
             collectionView.reloadData()
         }
 
         // Execute block on a background thread with a high priority
         DispatchQueue.global(qos: .userInitiated).async {
             let mediaCoreDataService = MediaCoreDataService()
-            self.mediaItems = mediaCoreDataService.getMediaItems()
+            self.mediaStore.mediaItems = mediaCoreDataService.getMediaItems()
 
             self.reloadMediaItems()
             self.reloadCollectionView()
@@ -100,7 +97,7 @@ class MediaGridViewController: NSViewController {
     }
 
     func reloadMediaItems() {
-        mediaItems = mediaItems.sorted(by: sortItems)
+        mediaStore.mediaItems = mediaStore.mediaItems.sorted(by: sortItems)
     }
 
     func reloadCollectionView() {
@@ -144,10 +141,10 @@ class MediaGridViewController: NSViewController {
         guard let locWindow = self.view.window,
             NSApplication.shared.keyWindow === locWindow else { return false }
         switch event.keyCode {
-        case space where selectedMedia != nil:
+        case space where mediaStore.selectedMedia != nil:
             quickLook()
             return true
-        case returnKey where selectedMedia != nil:
+        case returnKey where mediaStore.selectedMedia != nil:
             showDetail()
             return true
         default:
@@ -160,7 +157,12 @@ class MediaGridViewController: NSViewController {
     }
 
     func showDetail() {
-        delegate?.didSelectDetail(with: selectedMedia)
+        guard let mediaDetailSplitViewController = storyboard?.instantiateController(withIdentifier: "MediaDetailSplitViewController") as? MediaSplitViewController else {
+            return
+        }
+
+        navigationController?.pushViewController(mediaDetailSplitViewController, animated: false)
+        mediaStore.add(delegate: self)
     }
 
     func sortItems(lhs: Media, rhs: Media) -> Bool {
@@ -169,28 +171,6 @@ class MediaGridViewController: NSViewController {
         }
 
         return lhs.name.compare(rhs.name) == .orderedDescending
-    }
-
-    func showNext() {
-        guard let index = mediaItems.firstIndex(where: { $0.id == selectedMedia!.id }) else {
-            return
-        }
-
-        let nextIndex: Int = mediaItems.count <= index + 1 ? 0 : index + 1
-
-        selectedMedia = mediaItems[nextIndex]
-        showDetail()
-    }
-
-    func showPrevious() {
-        guard let index = mediaItems.firstIndex(where: { $0.id == selectedMedia!.id }) else {
-            return
-        }
-
-        let previousIndex: Int = 0 > index - 1 ? mediaItems.count - 1 : index - 1
-
-        selectedMedia = mediaItems[previousIndex]
-        showDetail()
     }
 }
 
@@ -206,9 +186,7 @@ extension MediaGridViewController: MediaCollectionViewDelegate {
 extension MediaGridViewController: NSCollectionViewDelegate {
 
     func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>) {
-        selectedMedia = nil
-
-        delegate?.didSelectItem(with: nil)
+        mediaStore.selectedMedia = nil
     }
 
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
@@ -217,10 +195,8 @@ extension MediaGridViewController: NSCollectionViewDelegate {
             return
         }
 
-        let media = mediaItems[indexPath.item]
-        selectedMedia = media
-
-        delegate?.didSelectItem(with: media)
+        let media = mediaStore.mediaItems[indexPath.item]
+        mediaStore.selectedMedia = media
     }
 }
 
@@ -231,7 +207,7 @@ extension MediaGridViewController: NSCollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mediaItems.count
+        return mediaStore.numberOfItems
     }
 
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
@@ -239,13 +215,13 @@ extension MediaGridViewController: NSCollectionViewDataSource {
         guard let collectionViewItem = item as? CollectionViewItem else {
             return item
         }
-        let media = mediaItems[indexPath.item]
+        let media = mediaStore.mediaItems[indexPath.item]
 
         collectionViewItem.title = media.name
         collectionViewItem.date = Date(date: media.creationDate)
         collectionViewItem.image = NSImage(byReferencingFile: media.thumbnail.filePath)
         collectionViewItem.onDoubleClick = { [weak self] in
-            self?.selectedMedia = media
+            self?.mediaStore.selectedMedia = media
             self?.showDetail()
         }
 
@@ -256,7 +232,7 @@ extension MediaGridViewController: NSCollectionViewDataSource {
 extension MediaGridViewController: QLPreviewPanelDataSource, QLPreviewPanelDelegate {
 
     override func acceptsPreviewPanelControl(_ panel: QLPreviewPanel!) -> Bool {
-        return selectedMedia != nil
+        return mediaStore.selectedMedia != nil
     }
 
     override func beginPreviewPanelControl(_ panel: QLPreviewPanel!) {
@@ -264,7 +240,7 @@ extension MediaGridViewController: QLPreviewPanelDataSource, QLPreviewPanelDeleg
             sharedPanel.dataSource = self
             sharedPanel.delegate = self
 
-            if let index = mediaItems.firstIndex(where: { $0.id == selectedMedia!.id }) {
+            if let index = mediaStore.mediaItems.firstIndex(where: { $0.id == mediaStore.selectedMedia!.id }) {
                 sharedPanel.currentPreviewItemIndex = index
             }
         }
@@ -278,11 +254,11 @@ extension MediaGridViewController: QLPreviewPanelDataSource, QLPreviewPanelDeleg
     }
 
     func numberOfPreviewItems(in panel: QLPreviewPanel!) -> Int {
-        return mediaItems.count
+        return mediaStore.numberOfItems
     }
 
     func previewPanel(_ panel: QLPreviewPanel!, previewItemAt index: Int) -> QLPreviewItem! {
-        return mediaItems[index].originalFileURL as QLPreviewItem
+        return mediaStore.mediaItems[index].originalFileURL as QLPreviewItem
     }
 }
 
@@ -290,5 +266,18 @@ extension MediaGridViewController: DragViewDelegate {
 
     func didDrag(filePaths: [String]) {
         importMedia(filePaths: filePaths)
+    }
+}
+
+extension MediaGridViewController: MediaStoreDelegate {
+
+    func didSelectPrevious() {
+        navigationController?.popViewController(animated: false)
+        showDetail()
+    }
+
+    func didSelectNext() {
+        navigationController?.popViewController(animated: false)
+        showDetail()
     }
 }

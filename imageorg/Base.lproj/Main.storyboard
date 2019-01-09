@@ -739,10 +739,10 @@
             </objects>
             <point key="canvasLocation" x="-83" y="720"/>
         </scene>
-        <!--Media Split View Controller-->
+        <!--Media Gallery Split View Controller-->
         <scene sceneID="kgZ-ev-Heu">
             <objects>
-                <splitViewController storyboardIdentifier="MediaSplitViewController" id="5EM-qQ-dz9" customClass="MediaSplitViewController" customModule="imageorg" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="MediaGallerySplitViewController" id="5EM-qQ-dz9" userLabel="Media Gallery Split View Controller" customClass="MediaSplitViewController" customModule="imageorg" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="3uH-dw-4lm"/>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="7Gi-0L-GUt"/>
@@ -762,7 +762,32 @@
                 </splitViewController>
                 <customObject id="ePv-lc-SnU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-918" y="911"/>
+            <point key="canvasLocation" x="-940" y="922"/>
+        </scene>
+        <!--Media Detail Split View Controller-->
+        <scene sceneID="0re-Zx-2U1">
+            <objects>
+                <splitViewController storyboardIdentifier="MediaDetailSplitViewController" id="5Ue-GO-gFj" userLabel="Media Detail Split View Controller" customClass="MediaSplitViewController" customModule="imageorg" customModuleProvider="target" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem id="IXZ-O6-5KM"/>
+                        <splitViewItem id="gkj-aw-mJW"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="i0f-U6-w0G">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="5Ue-GO-gFj" id="LOA-mT-sWy"/>
+                        </connections>
+                    </splitView>
+                    <connections>
+                        <outlet property="splitView" destination="i0f-U6-w0G" id="BPh-la-k6Y"/>
+                        <segue destination="jSs-cX-BBe" kind="relationship" relationship="splitItems" id="2nJ-9n-tjM"/>
+                        <segue destination="I4U-QQ-QzH" kind="relationship" relationship="splitItems" id="zCY-54-SzV"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="HxO-qP-Cg0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-940" y="1441"/>
         </scene>
         <!--Media Sidebar View Controller-->
         <scene sceneID="UB4-8O-HiZ">
@@ -1125,7 +1150,7 @@
                 </viewController>
                 <customObject id="ke4-Nt-eg1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654" y="1092"/>
+            <point key="canvasLocation" x="-83" y="1693"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -1198,4 +1223,7 @@
     <resources>
         <image name="NSInfo" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zCY-54-SzV"/>
+    </inferredMetricsTieBreakers>
 </document>

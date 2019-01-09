@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MediaSidebarViewController: NSViewController {
+class MediaSidebarViewController: MediaViewController {
 
     @IBOutlet weak var metaInfoStackView: NSStackView!
     @IBOutlet weak var fileNameTextField: NSTextField!
@@ -20,11 +20,7 @@ class MediaSidebarViewController: NSViewController {
     @IBOutlet weak var creationDateTextField: NSTextField!
     @IBOutlet weak var modificationDateTextField: NSTextField!
 
-    var selectedMedia: Media? {
-        didSet {
-            setupView()
-        }
-    }
+    var mediaStore = MediaStore.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +29,24 @@ class MediaSidebarViewController: NSViewController {
         doubleClickGesture.numberOfClicksRequired = 2
 
         filePathTextField.addGestureRecognizer(doubleClickGesture)
+
+        setupView()
+    }
+
+    override func viewWillAppear() {
+        super.viewWillAppear()
+
+        mediaStore.add(delegate: self)
+    }
+
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+
+        mediaStore.remove(delegate: self)
     }
 
     func setupView() {
-        guard let media = selectedMedia else {
+        guard let media = mediaStore.selectedMedia else {
             return
         }
 
@@ -78,10 +88,17 @@ class MediaSidebarViewController: NSViewController {
     }
 
     @objc func handleClick() {
-        guard let media = selectedMedia else {
+        guard let media = mediaStore.selectedMedia else {
             return
         }
 
         NSWorkspace.shared.openFile(media.originalFilePath)
+    }
+}
+
+extension MediaSidebarViewController: MediaStoreDelegate {
+
+    func didSelect(media: Media) {
+        setupView()
     }
 }
