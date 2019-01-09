@@ -71,6 +71,7 @@
 		B6C5ED0421E242A000B5B8BF /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5ED0321E242A000B5B8BF /* Data+Extensions.swift */; };
 		B6C5ED0621E2501D00B5B8BF /* String+encodedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5ED0521E2501D00B5B8BF /* String+encodedURL.swift */; };
 		B6C5ED0821E2597700B5B8BF /* ThumbnailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5ED0721E2597700B5B8BF /* ThumbnailFactory.swift */; };
+		B6E1FD8921E69C4F00FA7C6C /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1FD8821E69C4F00FA7C6C /* FavoriteButton.swift */; };
 		B6E856D62184CF7A0092B146 /* MediaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E856D52184CF7A0092B146 /* MediaCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +155,7 @@
 		B6C5ED0321E242A000B5B8BF /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		B6C5ED0521E2501D00B5B8BF /* String+encodedURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+encodedURL.swift"; sourceTree = "<group>"; };
 		B6C5ED0721E2597700B5B8BF /* ThumbnailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailFactory.swift; sourceTree = "<group>"; };
+		B6E1FD8821E69C4F00FA7C6C /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteButton.swift; path = "Thumbnail Creation/FavoriteButton.swift"; sourceTree = "<group>"; };
 		B6E856D52184CF7A0092B146 /* MediaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -317,6 +319,7 @@
 				B6676BB32180AB9F009603E1 /* DragView.swift */,
 				B6676BB52180B1BC009603E1 /* DragView.xib */,
 				B6E856D52184CF7A0092B146 /* MediaCollectionView.swift */,
+				B6E1FD8821E69C4F00FA7C6C /* FavoriteButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				B6C5ECFA21E239AF00B5B8BF /* Media+CustomProperties.swift in Sources */,
 				B696714521D7AEA10083CE9E /* NSImage+Extensions.swift in Sources */,
 				B6B6DF8A21E29CA800322F79 /* MediaImportError.swift in Sources */,
+				B6E1FD8921E69C4F00FA7C6C /* FavoriteButton.swift in Sources */,
 				B62A252A217F8C5D00A098AD /* String+isValidURL.swift in Sources */,
 				B6C5ED0421E242A000B5B8BF /* Data+Extensions.swift in Sources */,
 				B6B6DF8821E29C2500322F79 /* Result.swift in Sources */,

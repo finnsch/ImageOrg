@@ -81,7 +81,7 @@ class MediaFactory {
 
         let hashId = data.uniqueHash()
         guard !mediaCoreDataService.exists(with: hashId) else {
-            throw MediaImportError.alreadyExists
+            throw MediaImportError.alreadyExists(sourceFileAttributes.name)
         }
 
         guard saveFile(data: data) else {

@@ -219,6 +219,7 @@ extension MediaGridViewController: NSCollectionViewDataSource {
         let media = mediaStore.mediaItems[indexPath.item]
 
         collectionViewItem.title = media.name
+        collectionViewItem.isFavorite = media.isFavorite
         collectionViewItem.date = Date(date: media.creationDate)
         collectionViewItem.image = NSImage(byReferencingFile: media.thumbnail.filePath)
         collectionViewItem.onDoubleClick = { [weak self] in

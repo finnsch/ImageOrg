@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,6 +38,14 @@
                         <binding destination="8QM-IY-zoC" name="value" keyPath="self.title" id="5Is-la-bix"/>
                     </connections>
                 </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XUQ-at-gwS">
+                    <rect key="frame" x="450" y="242" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="uxF-1X-1AI"/>
+                        <constraint firstAttribute="width" constant="20" id="wtC-PB-AgJ"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="HeartIcon" id="BF9-g8-t79"/>
+                </imageView>
             </subviews>
             <constraints>
                 <constraint firstItem="drc-3w-LoI" firstAttribute="top" secondItem="lvF-st-OAu" secondAttribute="bottom" constant="4" id="0KO-OX-77T"/>
@@ -47,14 +55,17 @@
                 <constraint firstItem="lvF-st-OAu" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Ooi-n5-fBF"/>
                 <constraint firstAttribute="bottom" secondItem="drc-3w-LoI" secondAttribute="bottom" id="QhX-nO-kl7"/>
                 <constraint firstAttribute="trailing" secondItem="lvF-st-OAu" secondAttribute="trailing" id="U5D-xp-HWC"/>
+                <constraint firstItem="XUQ-at-gwS" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="WOC-Xj-uqW"/>
                 <constraint firstItem="lvF-st-OAu" firstAttribute="top" secondItem="dkN-hX-p4d" secondAttribute="bottom" constant="8" id="X1W-EQ-kLe"/>
                 <constraint firstAttribute="trailing" secondItem="dkN-hX-p4d" secondAttribute="trailing" id="Yfg-Vr-5cx"/>
+                <constraint firstAttribute="trailing" secondItem="XUQ-at-gwS" secondAttribute="trailing" constant="10" id="bTD-Ic-iiu"/>
                 <constraint firstItem="drc-3w-LoI" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="dTB-96-XFW"/>
             </constraints>
         </customView>
         <collectionViewItem id="8QM-IY-zoC" customClass="CollectionViewItem" customModule="imageorg" customModuleProvider="target">
             <connections>
                 <outlet property="dateTextField" destination="drc-3w-LoI" id="CjB-O6-QPN"/>
+                <outlet property="heartIconImageView" destination="XUQ-at-gwS" id="3nh-sR-Z18"/>
                 <outlet property="imageView" destination="dkN-hX-p4d" id="qTy-K2-T4n"/>
                 <outlet property="titleTextField" destination="lvF-st-OAu" id="2ZF-zN-X52"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="2Ze-DR-AGg"/>
@@ -62,4 +73,7 @@
         </collectionViewItem>
         <userDefaultsController representsSharedInstance="YES" id="pTA-03-xoQ"/>
     </objects>
+    <resources>
+        <image name="HeartIcon" width="20" height="20"/>
+    </resources>
 </document>

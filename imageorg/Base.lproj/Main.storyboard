@@ -1045,11 +1045,11 @@
             <objects>
                 <viewController storyboardIdentifier="MediaDetailViewController" id="jSs-cX-BBe" customClass="MediaDetailViewController" customModule="imageorg" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="5tc-6A-7S1">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="610"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="650"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vxj-ff-5Qb">
-                                <rect key="frame" x="20" y="569" width="410" height="21"/>
+                                <rect key="frame" x="20" y="609" width="410" height="21"/>
                                 <subviews>
                                     <button horizontalHuggingPriority="500" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aTp-Aa-Ske">
                                         <rect key="frame" x="-6" y="-7" width="70" height="32"/>
@@ -1062,13 +1062,23 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rD7-Dd-7rm">
-                                        <rect key="frame" x="124" y="-7" width="80" height="32"/>
+                                        <rect key="frame" x="85" y="-7" width="80" height="32"/>
                                         <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6YB-Pr-6jQ">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="handleDeleteButton:" target="jSs-cX-BBe" id="QjN-w1-LkB"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bFu-QD-LmE" customClass="FavoriteButton" customModule="imageorg" customModuleProvider="target">
+                                        <rect key="frame" x="187" y="-7" width="56" height="32"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="HeartOutlineIcon" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SHr-Mb-eic" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="handleFavoriteButton:" target="jSs-cX-BBe" id="vM7-HI-mKO"/>
                                         </connections>
                                     </button>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySt-xq-1oE">
@@ -1124,15 +1134,17 @@
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="BoH-Kn-2ni">
-                                <rect key="frame" x="45" y="61" width="360" height="488"/>
+                                <rect key="frame" x="45" y="65" width="360" height="520"/>
                             </customView>
                         </subviews>
                         <constraints>
@@ -1148,6 +1160,7 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="BoH-Kn-2ni" id="iW8-92-K32"/>
+                        <outlet property="favoriteButton" destination="bFu-QD-LmE" id="w1g-DF-yU0"/>
                         <outlet property="zoomControlsStackView" destination="ySt-xq-1oE" id="n0r-aQ-voR"/>
                     </connections>
                 </viewController>
@@ -1224,6 +1237,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="HeartOutlineIcon" width="20" height="20"/>
         <image name="NSInfo" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>

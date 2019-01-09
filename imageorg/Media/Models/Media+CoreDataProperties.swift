@@ -28,5 +28,6 @@ extension Media {
     @NSManaged public var fileSize: Int
     @NSManaged public var whereFrom: String?
     @NSManaged public var thumbnail: Thumbnail
+    @NSManaged public var isFavorite: Bool
 
 }

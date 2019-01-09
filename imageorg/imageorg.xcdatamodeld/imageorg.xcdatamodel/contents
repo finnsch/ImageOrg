@@ -8,6 +8,7 @@
         <attribute name="fileSize" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hashId" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="isFavorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="mimeType" attributeType="String" syncable="YES"/>
         <attribute name="modificationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
@@ -24,8 +25,8 @@
     <entity name="Video" representedClassName="Video" parentEntity="Media" syncable="YES"/>
     <elements>
         <element name="Image" positionX="-54" positionY="18" width="128" height="45"/>
-        <element name="Media" positionX="-63" positionY="-18" width="128" height="225"/>
-        <element name="Video" positionX="-36" positionY="27" width="128" height="45"/>
+        <element name="Media" positionX="-63" positionY="-18" width="128" height="240"/>
         <element name="Thumbnail" positionX="-45" positionY="54" width="128" height="105"/>
+        <element name="Video" positionX="-36" positionY="27" width="128" height="45"/>
     </elements>
 </model>

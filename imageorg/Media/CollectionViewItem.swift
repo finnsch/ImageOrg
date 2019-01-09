@@ -12,11 +12,27 @@ class CollectionViewItem: NSCollectionViewItem {
 
     @IBOutlet weak var titleTextField: NSTextField!
     @IBOutlet weak var dateTextField: NSTextField!
+    @IBOutlet weak var heartIconImageView: NSImageView! {
+        didSet {
+            heartIconImageView.isHidden = true
+            heartIconImageView.image = heartIconImageView.image?.tinting(with: NSColor.controlAccentColor)
+        }
+    }
 
     var onDoubleClick: (() -> Void)?
     @objc dynamic var date: Date?
     @objc dynamic var dateString: String? {
         return date?.toString()
+    }
+    var isFavorite: Bool = false {
+        didSet {
+            guard isFavorite else {
+                heartIconImageView.isHidden = true
+                return
+            }
+
+            heartIconImageView.isHidden = false
+        }
     }
     var image: NSImage? {
         didSet {

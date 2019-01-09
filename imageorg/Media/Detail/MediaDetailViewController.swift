@@ -11,6 +11,7 @@ import Cocoa
 class MediaDetailViewController: MediaViewController {
 
     @IBOutlet weak var containerView: NSView!
+    @IBOutlet weak var favoriteButton: FavoriteButton!
     @IBOutlet weak var zoomControlsStackView: NSStackView!
 
     private let delete: UInt16 = 0x33
@@ -25,8 +26,6 @@ class MediaDetailViewController: MediaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NSApplication.shared.keyWindow?.title = mediaStore.selectedMedia?.name ?? ""
-
         keyDownMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] in
             guard let strongSelf = self else {
                 return nil
@@ -39,9 +38,16 @@ class MediaDetailViewController: MediaViewController {
             }
         }
 
-        if mediaStore.selectedMedia is Image {
+        guard let media = mediaStore.selectedMedia else {
+            return
+        }
+
+        favoriteButton.isFavorite = media.isFavorite
+        NSApplication.shared.keyWindow?.title = media.name
+
+        if media is Image {
             setupImageViewer()
-        } else if mediaStore.selectedMedia is Video {
+        } else if media is Video {
             setupVideoViewer()
         }
     }
@@ -152,6 +158,20 @@ class MediaDetailViewController: MediaViewController {
         let _ = mediaStore.delete(media: media)
         mediaCoreDataService.delete(media: media)
         navigationController?.popViewController(animated: false)
+    }
+
+    @IBAction func handleFavoriteButton(_ sender: FavoriteButton) {
+        guard var media = mediaStore.selectedMedia else {
+            return
+        }
+
+        sender.isFavorite.toggle()
+
+        let mediaCoreDataService = MediaCoreDataService()
+
+        media.isFavorite = sender.isFavorite
+        media = mediaCoreDataService.update(media: media)
+        mediaStore.update(media: media)
     }
 
     @IBAction func handleZoomInButton(_ sender: NSButton) {

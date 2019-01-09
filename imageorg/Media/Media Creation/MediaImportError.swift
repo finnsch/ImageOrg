@@ -14,12 +14,12 @@ enum MediaImportError: Error {
     case couldNotRead
     case couldNotSave
     case couldNotCreateThumbnail
-    case alreadyExists
+    case alreadyExists(String)
 
     var errorMessage: String {
         switch self {
-        case .alreadyExists:
-            return "Imported media already exists."
+        case .alreadyExists(let name):
+            return "Imported media \(name) already exists."
         case .couldNotCreateThumbnail:
             return "Could not create thumbnail."
         case .couldNotRead:

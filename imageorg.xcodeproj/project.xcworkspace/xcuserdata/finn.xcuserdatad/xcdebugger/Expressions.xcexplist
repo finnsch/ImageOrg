@@ -61,6 +61,9 @@
          contextName = "closure #1 in DragView.draggingEntered(_:):DragView.swift">
       </ContextState>
       <ContextState
+         contextName = "FavoriteButton.updateImage():FavoriteButton.swift">
+      </ContextState>
+      <ContextState
          contextName = "MediaSidebarViewController.didChangeFileNameTextField(_:):MediaSidebarViewController.swift">
       </ContextState>
       <ContextState
@@ -79,6 +82,14 @@
       </ContextState>
       <ContextState
          contextName = "MediaCoreDataService.getMediaItems():MediaCoreDataService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaDetailViewController.viewDidLoad():MediaDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "media.isFavorite">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "DragView.performDragOperation(_:):DragView.swift">
@@ -115,6 +126,9 @@
       </ContextState>
       <ContextState
          contextName = "MediaGridViewController.loadMedia(filePaths:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaDetailViewController.handleFavoriteButton(_:):MediaDetailViewController.swift">
       </ContextState>
       <ContextState
          contextName = "MediaFactory.createVideo(from:):MediaFactory.swift">
