@@ -9,14 +9,16 @@
 import Foundation
 
 protocol MediaStoreDelegate: class {
-    func didSelect(media: Media)
+    func didSelect(media: Media?)
+    func didUpdate(media: Media, at index: Int)
     func didDelete(media: Media, at index: Int)
     func didSelectNext()
     func didSelectPrevious()
 }
 
 extension MediaStoreDelegate {
-    func didSelect(media: Media) {}
+    func didSelect(media: Media?) {}
+    func didUpdate(media: Media, at index: Int) {}
     func didDelete(media: Media, at index: Int) {}
     func didSelectNext() {}
     func didSelectPrevious() {}
@@ -33,12 +35,22 @@ class MediaStore {
     var mediaItems: [Media] = []
     var selectedMedia: Media? {
         didSet {
-            guard let selectedMedia = selectedMedia else {
-                return
-            }
-
             delegates.forEach { $0.didSelect(media: selectedMedia) }
         }
+    }
+
+    func update(media: Media) {
+        guard let index = mediaItems.firstIndex(where: { $0 === media }) else {
+            return
+        }
+
+        mediaItems[index] = media
+
+        if (media === selectedMedia) {
+            selectedMedia = media
+        }
+
+        delegates.forEach { $0.didUpdate(media: media, at: index) }
     }
 
     func delete(media: Media) -> Bool {

@@ -34,6 +34,13 @@ class MediaCoreDataService {
         return []
     }
 
+    func update(media: Media) -> Media {
+        media.modificationDate = NSDate()
+        coreDataStack.saveContext()
+
+        return media
+    }
+
     func delete(media: Media) {
         managedObjectContext.delete(media)
         coreDataStack.saveContext()

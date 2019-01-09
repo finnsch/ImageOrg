@@ -14,12 +14,23 @@
          contextName = "MediaImporter.getContentsOfDirectory(at:):MediaImporter.swift">
       </ContextState>
       <ContextState
+         contextName = "Media.originalFileURL.getter:Media+CustomProperties.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "originalFilePath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Media.init(url:):Media.swift">
          <PersistentStrings>
             <PersistentString
                value = "url.path">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.didDelete(media:at:):MediaGridViewController.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in MediaGridViewController.loadMedia(filePaths:):MediaGridViewController.swift">
@@ -50,6 +61,9 @@
          contextName = "closure #1 in DragView.draggingEntered(_:):DragView.swift">
       </ContextState>
       <ContextState
+         contextName = "MediaSidebarViewController.didChangeFileNameTextField(_:):MediaSidebarViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "MediaGridViewController.didDrag(filePaths:):MediaGridViewController.swift">
       </ContextState>
       <ContextState
@@ -73,6 +87,22 @@
          contextName = "URL.mimeType.getter:URL+mimeType.swift">
       </ContextState>
       <ContextState
+         contextName = "MediaGridViewController.myKeyDown(with:):MediaGridViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "firstResponder">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaDetailViewController.myKeyDown(with:):MediaDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.window?.firstResponder">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ImageViewerViewController.setupImageView():ImageViewerViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -94,6 +124,9 @@
          <PersistentStrings>
             <PersistentString
                value = "print(media)">
+            </PersistentString>
+            <PersistentString
+               value = "media.modificationDate">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

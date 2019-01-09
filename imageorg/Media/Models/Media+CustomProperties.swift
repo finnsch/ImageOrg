@@ -11,7 +11,7 @@ import Foundation
 extension Media {
 
     var originalFileURL: URL {
-        return URL(string: originalFilePath)!
+        return URL(fileURLWithPath: originalFilePath)
     }
 
     func deleteFromFileSystem() throws {

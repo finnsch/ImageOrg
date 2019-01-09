@@ -100,6 +100,10 @@ class VideoViewerViewController: NSViewController {
     }
 
     func myKeyDown(with event: NSEvent) -> Bool {
+        guard !(view.window?.firstResponder is NSTextView) else {
+            return false
+        }
+
         // handle keyDown only if current window has focus, i.e. is keyWindow
         guard let locWindow = self.view.window,
             NSApplication.shared.keyWindow === locWindow else { return false }

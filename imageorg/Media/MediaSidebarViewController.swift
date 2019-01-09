@@ -11,7 +11,11 @@ import Cocoa
 class MediaSidebarViewController: MediaViewController {
 
     @IBOutlet weak var metaInfoStackView: NSStackView!
-    @IBOutlet weak var fileNameTextField: NSTextField!
+    @IBOutlet weak var fileNameTextField: NSTextField! {
+        didSet {
+            fileNameTextField.refusesFirstResponder = true
+        }
+    }
     @IBOutlet weak var fileSizeTextField: NSTextField!
     @IBOutlet weak var fileTypeTextField: NSTextField!
     @IBOutlet weak var filePathTextField: ClickableTextField!
@@ -21,6 +25,7 @@ class MediaSidebarViewController: MediaViewController {
     @IBOutlet weak var modificationDateTextField: NSTextField!
 
     var mediaStore = MediaStore.shared
+    let mediaCoreDataService = MediaCoreDataService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +35,19 @@ class MediaSidebarViewController: MediaViewController {
 
         filePathTextField.addGestureRecognizer(doubleClickGesture)
 
-        setupView()
+        resetView()
     }
 
     override func viewWillAppear() {
         super.viewWillAppear()
 
         mediaStore.add(delegate: self)
+    }
+
+    override func viewDidAppear() {
+        super.viewDidAppear()
+
+        setupView()
     }
 
     override func viewWillDisappear() {
@@ -87,6 +98,19 @@ class MediaSidebarViewController: MediaViewController {
         }
     }
 
+    func resetView() {
+        fileNameTextField.toolTip = nil
+        fileNameTextField.stringValue = "-"
+        fileSizeTextField.stringValue = "-"
+        fileTypeTextField.stringValue = "-"
+        filePathTextField.toolTip = nil
+        filePathTextField.attributedStringValue = NSAttributedString()
+        whereFromUrlTextField.attributedStringValue = NSAttributedString()
+        whereFromStackView.isHidden = false
+        creationDateTextField.stringValue = "-"
+        modificationDateTextField.stringValue = "-"
+    }
+
     @objc func handleClick() {
         guard let media = mediaStore.selectedMedia else {
             return
@@ -94,11 +118,34 @@ class MediaSidebarViewController: MediaViewController {
 
         NSWorkspace.shared.openFile(media.originalFilePath)
     }
+
+    @IBAction func didChangeFileNameTextField(_ sender: NSTextField) {
+        guard var media = mediaStore.selectedMedia else {
+            return
+        }
+
+        media.name = sender.stringValue
+        media = mediaCoreDataService.update(media: media)
+        mediaStore.update(media: media)
+
+        DispatchQueue.main.async {
+            // Unfocus text field
+            sender.window?.makeFirstResponder(nil)
+        }
+    }
 }
 
 extension MediaSidebarViewController: MediaStoreDelegate {
 
-    func didSelect(media: Media) {
+    func didSelect(media: Media?) {
+        guard let _ = media else {
+            resetView()
+            return
+        }
+        setupView()
+    }
+
+    func didUpdate(media: Media, at index: Int) {
         setupView()
     }
 }

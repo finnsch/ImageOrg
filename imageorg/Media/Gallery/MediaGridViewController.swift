@@ -40,7 +40,7 @@ class MediaGridViewController: MediaViewController {
     }
 
     override func viewDidAppear() {
-        mediaStore.remove(delegate: self)
+        mediaStore.add(delegate: self)
 
         NSApplication.shared.keyWindow?.title = "Gallery"
         
@@ -138,8 +138,10 @@ class MediaGridViewController: MediaViewController {
 
     func myKeyDown(with event: NSEvent) -> Bool {
         // handle keyDown only if current window has focus, i.e. is keyWindow
-        guard let locWindow = self.view.window,
-            NSApplication.shared.keyWindow === locWindow else { return false }
+
+        guard let locWindow = self.view.window, let firstResponder = view.window?.firstResponder,
+            NSApplication.shared.keyWindow === locWindow,
+            firstResponder is MediaCollectionView else { return false }
         switch event.keyCode {
         case space where mediaStore.selectedMedia != nil:
             quickLook()
@@ -162,7 +164,6 @@ class MediaGridViewController: MediaViewController {
         }
 
         navigationController?.pushViewController(mediaDetailSplitViewController, animated: false)
-        mediaStore.add(delegate: self)
     }
 
     func sortItems(lhs: Media, rhs: Media) -> Bool {
@@ -270,6 +271,12 @@ extension MediaGridViewController: DragViewDelegate {
 }
 
 extension MediaGridViewController: MediaStoreDelegate {
+
+    func didUpdate(media: Media, at index: Int) {
+        let indexPaths: Set<IndexPath> = [IndexPath(item: index, section: 0)]
+
+        collectionView.reloadItems(at: indexPaths)
+    }
 
     func didDelete(media: Media, at index: Int) {
         let indexPaths: Set<IndexPath> = [IndexPath(item: index, section: 0)]
