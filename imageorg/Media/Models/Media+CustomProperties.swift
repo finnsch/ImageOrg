@@ -13,4 +13,14 @@ extension Media {
     var originalFileURL: URL {
         return URL(string: originalFilePath)!
     }
+
+    func deleteFromFileSystem() throws {
+        guard let url = URL(string: filePath)?.deletingLastPathComponent() else {
+            return
+        }
+
+        let fileManager = LocalFileManager()
+
+        try fileManager.delete(path: url.path)
+    }
 }

@@ -271,6 +271,12 @@ extension MediaGridViewController: DragViewDelegate {
 
 extension MediaGridViewController: MediaStoreDelegate {
 
+    func didDelete(media: Media, at index: Int) {
+        let indexPaths: Set<IndexPath> = [IndexPath(item: index, section: 0)]
+
+        collectionView.deleteItems(at: indexPaths)
+    }
+
     func didSelectPrevious() {
         navigationController?.popViewController(animated: false)
         showDetail()

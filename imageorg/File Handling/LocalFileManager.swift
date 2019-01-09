@@ -16,6 +16,7 @@ class LocalFileManager {
         case fileDoesNotExist
         case fileNotCreated
         case fileGotNoContents
+        case fileNotDeleted
         case directoryNotCreated
     }
 
@@ -46,6 +47,18 @@ class LocalFileManager {
 
         guard fileManager.createFile(atPath: path, contents: data) else {
             throw FileManagerError.fileNotCreated
+        }
+    }
+
+    func delete(path: String) throws {
+        guard fileManager.fileExists(atPath: path) else {
+            throw FileManagerError.fileDoesNotExist
+        }
+
+        do {
+            try fileManager.removeItem(atPath: path)
+        } catch {
+            throw FileManagerError.fileNotDeleted
         }
     }
 

@@ -10,12 +10,14 @@ import Foundation
 
 protocol MediaStoreDelegate: class {
     func didSelect(media: Media)
+    func didDelete(media: Media, at index: Int)
     func didSelectNext()
     func didSelectPrevious()
 }
 
 extension MediaStoreDelegate {
     func didSelect(media: Media) {}
+    func didDelete(media: Media, at index: Int) {}
     func didSelectNext() {}
     func didSelectPrevious() {}
 }
@@ -39,8 +41,24 @@ class MediaStore {
         }
     }
 
+    func delete(media: Media) -> Bool {
+        guard let index = mediaItems.firstIndex(where: { $0 === media }) else {
+            return false
+        }
+
+        mediaItems.remove(at: index)
+
+        if (media === selectedMedia) {
+            selectedMedia = nil
+        }
+
+        delegates.forEach { $0.didDelete(media: media, at: index) }
+
+        return true
+    }
+
     func selectNext() {
-        guard let index = mediaItems.firstIndex(where: { $0.id == selectedMedia!.id }) else {
+        guard let index = mediaItems.firstIndex(where: { $0 === selectedMedia }) else {
             return
         }
 
@@ -52,7 +70,7 @@ class MediaStore {
     }
 
     func selectPrevious() {
-        guard let index = mediaItems.firstIndex(where: { $0.id == selectedMedia!.id }) else {
+        guard let index = mediaItems.firstIndex(where: { $0 === selectedMedia }) else {
             return
         }
 

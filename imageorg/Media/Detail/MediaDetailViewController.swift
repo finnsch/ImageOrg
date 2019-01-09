@@ -137,6 +137,15 @@ class MediaDetailViewController: MediaViewController {
         }
 
         let mediaCoreDataService = MediaCoreDataService()
+
+        do {
+            try media.deleteFromFileSystem()
+        } catch {
+            print("Could not delete media from file system.")
+            return
+        }
+
+        let _ = mediaStore.delete(media: media)
         mediaCoreDataService.delete(media: media)
         navigationController?.popViewController(animated: false)
     }
