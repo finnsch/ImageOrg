@@ -13,7 +13,20 @@ class MediaCollectionView: NSCollectionView {
     // The index of the item the user clicked.
     var clickedItemIndex: Int = NSNotFound
 
-    var contextMenu: SortOrderMenu = SortOrderMenu(title: "")
+    var contextMenu: NSMenu {
+        return createContextMenu()
+    }
+    var sortOrderMenu = SortOrderMenu(title: "")
+
+    private func createContextMenu() -> NSMenu {
+        let contextMenu = NSMenu(title: "")
+        let sortItem = NSMenuItem(title: "Sort by", action: nil, keyEquivalent: "")
+
+        contextMenu.addItem(sortItem)
+        contextMenu.setSubmenu(sortOrderMenu, for: sortItem)
+
+        return contextMenu
+    }
 
     override func menu(for event: NSEvent) -> NSMenu? {
         clickedItemIndex = NSNotFound

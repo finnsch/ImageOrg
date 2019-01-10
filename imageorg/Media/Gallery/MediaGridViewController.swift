@@ -32,7 +32,7 @@ class MediaGridViewController: MediaViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contextMenu.customDelegate = self
+        collectionView.sortOrderMenu.customDelegate = self
 
         setupDragView()
 
