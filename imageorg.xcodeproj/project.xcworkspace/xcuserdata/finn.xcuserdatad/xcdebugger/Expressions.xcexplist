@@ -58,10 +58,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in DragView.draggingEntered(_:):DragView.swift">
+         contextName = "FavoriteButton.updateImage():FavoriteButton.swift">
       </ContextState>
       <ContextState
-         contextName = "FavoriteButton.updateImage():FavoriteButton.swift">
+         contextName = "closure #1 in DragView.draggingEntered(_:):DragView.swift">
       </ContextState>
       <ContextState
          contextName = "MediaSidebarViewController.didChangeFileNameTextField(_:):MediaSidebarViewController.swift">
@@ -81,15 +81,15 @@
          contextName = "FileAttributesParser.parse(url:):FileAttributesParser.swift">
       </ContextState>
       <ContextState
-         contextName = "MediaCoreDataService.getMediaItems():MediaCoreDataService.swift">
-      </ContextState>
-      <ContextState
          contextName = "MediaDetailViewController.viewDidLoad():MediaDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "media.isFavorite">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaCoreDataService.getMediaItems():MediaCoreDataService.swift">
       </ContextState>
       <ContextState
          contextName = "DragView.performDragOperation(_:):DragView.swift">
@@ -134,6 +134,14 @@
          contextName = "MediaFactory.createVideo(from:):MediaFactory.swift">
       </ContextState>
       <ContextState
+         contextName = "MediaGridViewController.viewDidLoad():MediaGridViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MediaSidebarViewController.setupView():MediaSidebarViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -141,6 +149,14 @@
             </PersistentString>
             <PersistentString
                value = "media.modificationDate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.viewDidAppear():MediaGridViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.window">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

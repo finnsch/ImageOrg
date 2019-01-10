@@ -10,8 +10,14 @@ import Cocoa
 
 class MediaWindowController: NSWindowController {
 
+    @IBOutlet weak var sortPopUpButton: NSPopUpButton!
+
+    var sortOrderMenu: SortOrderMenu = SortOrderMenu(title: "")
+    
     override func windowDidLoad() {
         super.windowDidLoad()
+
+        setupView()
 
         guard let mediaGallerySplitViewController = storyboard?.instantiateController(withIdentifier: "MediaGallerySplitViewController") as? MediaSplitViewController else {
             return
@@ -19,6 +25,10 @@ class MediaWindowController: NSWindowController {
 
         let navigationController = NSNavigationController(rootViewController: mediaGallerySplitViewController)
         window?.contentViewController = navigationController
+    }
+
+    private func setupView() {
+        sortPopUpButton.menu = sortOrderMenu
     }
 
     @IBAction func handleToolbarItemAction(_ sender: NSToolbarItem) {

@@ -12,10 +12,9 @@ class CollectionViewItem: NSCollectionViewItem {
 
     @IBOutlet weak var titleTextField: NSTextField!
     @IBOutlet weak var dateTextField: NSTextField!
-    @IBOutlet weak var heartIconImageView: NSImageView! {
+    @IBOutlet weak var heartView: HeartView! {
         didSet {
-            heartIconImageView.isHidden = true
-            heartIconImageView.image = heartIconImageView.image?.tinting(with: NSColor.controlAccentColor)
+            heartView.isHidden = true
         }
     }
 
@@ -27,11 +26,11 @@ class CollectionViewItem: NSCollectionViewItem {
     var isFavorite: Bool = false {
         didSet {
             guard isFavorite else {
-                heartIconImageView.isHidden = true
+                heartView.isHidden = true
                 return
             }
 
-            heartIconImageView.isHidden = false
+            heartView.isHidden = false
         }
     }
     var image: NSImage? {

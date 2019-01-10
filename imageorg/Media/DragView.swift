@@ -14,13 +14,15 @@ protocol DragViewDelegate {
 
 class DragView: NSView, NibLoadable {
 
-    var delegate: DragViewDelegate?
-
     @IBOutlet weak var dragInfoTextField: NSTextField! {
         didSet {
             dragInfoTextField.isHidden = true
         }
     }
+    var contentView: NSView! {
+        return self
+    }
+    var delegate: DragViewDelegate?
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)

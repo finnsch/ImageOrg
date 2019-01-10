@@ -8,33 +8,12 @@
 
 import Cocoa
 
-enum SortOrder {
-    case createdAt
-    case name
-}
-
-protocol MediaCollectionViewDelegate: class {
-    func didSelect(sortOrder: SortOrder)
-}
-
 class MediaCollectionView: NSCollectionView {
-
-    weak var customDelegate: MediaCollectionViewDelegate?
 
     // The index of the item the user clicked.
     var clickedItemIndex: Int = NSNotFound
 
-    var contextMenu: NSMenu {
-        let menu = NSMenu(title: "Options")
-
-        let sortByDateItem = NSMenuItem(title: "Sort by date", action: #selector(sortByDate), keyEquivalent: "")
-        let sortByTitleItem = NSMenuItem(title: "Sort by title", action: #selector(sortByName), keyEquivalent: "")
-
-        menu.addItem(sortByDateItem)
-        menu.addItem(sortByTitleItem)
-
-        return menu
-    }
+    var contextMenu: SortOrderMenu = SortOrderMenu(title: "")
 
     override func menu(for event: NSEvent) -> NSMenu? {
         clickedItemIndex = NSNotFound
@@ -53,15 +32,5 @@ class MediaCollectionView: NSCollectionView {
         }
 
         return contextMenu
-    }
-
-    @objc func sortByDate() {
-        customDelegate?.didSelect(sortOrder: .createdAt)
-        print("sort by date")
-    }
-
-    @objc func sortByName() {
-        customDelegate?.didSelect(sortOrder: .name)
-        print("sort by name")
     }
 }

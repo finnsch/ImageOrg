@@ -21,6 +21,10 @@ extension NSViewController {
             ObjCAssociation.setAssign(value: newValue, to: self, forKey: &OBJCAssociationKey.navigationController)
         }
     }
+
+    var sortOrderMenu: SortOrderMenu? {
+        return (view.window?.windowController as? MediaWindowController)?.sortOrderMenu
+    }
 }
 
 extension NSViewController {

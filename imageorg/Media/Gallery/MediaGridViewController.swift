@@ -32,7 +32,7 @@ class MediaGridViewController: MediaViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.customDelegate = self
+        collectionView.contextMenu.customDelegate = self
 
         setupDragView()
 
@@ -43,6 +43,8 @@ class MediaGridViewController: MediaViewController {
         mediaStore.add(delegate: self)
 
         NSApplication.shared.keyWindow?.title = "Gallery"
+
+        sortOrderMenu?.customDelegate = self
         
         view.window?.makeFirstResponder(collectionView)
 
@@ -169,13 +171,15 @@ class MediaGridViewController: MediaViewController {
     func sortItems(lhs: Media, rhs: Media) -> Bool {
         if sortOrder == .createdAt {
             return Date(date: lhs.creationDate).compare(Date(date: rhs.creationDate)) == .orderedDescending
+        } else if sortOrder == .favorites {
+            return lhs.isFavorite
         }
 
         return lhs.name.compare(rhs.name) == .orderedDescending
     }
 }
 
-extension MediaGridViewController: MediaCollectionViewDelegate {
+extension MediaGridViewController: SortOrderMenuDelegate {
 
     func didSelect(sortOrder: SortOrder) {
         self.sortOrder = sortOrder

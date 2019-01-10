@@ -8,7 +8,7 @@
         <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY">
+        <customView id="Hz6-mo-xeY" customClass="NoClippingView" customModule="imageorg" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -38,34 +38,33 @@
                         <binding destination="8QM-IY-zoC" name="value" keyPath="self.title" id="5Is-la-bix"/>
                     </connections>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XUQ-at-gwS">
-                    <rect key="frame" x="450" y="242" width="20" height="20"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="pl8-dl-jtd" customClass="HeartView" customModule="imageorg" customModuleProvider="target">
+                    <rect key="frame" x="450" y="237" width="40" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="uxF-1X-1AI"/>
-                        <constraint firstAttribute="width" constant="20" id="wtC-PB-AgJ"/>
+                        <constraint firstAttribute="width" constant="40" id="DMO-qD-xTA"/>
+                        <constraint firstAttribute="height" constant="25" id="bhe-GF-J7d"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="HeartIcon" id="BF9-g8-t79"/>
-                </imageView>
+                </customView>
             </subviews>
             <constraints>
                 <constraint firstItem="drc-3w-LoI" firstAttribute="top" secondItem="lvF-st-OAu" secondAttribute="bottom" constant="4" id="0KO-OX-77T"/>
                 <constraint firstItem="dkN-hX-p4d" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="67T-pX-VRI"/>
                 <constraint firstItem="dkN-hX-p4d" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="78V-yU-I8r"/>
                 <constraint firstItem="lvF-st-OAu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="8VY-El-MH0"/>
+                <constraint firstAttribute="trailing" secondItem="pl8-dl-jtd" secondAttribute="trailing" constant="-10" id="Aq3-Mc-h82"/>
                 <constraint firstItem="lvF-st-OAu" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Ooi-n5-fBF"/>
                 <constraint firstAttribute="bottom" secondItem="drc-3w-LoI" secondAttribute="bottom" id="QhX-nO-kl7"/>
                 <constraint firstAttribute="trailing" secondItem="lvF-st-OAu" secondAttribute="trailing" id="U5D-xp-HWC"/>
-                <constraint firstItem="XUQ-at-gwS" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="WOC-Xj-uqW"/>
+                <constraint firstItem="pl8-dl-jtd" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="WyF-F2-RgH"/>
                 <constraint firstItem="lvF-st-OAu" firstAttribute="top" secondItem="dkN-hX-p4d" secondAttribute="bottom" constant="8" id="X1W-EQ-kLe"/>
                 <constraint firstAttribute="trailing" secondItem="dkN-hX-p4d" secondAttribute="trailing" id="Yfg-Vr-5cx"/>
-                <constraint firstAttribute="trailing" secondItem="XUQ-at-gwS" secondAttribute="trailing" constant="10" id="bTD-Ic-iiu"/>
                 <constraint firstItem="drc-3w-LoI" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="dTB-96-XFW"/>
             </constraints>
         </customView>
         <collectionViewItem id="8QM-IY-zoC" customClass="CollectionViewItem" customModule="imageorg" customModuleProvider="target">
             <connections>
                 <outlet property="dateTextField" destination="drc-3w-LoI" id="CjB-O6-QPN"/>
-                <outlet property="heartIconImageView" destination="XUQ-at-gwS" id="3nh-sR-Z18"/>
+                <outlet property="heartView" destination="pl8-dl-jtd" id="AO7-tf-oKY"/>
                 <outlet property="imageView" destination="dkN-hX-p4d" id="qTy-K2-T4n"/>
                 <outlet property="titleTextField" destination="lvF-st-OAu" id="2ZF-zN-X52"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="2Ze-DR-AGg"/>
@@ -73,7 +72,4 @@
         </collectionViewItem>
         <userDefaultsController representsSharedInstance="YES" id="pTA-03-xoQ"/>
     </objects>
-    <resources>
-        <image name="HeartIcon" width="20" height="20"/>
-    </resources>
 </document>

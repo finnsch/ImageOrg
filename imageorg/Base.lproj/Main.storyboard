@@ -1188,7 +1188,7 @@
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="CHC-rr-tzz"/>
-                                <toolbarItem implicitItemIdentifier="123DB64D-75D4-4612-948E-3DA5B90B5143" label="Sort" paletteLabel="Sort" tag="-1" sizingBehavior="auto" id="Iih-8u-8KP">
+                                <toolbarItem implicitItemIdentifier="123DB64D-75D4-4612-948E-3DA5B90B5143" label="Sort by" paletteLabel="Sort by" tag="-1" sizingBehavior="auto" id="Iih-8u-8KP">
                                     <nil key="toolTip"/>
                                     <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" id="fHV-q6-322">
                                         <rect key="frame" x="0.0" y="14" width="100" height="50"/>
@@ -1230,6 +1230,9 @@
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
+                    <connections>
+                        <outlet property="sortPopUpButton" destination="l4v-OI-D7H" id="QNO-Ks-TkC"/>
+                    </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
