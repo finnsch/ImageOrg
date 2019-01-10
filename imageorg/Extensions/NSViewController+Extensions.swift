@@ -22,8 +22,12 @@ extension NSViewController {
         }
     }
 
-    var sortOrderMenu: SortOrderMenu? {
-        return (view.window?.windowController as? MediaWindowController)?.sortOrderMenu
+    var mediaWindowController: MediaWindowController? {
+        return view.window?.windowController as? MediaWindowController
+    }
+
+    var mediaToolbar: MediaToolbar? {
+        return mediaWindowController?.mediaToolbar
     }
 }
 

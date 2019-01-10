@@ -30,11 +30,3 @@ class FavoriteButton: NSButton {
         }
     }
 }
-
-class ButtonCellWithPadding: NSButtonCell {
-
-    override func imageRect(forBounds rect: NSRect) -> NSRect {
-        let newRect = rect.centerAndAdjustPercentage(percentage: 0.4).offsetBy(dx: 0, dy: -1)
-        return newRect
-    }
-}

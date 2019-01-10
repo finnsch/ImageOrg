@@ -770,7 +770,7 @@
                 <splitViewController storyboardIdentifier="MediaDetailSplitViewController" id="5Ue-GO-gFj" userLabel="Media Detail Split View Controller" customClass="MediaSplitViewController" customModule="imageorg" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="IXZ-O6-5KM"/>
-                        <splitViewItem id="gkj-aw-mJW"/>
+                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="gkj-aw-mJW"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="i0f-U6-w0G">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -1048,120 +1048,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="650"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vxj-ff-5Qb">
-                                <rect key="frame" x="20" y="609" width="410" height="21"/>
-                                <subviews>
-                                    <button horizontalHuggingPriority="500" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aTp-Aa-Ske">
-                                        <rect key="frame" x="-6" y="-7" width="70" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tL7-ya-EKB">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="handleBackButton:" target="jSs-cX-BBe" id="PWd-rE-ROA"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rD7-Dd-7rm">
-                                        <rect key="frame" x="85" y="-7" width="80" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6YB-Pr-6jQ">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="handleDeleteButton:" target="jSs-cX-BBe" id="QjN-w1-LkB"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bFu-QD-LmE" customClass="FavoriteButton" customModule="imageorg" customModuleProvider="target">
-                                        <rect key="frame" x="187" y="-7" width="56" height="32"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="HeartOutlineIcon" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SHr-Mb-eic" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="handleFavoriteButton:" target="jSs-cX-BBe" id="vM7-HI-mKO"/>
-                                        </connections>
-                                    </button>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySt-xq-1oE">
-                                        <rect key="frame" x="270" y="0.0" width="140" height="21"/>
-                                        <subviews>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v65-7Q-icD">
-                                                <rect key="frame" x="-6" y="-7" width="56" height="32"/>
-                                                <buttonCell key="cell" type="push" title="Fit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qAR-pk-77M">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="handleZoomToFit:" target="jSs-cX-BBe" id="BRR-Bm-vqS"/>
-                                                </connections>
-                                            </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-YS-GM8">
-                                                <rect key="frame" x="50" y="-7" width="47" height="32"/>
-                                                <buttonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AuY-Y4-j2f">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="handleZoomOutButton:" target="jSs-cX-BBe" id="kyf-yd-3iu"/>
-                                                </connections>
-                                            </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o3N-bc-uJE">
-                                                <rect key="frame" x="97" y="-7" width="49" height="32"/>
-                                                <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cmd-Ct-sHC">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="handleZoomInButton:" target="jSs-cX-BBe" id="odL-kK-O4U"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="aTp-Aa-Ske" firstAttribute="leading" secondItem="vxj-ff-5Qb" secondAttribute="leading" id="hGs-4S-ESK"/>
-                                </constraints>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
-                            </stackView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="BoH-Kn-2ni">
-                                <rect key="frame" x="45" y="65" width="360" height="520"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="650"/>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="BoH-Kn-2ni" firstAttribute="height" secondItem="5tc-6A-7S1" secondAttribute="height" multiplier="0.8" id="38E-Sn-AmT"/>
-                            <constraint firstItem="vxj-ff-5Qb" firstAttribute="top" secondItem="5tc-6A-7S1" secondAttribute="top" constant="20" id="5o3-AB-k4C"/>
-                            <constraint firstItem="BoH-Kn-2ni" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vxj-ff-5Qb" secondAttribute="bottom" constant="20" id="9OO-St-T6I"/>
-                            <constraint firstItem="vxj-ff-5Qb" firstAttribute="leading" secondItem="5tc-6A-7S1" secondAttribute="leading" constant="20" id="Jkk-Af-km9"/>
-                            <constraint firstItem="BoH-Kn-2ni" firstAttribute="centerX" secondItem="5tc-6A-7S1" secondAttribute="centerX" id="L6y-CB-SpU"/>
-                            <constraint firstItem="BoH-Kn-2ni" firstAttribute="width" secondItem="5tc-6A-7S1" secondAttribute="width" multiplier="0.8" id="jkz-nz-myI"/>
-                            <constraint firstAttribute="trailing" secondItem="vxj-ff-5Qb" secondAttribute="trailing" constant="20" id="lve-F7-Xgo"/>
-                            <constraint firstItem="BoH-Kn-2ni" firstAttribute="centerY" secondItem="5tc-6A-7S1" secondAttribute="centerY" id="yec-RK-Wjg"/>
+                            <constraint firstItem="BoH-Kn-2ni" firstAttribute="leading" secondItem="5tc-6A-7S1" secondAttribute="leading" id="EGi-nQ-yKt"/>
+                            <constraint firstAttribute="trailing" secondItem="BoH-Kn-2ni" secondAttribute="trailing" id="LVx-tM-r47"/>
+                            <constraint firstItem="BoH-Kn-2ni" firstAttribute="top" secondItem="5tc-6A-7S1" secondAttribute="top" id="T8F-Um-EkA"/>
+                            <constraint firstAttribute="bottom" secondItem="BoH-Kn-2ni" secondAttribute="bottom" id="XM3-lP-gyK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="BoH-Kn-2ni" id="iW8-92-K32"/>
-                        <outlet property="favoriteButton" destination="bFu-QD-LmE" id="w1g-DF-yU0"/>
-                        <outlet property="zoomControlsStackView" destination="ySt-xq-1oE" id="n0r-aQ-voR"/>
                     </connections>
                 </viewController>
                 <customObject id="ke4-Nt-eg1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1178,52 +1077,255 @@
                         <rect key="contentRect" x="196" y="240" width="600" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="600" height="270"/>
-                        <toolbar key="toolbar" implicitIdentifier="C888E1C6-4D59-4772-9787-C9E440D8C731" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="ilc-UQ-wx5">
+                        <toolbar key="toolbar" implicitIdentifier="C888E1C6-4D59-4772-9787-C9E440D8C731" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="ilc-UQ-wx5" customClass="MediaToolbar" customModule="imageorg" customModuleProvider="target">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="A404E354-97B0-401B-AAA1-D7239EFF31A6" label="Sidebar" paletteLabel="Sidebar Item" tag="-1" image="NSInfo" id="5oK-rW-SMO">
-                                    <size key="minSize" width="128" height="128"/>
-                                    <size key="maxSize" width="128" height="128"/>
-                                    <connections>
-                                        <action selector="handleToolbarItemAction:" target="B8D-0N-5wS" id="Qhc-Ba-mOe"/>
-                                    </connections>
-                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="CHC-rr-tzz"/>
-                                <toolbarItem implicitItemIdentifier="123DB64D-75D4-4612-948E-3DA5B90B5143" label="Sort by" paletteLabel="Sort by" tag="-1" sizingBehavior="auto" id="Iih-8u-8KP">
+                                <toolbarItem implicitItemIdentifier="5BAD933A-C232-4910-96D9-4C11C9FD54A3" explicitItemIdentifier="SidebarToolbarItem" label="Sidebar" paletteLabel="Sidebar" tag="-1" sizingBehavior="auto" id="UDa-PA-Mks" userLabel="Sidebar">
                                     <nil key="toolTip"/>
-                                    <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" id="fHV-q6-322">
-                                        <rect key="frame" x="0.0" y="14" width="100" height="50"/>
+                                    <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" id="0xl-G4-kTn">
+                                        <rect key="frame" x="0.0" y="14" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <view key="contentView" id="Olv-Wk-knY">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                        <view key="contentView" id="61y-VV-Dns">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l4v-OI-D7H">
-                                                    <rect key="frame" x="12" y="12" width="77" height="25"/>
-                                                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="hT8-yf-IKa" id="oHL-VU-LBg">
-                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="menu"/>
-                                                        <menu key="menu" id="lKE-5B-8gi">
-                                                            <items>
-                                                                <menuItem title="Item 1" state="on" id="hT8-yf-IKa"/>
-                                                                <menuItem title="Item 2" id="E3J-bh-0Hr"/>
-                                                                <menuItem title="Item 3" id="Fki-1Y-0Ph"/>
-                                                            </items>
-                                                        </menu>
-                                                    </popUpButtonCell>
-                                                </popUpButton>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7fh-tm-CtZ">
+                                                    <rect key="frame" x="5" y="10" width="41" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="eVS-MD-lGd"/>
+                                                        <constraint firstAttribute="height" constant="24" id="iTj-og-2wj"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSSidebarTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iF6-i8-cmb">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="handleSidebarButton:" target="B8D-0N-5wS" id="TQx-v2-0Uz"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="l4v-OI-D7H" firstAttribute="centerY" secondItem="Olv-Wk-knY" secondAttribute="centerY" id="NST-Hj-U3s"/>
-                                                <constraint firstItem="l4v-OI-D7H" firstAttribute="centerX" secondItem="Olv-Wk-knY" secondAttribute="centerX" id="X0D-PL-Ngy"/>
+                                                <constraint firstItem="7fh-tm-CtZ" firstAttribute="centerY" secondItem="61y-VV-Dns" secondAttribute="centerY" id="M6e-KV-rrR"/>
+                                                <constraint firstItem="7fh-tm-CtZ" firstAttribute="centerX" secondItem="61y-VV-Dns" secondAttribute="centerX" id="Rzi-af-4l4"/>
+                                            </constraints>
+                                        </view>
+                                    </box>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="B7C36020-1F67-463B-9FB0-8F1AAE529C25" explicitItemIdentifier="GoBackToolbarItem" label="Back" paletteLabel="Back" tag="-1" sizingBehavior="auto" id="Lbo-Df-tIL">
+                                    <nil key="toolTip"/>
+                                    <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" id="4Ba-DP-HqH">
+                                        <rect key="frame" x="0.0" y="14" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" id="5Jo-k6-n2X">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="A4g-gD-UPC">
+                                                    <rect key="frame" x="5" y="10" width="41" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="BK3-tt-sqk"/>
+                                                        <constraint firstAttribute="height" constant="24" id="IMg-cF-4j8"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSGoBackTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iXr-2t-X9W">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="handleGoBackButton:" target="B8D-0N-5wS" id="YTL-an-aW2"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="A4g-gD-UPC" firstAttribute="centerY" secondItem="5Jo-k6-n2X" secondAttribute="centerY" id="LhE-X1-tjm"/>
+                                                <constraint firstItem="A4g-gD-UPC" firstAttribute="centerX" secondItem="5Jo-k6-n2X" secondAttribute="centerX" id="kVm-85-Dix"/>
+                                            </constraints>
+                                        </view>
+                                    </box>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="67FCA6A8-9AAF-46EB-AEA0-AD76013878EA" explicitItemIdentifier="DeleteToolbarItem" label="Delete" paletteLabel="Delete" tag="-1" sizingBehavior="auto" id="Zy9-pe-GqI">
+                                    <nil key="toolTip"/>
+                                    <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" id="IdS-8N-brC">
+                                        <rect key="frame" x="0.0" y="14" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" id="ELg-69-yBX">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="P5A-lU-4fD">
+                                                    <rect key="frame" x="5" y="10" width="41" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="c0b-p9-5S5"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="zqK-f1-3jf"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="TrashIcon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="K7T-6w-zsF" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingPercentage">
+                                                                <real key="value" value="0.40000000000000002"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="handleDeleteButton:" target="B8D-0N-5wS" id="9dm-dT-ifN"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="P5A-lU-4fD" firstAttribute="centerY" secondItem="ELg-69-yBX" secondAttribute="centerY" id="UBC-tV-pc2"/>
+                                                <constraint firstItem="P5A-lU-4fD" firstAttribute="centerX" secondItem="ELg-69-yBX" secondAttribute="centerX" id="i0L-rc-F1F"/>
+                                            </constraints>
+                                        </view>
+                                    </box>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="4568C524-16D8-47C3-89EB-624BE1691348" explicitItemIdentifier="IsFavoriteToolbarItem" label="Favorite" paletteLabel="Favorite" tag="-1" sizingBehavior="auto" id="vgg-Aj-q2Q" userLabel="IsFavorite">
+                                    <nil key="toolTip"/>
+                                    <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" id="WSN-Es-0ee">
+                                        <rect key="frame" x="0.0" y="14" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" id="NcT-HK-4Ks">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F7L-1W-wPJ">
+                                                    <rect key="frame" x="5" y="10" width="41" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="qZN-ly-5CI"/>
+                                                        <constraint firstAttribute="height" constant="24" id="ux6-yD-OnJ"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="HeartIcon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F3l-tA-FIl" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingPercentage">
+                                                                <real key="value" value="0.40000000000000002"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="handleFavoriteButton:" target="B8D-0N-5wS" id="eMu-M8-yRC"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="F7L-1W-wPJ" firstAttribute="centerX" secondItem="NcT-HK-4Ks" secondAttribute="centerX" id="0mA-hA-yk7"/>
+                                                <constraint firstItem="F7L-1W-wPJ" firstAttribute="centerY" secondItem="NcT-HK-4Ks" secondAttribute="centerY" id="qR0-CU-uVj"/>
+                                            </constraints>
+                                        </view>
+                                    </box>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="BF645265-9AED-441C-BFB3-5811016D6930" explicitItemIdentifier="IsNotFavoriteToolbarItem" label="Favorite" paletteLabel="Favorite" tag="-1" sizingBehavior="auto" id="bdp-pl-Sxh" userLabel="IsNotFavorite">
+                                    <nil key="toolTip"/>
+                                    <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" id="YTa-UV-lzy">
+                                        <rect key="frame" x="0.0" y="14" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" id="Lha-f2-uKa">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qdd-dk-tT9">
+                                                    <rect key="frame" x="5" y="10" width="41" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="fW4-Ea-I5K"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="lnN-R0-5tY"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="HeartOutlineIcon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l37-m5-bOJ" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingPercentage">
+                                                                <real key="value" value="0.40000000000000002"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="handleFavoriteButton:" target="B8D-0N-5wS" id="Z4s-bt-4tO"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Qdd-dk-tT9" firstAttribute="centerX" secondItem="Lha-f2-uKa" secondAttribute="centerX" id="HtW-ES-qVn"/>
+                                                <constraint firstItem="Qdd-dk-tT9" firstAttribute="centerY" secondItem="Lha-f2-uKa" secondAttribute="centerY" id="aGb-t5-JER"/>
+                                            </constraints>
+                                        </view>
+                                    </box>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="9E234F0D-A5BE-49B0-8385-C8840FC43B99" explicitItemIdentifier="ZoomInToolbarItem" label="Zoom in" paletteLabel="Zoom in" tag="-1" sizingBehavior="auto" id="kxC-be-fIv" userLabel="ZoomIn">
+                                    <nil key="toolTip"/>
+                                    <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" id="yqT-TV-Q6r">
+                                        <rect key="frame" x="0.0" y="14" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" id="QWK-Yt-slH">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7e3-6L-saN">
+                                                    <rect key="frame" x="5" y="10" width="41" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="0om-5f-8Ng"/>
+                                                        <constraint firstAttribute="height" constant="24" id="bev-q2-dH8"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSTouchBarAddTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="blc-8t-Z9P" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingPercentage">
+                                                                <real key="value" value="0.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="handleZoomInButton:" target="B8D-0N-5wS" id="6b0-r8-EcJ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7e3-6L-saN" firstAttribute="centerX" secondItem="QWK-Yt-slH" secondAttribute="centerX" id="F6v-gS-4T5"/>
+                                                <constraint firstItem="7e3-6L-saN" firstAttribute="centerY" secondItem="QWK-Yt-slH" secondAttribute="centerY" id="jJW-ni-eRF"/>
+                                            </constraints>
+                                        </view>
+                                    </box>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="153C5BE2-1ADB-49C7-A828-8D978FD9B333" explicitItemIdentifier="ZoomOutToolbarItem" label="Zoom out" paletteLabel="Zoom out" tag="-1" sizingBehavior="auto" id="C2i-cu-ZS5" userLabel="ZoomOut">
+                                    <nil key="toolTip"/>
+                                    <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" id="MLt-7c-PUT">
+                                        <rect key="frame" x="4" y="14" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" id="3sr-Mb-K3m">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VbD-eB-OqZ">
+                                                    <rect key="frame" x="5" y="10" width="41" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="pz0-Xi-r5b"/>
+                                                        <constraint firstAttribute="height" constant="24" id="yHQ-Dr-zyr"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSTouchBarRemoveTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qLP-au-FDa" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingPercentage">
+                                                                <real key="value" value="0.5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="handleZoomOutButton:" target="B8D-0N-5wS" id="grC-au-8zv"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VbD-eB-OqZ" firstAttribute="centerY" secondItem="3sr-Mb-K3m" secondAttribute="centerY" id="7Zc-V7-XcN"/>
+                                                <constraint firstItem="VbD-eB-OqZ" firstAttribute="centerX" secondItem="3sr-Mb-K3m" secondAttribute="centerX" id="DDz-Eq-DCQ"/>
                                             </constraints>
                                         </view>
                                     </box>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="Iih-8u-8KP"/>
                                 <toolbarItem reference="CHC-rr-tzz"/>
-                                <toolbarItem reference="5oK-rW-SMO"/>
+                                <toolbarItem reference="UDa-PA-Mks"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -1231,7 +1333,7 @@
                         </connections>
                     </window>
                     <connections>
-                        <outlet property="sortPopUpButton" destination="l4v-OI-D7H" id="QNO-Ks-TkC"/>
+                        <outlet property="mediaToolbar" destination="ilc-UQ-wx5" id="DGj-wr-Hvo"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1240,10 +1342,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="HeartIcon" width="20" height="20"/>
         <image name="HeartOutlineIcon" width="20" height="20"/>
-        <image name="NSInfo" width="32" height="32"/>
+        <image name="NSGoBackTemplate" width="9" height="12"/>
+        <image name="NSSidebarTemplate" width="15" height="12"/>
+        <image name="NSTouchBarAddTemplate" width="14" height="30"/>
+        <image name="NSTouchBarRemoveTemplate" width="14" height="30"/>
+        <image name="TrashIcon" width="15" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zCY-54-SzV"/>
+        <segue reference="hUI-JH-O8R"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -30,6 +30,12 @@ class ImageViewerViewController: NSViewController {
         scrollView.magnification = 1.0
     }
 
+    override func viewDidAppear() {
+        super.viewDidAppear()
+
+        view.window?.makeFirstResponder(imageView)
+    }
+
     func setupImageView() {
         imageView.image = NSImage(byReferencingFile: image!.filePath)
         imageView.animates = true

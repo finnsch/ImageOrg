@@ -10,13 +10,18 @@ import Cocoa
 
 class MediaWindowController: NSWindowController {
 
-    @IBOutlet weak var sortPopUpButton: NSPopUpButton!
+    @IBOutlet weak var mediaToolbar: MediaToolbar!
 
-    var sortOrderMenu: SortOrderMenu = SortOrderMenu(title: "")
-    
+    var delete: (() -> ())?
+    var goBack: (() -> ())?
+    var toggleFavorite: (() -> ())?
+    var toggleSidebar: (() -> ())?
+    var zoomIn: (() -> ())?
+    var zoomOut: (() -> ())?
+
     override func windowDidLoad() {
         super.windowDidLoad()
-
+        
         setupView()
 
         guard let mediaGallerySplitViewController = storyboard?.instantiateController(withIdentifier: "MediaGallerySplitViewController") as? MediaSplitViewController else {
@@ -28,13 +33,30 @@ class MediaWindowController: NSWindowController {
     }
 
     private func setupView() {
-        sortPopUpButton.menu = sortOrderMenu
+        window?.titleVisibility = .hidden
     }
 
-    @IBAction func handleToolbarItemAction(_ sender: NSToolbarItem) {
-        if let navigationController = contentViewController as? NSNavigationController,
-            let mediaSplitViewController = navigationController.topViewController as? MediaSplitViewController {
-            mediaSplitViewController.toggleSidebar(self)
-        }
+    @IBAction func handleGoBackButton(_ sender: NSButton) {
+        goBack?()
+    }
+
+    @IBAction func handleDeleteButton(_ sender: NSButton) {
+        delete?()
+    }
+
+    @IBAction func handleFavoriteButton(_ sender: NSButton) {
+        toggleFavorite?()
+    }
+
+    @IBAction func handleZoomInButton(_ sender: NSButton) {
+        zoomIn?()
+    }
+
+    @IBAction func handleZoomOutButton(_ sender: NSButton) {
+        zoomOut?()
+    }
+    
+    @IBAction func handleSidebarButton(_ sender: NSButton) {
+        toggleSidebar?()
     }
 }

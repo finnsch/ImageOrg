@@ -19,6 +19,8 @@
 		B6180051217D05A5003DCFE7 /* MediaGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6180050217D05A4003DCFE7 /* MediaGridViewController.swift */; };
 		B6180055217D0B56003DCFE7 /* MediaSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6180054217D0B56003DCFE7 /* MediaSplitViewController.swift */; };
 		B618005C217E7F4E003DCFE7 /* MediaWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618005A217E7F4E003DCFE7 /* MediaWindowController.swift */; };
+		B62006B021E7BC7B000522B5 /* MediaToolbarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62006AF21E7BC7B000522B5 /* MediaToolbarConfiguration.swift */; };
+		B62006B221E7BCE4000522B5 /* MediaToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62006B121E7BCE4000522B5 /* MediaToolbarItem.swift */; };
 		B62A251B217F55F700A098AD /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2519217F55F700A098AD /* ImageViewerViewController.swift */; };
 		B62A251C217F55F700A098AD /* ImageViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62A251A217F55F700A098AD /* ImageViewerViewController.xib */; };
 		B62A251F217F5D2000A098AD /* VideoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A251D217F5D2000A098AD /* VideoViewerViewController.swift */; };
@@ -75,6 +77,8 @@
 		B6CA70C921E7503D0084CCF9 /* NoClippingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA70C821E7503D0084CCF9 /* NoClippingView.swift */; };
 		B6CA70CB21E750BB0084CCF9 /* HeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA70CA21E750BB0084CCF9 /* HeartView.swift */; };
 		B6CA70CD21E750CA0084CCF9 /* HeartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6CA70CC21E750CA0084CCF9 /* HeartView.xib */; };
+		B6CA70D921E778350084CCF9 /* MediaToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA70D821E778350084CCF9 /* MediaToolbar.swift */; };
+		B6CA70DB21E79A3C0084CCF9 /* ButtonCellWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA70DA21E79A3C0084CCF9 /* ButtonCellWithPadding.swift */; };
 		B6E1FD8921E69C4F00FA7C6C /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1FD8821E69C4F00FA7C6C /* FavoriteButton.swift */; };
 		B6E856D62184CF7A0092B146 /* MediaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E856D52184CF7A0092B146 /* MediaCollectionView.swift */; };
 /* End PBXBuildFile section */
@@ -107,6 +111,8 @@
 		B6180050217D05A4003DCFE7 /* MediaGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaGridViewController.swift; sourceTree = "<group>"; };
 		B6180054217D0B56003DCFE7 /* MediaSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSplitViewController.swift; sourceTree = "<group>"; };
 		B618005A217E7F4E003DCFE7 /* MediaWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowController.swift; sourceTree = "<group>"; };
+		B62006AF21E7BC7B000522B5 /* MediaToolbarConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaToolbarConfiguration.swift; sourceTree = "<group>"; };
+		B62006B121E7BCE4000522B5 /* MediaToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaToolbarItem.swift; sourceTree = "<group>"; };
 		B62A2519217F55F700A098AD /* ImageViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
 		B62A251A217F55F700A098AD /* ImageViewerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewerViewController.xib; sourceTree = "<group>"; };
 		B62A251D217F5D2000A098AD /* VideoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewerViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +169,8 @@
 		B6CA70C821E7503D0084CCF9 /* NoClippingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoClippingView.swift; sourceTree = "<group>"; };
 		B6CA70CA21E750BB0084CCF9 /* HeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartView.swift; sourceTree = "<group>"; };
 		B6CA70CC21E750CA0084CCF9 /* HeartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartView.xib; sourceTree = "<group>"; };
+		B6CA70D821E778350084CCF9 /* MediaToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaToolbar.swift; sourceTree = "<group>"; };
+		B6CA70DA21E79A3C0084CCF9 /* ButtonCellWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellWithPadding.swift; sourceTree = "<group>"; };
 		B6E1FD8821E69C4F00FA7C6C /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteButton.swift; path = "Thumbnail Creation/FavoriteButton.swift"; sourceTree = "<group>"; };
 		B6E856D52184CF7A0092B146 /* MediaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,6 +242,16 @@
 				B618003D217CC50B003DCFE7 /* Info.plist */,
 			);
 			path = imageorgTests;
+			sourceTree = "<group>";
+		};
+		B62006B321E7BCF1000522B5 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				B6CA70D821E778350084CCF9 /* MediaToolbar.swift */,
+				B62006AF21E7BC7B000522B5 /* MediaToolbarConfiguration.swift */,
+				B62006B121E7BCE4000522B5 /* MediaToolbarItem.swift */,
+			);
+			path = Toolbar;
 			sourceTree = "<group>";
 		};
 		B63146EE21DFFDE600D50360 /* Mocks */ = {
@@ -309,6 +327,7 @@
 				B6AF5E4C21E2B60900625817 /* CoreData */,
 				B6AF5E4E21E2B63400625817 /* Media Creation */,
 				B6AF5E4D21E2B62600625817 /* Thumbnail Creation */,
+				B62006B321E7BCF1000522B5 /* Toolbar */,
 				B631470321E22D3900D50360 /* MimeType.swift */,
 				B6AF5E5621E530C500625817 /* MediaStore.swift */,
 				B618005A217E7F4E003DCFE7 /* MediaWindowController.swift */,
@@ -343,6 +362,7 @@
 				B62A2527217F866200A098AD /* ClickableTextField.swift */,
 				B60EDF5321806ABA00251530 /* CenteredClipView.swift */,
 				B6CA70C821E7503D0084CCF9 /* NoClippingView.swift */,
+				B6CA70DA21E79A3C0084CCF9 /* ButtonCellWithPadding.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -552,6 +572,7 @@
 				B631470121E22CC500D50360 /* Image+CoreDataClass.swift in Sources */,
 				B62A2522217F65BA00A098AD /* URL+Extensions.swift in Sources */,
 				B62A2524217F6F9F00A098AD /* Date+Extensions.swift in Sources */,
+				B62006B221E7BCE4000522B5 /* MediaToolbarItem.swift in Sources */,
 				B6CA70CB21E750BB0084CCF9 /* HeartView.swift in Sources */,
 				B6676BC42180D7F5009603E1 /* FullscreenImageViewerViewController.swift in Sources */,
 				B6C5ED0821E2597700B5B8BF /* ThumbnailFactory.swift in Sources */,
@@ -571,8 +592,11 @@
 				B699FFB721D65FDD00606792 /* MediaLocalFileImporter.swift in Sources */,
 				B64D91D321E6B0E800DDAB81 /* SortOrder.swift in Sources */,
 				B6C5ECFA21E239AF00B5B8BF /* Media+CustomProperties.swift in Sources */,
+				B62006B021E7BC7B000522B5 /* MediaToolbarConfiguration.swift in Sources */,
 				B696714521D7AEA10083CE9E /* NSImage+Extensions.swift in Sources */,
+				B6CA70D921E778350084CCF9 /* MediaToolbar.swift in Sources */,
 				B6B6DF8A21E29CA800322F79 /* MediaImportError.swift in Sources */,
+				B6CA70DB21E79A3C0084CCF9 /* ButtonCellWithPadding.swift in Sources */,
 				B6E1FD8921E69C4F00FA7C6C /* FavoriteButton.swift in Sources */,
 				B62A252A217F8C5D00A098AD /* String+isValidURL.swift in Sources */,
 				B6C5ED0421E242A000B5B8BF /* Data+Extensions.swift in Sources */,

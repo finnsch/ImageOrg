@@ -44,8 +44,6 @@ class MediaGridViewController: MediaViewController {
 
         NSApplication.shared.keyWindow?.title = "Gallery"
 
-        sortOrderMenu?.customDelegate = self
-        
         view.window?.makeFirstResponder(collectionView)
 
         keyDownMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
@@ -163,6 +161,11 @@ class MediaGridViewController: MediaViewController {
     func showDetail() {
         guard let mediaDetailSplitViewController = storyboard?.instantiateController(withIdentifier: "MediaDetailSplitViewController") as? MediaSplitViewController else {
             return
+        }
+
+        if let mediaToolbar = mediaToolbar, let media = mediaStore.selectedMedia {
+            let configuration = MediaDetailToolbarConfiguration(toolbar: mediaToolbar, isFavorite: media.isFavorite)
+            mediaToolbar.replaceItems(for: configuration)
         }
 
         navigationController?.pushViewController(mediaDetailSplitViewController, animated: false)

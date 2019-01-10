@@ -94,10 +94,18 @@ class MediaStore {
     }
 
     func add(delegate: MediaStoreDelegate) {
+        guard isNew(delegate: delegate) else {
+            return
+        }
+
         delegates.append(delegate)
     }
 
     func remove(delegate: MediaStoreDelegate) {
         delegates.removeAll { $0 === delegate }
+    }
+
+    private func isNew(delegate: MediaStoreDelegate) -> Bool {
+        return !delegates.contains(where: { $0 === delegate })
     }
 }

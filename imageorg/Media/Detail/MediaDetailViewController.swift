@@ -11,12 +11,10 @@ import Cocoa
 class MediaDetailViewController: MediaViewController {
 
     @IBOutlet weak var containerView: NSView!
-    @IBOutlet weak var favoriteButton: FavoriteButton!
-    @IBOutlet weak var zoomControlsStackView: NSStackView!
 
-    private let delete: UInt16 = 0x33
-    private let leftArrow: UInt16 = 0x7B
-    private let rightArrow: UInt16 = 0x7C
+    private let deleteKey: UInt16 = 0x33
+    private let leftArrowKey: UInt16 = 0x7B
+    private let rightArrowKey: UInt16 = 0x7C
 
     var keyDownMonitor: Any!
     var imageViewerViewController: ImageViewerViewController?
@@ -42,7 +40,6 @@ class MediaDetailViewController: MediaViewController {
             return
         }
 
-        favoriteButton.isFavorite = media.isFavorite
         NSApplication.shared.keyWindow?.title = media.name
 
         if media is Image {
@@ -62,14 +59,37 @@ class MediaDetailViewController: MediaViewController {
     override func viewWillDisappear() {
         super.viewWillDisappear()
 
+        if let mediaToolbar = mediaToolbar {
+            let configuration = MediaGalleryToolbarConfiguration(toolbar: mediaToolbar)
+            mediaToolbar.replaceItems(for: configuration)
+        }
+
         NSEvent.removeMonitor(keyDownMonitor)
         NotificationCenter.default.removeObserver(self, name: NSWindow.didEnterFullScreenNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSWindow.willExitFullScreenNotification, object: nil)
     }
 
-    func setupImageViewer() {
-        zoomControlsStackView.isHidden = false
+    override func viewDidAppear() {
+        super.viewDidAppear()
 
+        mediaWindowController?.goBack = { [weak self] in
+            self?.goBack()
+        }
+        mediaWindowController?.delete = { [weak self] in
+            self?.delete()
+        }
+        mediaWindowController?.toggleFavorite = { [weak self] in
+            self?.toggleFavorite()
+        }
+        mediaWindowController?.zoomIn = { [weak self] in
+            self?.zoomIn()
+        }
+        mediaWindowController?.zoomOut = { [weak self] in
+            self?.zoomOut()
+        }
+    }
+
+    func setupImageViewer() {
         imageViewerViewController = ImageViewerViewController(nibName: "ImageViewerViewController", bundle: Bundle.main)
         addChild(imageViewerViewController!)
         containerView.addSubview(imageViewerViewController!.view)
@@ -86,8 +106,6 @@ class MediaDetailViewController: MediaViewController {
     }
 
     func setupVideoViewer() {
-        zoomControlsStackView.isHidden = true
-
         videoViewerViewController = VideoViewerViewController(nibName: "VideoViewerViewController", bundle: Bundle.main)
         addChild(videoViewerViewController!)
         containerView.addSubview(videoViewerViewController!.view)
@@ -123,25 +141,25 @@ class MediaDetailViewController: MediaViewController {
         guard let locWindow = self.view.window,
             NSApplication.shared.keyWindow === locWindow else { return false }
         switch event.keyCode {
-        case delete:
+        case deleteKey:
             navigationController?.popViewController(animated: false)
             return true
-        case leftArrow:
+        case leftArrowKey:
             mediaStore.selectPrevious()
             return true
-        case rightArrow:
+        case rightArrowKey:
             mediaStore.selectNext()
             return true
         default:
             return false
         }
     }
-    
-    @IBAction func handleBackButton(_ sender: NSButton) {
+
+    func goBack() {
         navigationController?.popViewController(animated: false)
     }
 
-    @IBAction func handleDeleteButton(_ sender: NSButton) {
+    func delete() {
         guard let media = mediaStore.selectedMedia else {
             return
         }
@@ -160,30 +178,29 @@ class MediaDetailViewController: MediaViewController {
         navigationController?.popViewController(animated: false)
     }
 
-    @IBAction func handleFavoriteButton(_ sender: FavoriteButton) {
+    func toggleFavorite() {
         guard var media = mediaStore.selectedMedia else {
             return
         }
 
-        sender.isFavorite.toggle()
+        media.isFavorite.toggle()
+
+        if let mediaToolbar = mediaToolbar {
+            let configuration = MediaDetailToolbarConfiguration(toolbar: mediaToolbar, isFavorite: media.isFavorite)
+            mediaToolbar.replaceItems(for: configuration)
+        }
 
         let mediaCoreDataService = MediaCoreDataService()
-
-        media.isFavorite = sender.isFavorite
         media = mediaCoreDataService.update(media: media)
         mediaStore.update(media: media)
     }
 
-    @IBAction func handleZoomInButton(_ sender: NSButton) {
+    func zoomIn() {
         imageViewerViewController?.zoomIn()
     }
 
-    @IBAction func handleZoomOutButton(_ sender: Any) {
+    func zoomOut() {
         imageViewerViewController?.zoomOut()
-    }
-
-    @IBAction func handleZoomToFit(_ sender: NSButton) {
-        imageViewerViewController?.zoomToFit()
     }
 
     @objc func handleEnterFullScreen(_ notification: NSNotification) {

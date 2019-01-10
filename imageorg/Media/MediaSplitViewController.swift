@@ -25,6 +25,14 @@ class MediaSplitViewController: NSSplitViewController {
         sidebarViewController?.navigationController = navigationController
     }
 
+    override func viewDidAppear() {
+        super.viewDidAppear()
+
+        mediaWindowController?.toggleSidebar = { [weak self] in
+            self?.toggleSidebar(nil)
+        }
+    }
+
     func showSidebar() {
         splitViewItems.last?.isCollapsed = false
     }
