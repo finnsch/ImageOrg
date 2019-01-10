@@ -841,18 +841,18 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dny-TJ-7h0">
-                                        <rect key="frame" x="0.0" y="100" width="45" height="17"/>
+                                        <rect key="frame" x="0.0" y="100" width="49" height="17"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="42m-KT-PnC">
-                                                <rect key="frame" x="-2" y="0.0" width="34" height="17"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Type" id="CBk-HT-erc">
+                                                <rect key="frame" x="-2" y="0.0" width="38" height="17"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Type:" id="CBk-HT-erc">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lk4-8D-7pH">
-                                                <rect key="frame" x="36" y="0.0" width="11" height="17"/>
+                                                <rect key="frame" x="40" y="0.0" width="11" height="17"/>
                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" title="-" usesSingleLineMode="YES" id="fWs-e1-yp1">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1334,11 +1334,25 @@
                     </window>
                     <connections>
                         <outlet property="mediaToolbar" destination="ilc-UQ-wx5" id="DGj-wr-Hvo"/>
+                        <segue destination="Ajw-LN-RcC" kind="relationship" relationship="window.shadowedContentViewController" id="7Q2-a5-A0F"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sYn-2u-T17">
+            <objects>
+                <viewController id="Ajw-LN-RcC" sceneMemberID="viewController">
+                    <view key="view" id="Jvz-DD-IlC">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="QyE-ig-J6L" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="206"/>
         </scene>
     </scenes>
     <resources>
