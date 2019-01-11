@@ -38,6 +38,7 @@ class MediaStore {
             delegates.forEach { $0.didSelect(media: selectedMedia) }
         }
     }
+    var sortOrder: SortOrder = .createdAt
 
     func update(media: Media) {
         guard let index = mediaItems.firstIndex(where: { $0 === media }) else {
@@ -92,6 +93,22 @@ class MediaStore {
 
         delegates.forEach { $0.didSelectPrevious() }
     }
+
+    func sortItems(by sortOrder: SortOrder? = nil) {
+        let sortOrder: SortOrder = sortOrder ?? self.sortOrder
+
+        mediaItems = mediaItems.sorted { (lhs, rhs) -> Bool in
+            if sortOrder == .createdAt {
+                return Date(date: lhs.creationDate).compare(Date(date: rhs.creationDate)) == .orderedDescending
+            } else if sortOrder == .favorites {
+                return lhs.isFavorite
+            }
+
+            return lhs.name.compare(rhs.name) == .orderedDescending
+        }
+    }
+
+    // MARK: MediaStoreDelegate methods
 
     func add(delegate: MediaStoreDelegate) {
         guard isNew(delegate: delegate) else {

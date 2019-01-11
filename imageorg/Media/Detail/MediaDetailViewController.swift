@@ -24,18 +24,6 @@ class MediaDetailViewController: MediaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        keyDownMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] in
-            guard let strongSelf = self else {
-                return nil
-            }
-
-            if strongSelf.myKeyDown(with: $0) {
-                return nil
-            } else {
-                return $0
-            }
-        }
-
         guard let media = mediaStore.selectedMedia else {
             return
         }
@@ -52,6 +40,7 @@ class MediaDetailViewController: MediaViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
 
+        subscribeToKeyboardEvents()
         NotificationCenter.default.addObserver(self, selector: #selector(handleEnterFullScreen), name: NSWindow.didEnterFullScreenNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleExitFullScreen), name: NSWindow.willExitFullScreenNotification, object: nil)
     }
@@ -64,7 +53,7 @@ class MediaDetailViewController: MediaViewController {
             mediaToolbar.replaceItems(for: configuration)
         }
 
-        NSEvent.removeMonitor(keyDownMonitor)
+        unsubscribeFromKeyboardEvents()
         NotificationCenter.default.removeObserver(self, name: NSWindow.didEnterFullScreenNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSWindow.willExitFullScreenNotification, object: nil)
     }
@@ -132,29 +121,6 @@ class MediaDetailViewController: MediaViewController {
         navigationController?.pushViewController(fullscreenImageViewerViewController, animated: false)
     }
 
-    func myKeyDown(with event: NSEvent) -> Bool {
-        guard !(view.window?.firstResponder is NSTextView) else {
-            return false
-        }
-
-        // handle keyDown only if current window has focus, i.e. is keyWindow
-        guard let locWindow = self.view.window,
-            NSApplication.shared.keyWindow === locWindow else { return false }
-        switch event.keyCode {
-        case deleteKey:
-            navigationController?.popViewController(animated: false)
-            return true
-        case leftArrowKey:
-            mediaStore.selectPrevious()
-            return true
-        case rightArrowKey:
-            mediaStore.selectNext()
-            return true
-        default:
-            return false
-        }
-    }
-
     func goBack() {
         navigationController?.popViewController(animated: false)
     }
@@ -211,6 +177,33 @@ class MediaDetailViewController: MediaViewController {
         navigationController?.popViewController(animated: false)
     }
 }
+
+extension MediaDetailViewController: KeyboardMonitoring {
+
+    func handleKeyDown(with event: NSEvent) -> Bool {
+        guard !(view.window?.firstResponder is NSTextView) else {
+            return false
+        }
+
+        // handle keyDown only if current window has focus, i.e. is keyWindow
+        guard let locWindow = self.view.window,
+            NSApplication.shared.keyWindow === locWindow else { return false }
+        switch event.keyCode {
+        case deleteKey:
+            navigationController?.popViewController(animated: false)
+            return true
+        case leftArrowKey:
+            mediaStore.selectPrevious()
+            return true
+        case rightArrowKey:
+            mediaStore.selectNext()
+            return true
+        default:
+            return false
+        }
+    }
+}
+
 
 extension NSRect {
     func centerAndAdjustPercentage(percentage p: CGFloat) -> NSRect {

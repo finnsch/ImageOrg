@@ -23,19 +23,15 @@ class MediaGridViewController: MediaViewController {
     private let space: UInt16 = 0x31
     private let returnKey: UInt16 = 0x24
 
-    var mediaStore = MediaStore.shared
     var keyDownMonitor: Any!
-    var sortOrder: SortOrder = .createdAt
+    var mediaStore = MediaStore.shared
+    var mediaDetailCoordinator: MediaDetailCoordinator!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.sortOrderMenu.customDelegate = self
-
+        setupCollectionView()
         setupDragView()
-
         loadMedia()
     }
 
@@ -46,20 +42,21 @@ class MediaGridViewController: MediaViewController {
 
         view.window?.makeFirstResponder(collectionView)
 
-        keyDownMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
-            if self.myKeyDown(with: $0) {
-                return nil
-            } else {
-                return $0
-            }
-        }
+        setupMediaDetailCoordinator()
+        subscribeToKeyboardEvents()
     }
 
     override func viewDidDisappear() {
-        NSEvent.removeMonitor(keyDownMonitor)
+        unsubscribeFromKeyboardEvents()
     }
 
-    func setupDragView() {
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.sortOrderMenu.customDelegate = self
+    }
+
+    private func setupDragView() {
         guard let dragView = DragView.createFromNib() else {
             return
         }
@@ -76,6 +73,15 @@ class MediaGridViewController: MediaViewController {
         ])
     }
 
+    private func setupMediaDetailCoordinator() {
+        guard mediaDetailCoordinator == nil else {
+            return
+        }
+
+        mediaDetailCoordinator = MediaDetailCoordinator(mediaToolbar: mediaToolbar,
+                                                        navigationController: navigationController)
+    }
+
     func loadMedia() {
         collectionView.isHidden = true
         progressIndicator.isHidden = false
@@ -90,14 +96,8 @@ class MediaGridViewController: MediaViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             let mediaCoreDataService = MediaCoreDataService()
             self.mediaStore.mediaItems = mediaCoreDataService.getMediaItems()
-
-            self.reloadMediaItems()
             self.reloadCollectionView()
         }
-    }
-
-    func reloadMediaItems() {
-        mediaStore.mediaItems = mediaStore.mediaItems.sorted(by: sortItems)
     }
 
     func reloadCollectionView() {
@@ -136,57 +136,26 @@ class MediaGridViewController: MediaViewController {
         alert.beginSheetModal(for: view.window!, completionHandler: nil)
     }
 
-    func myKeyDown(with event: NSEvent) -> Bool {
-        // handle keyDown only if current window has focus, i.e. is keyWindow
-
-        guard let locWindow = self.view.window, let firstResponder = view.window?.firstResponder,
-            NSApplication.shared.keyWindow === locWindow,
-            firstResponder is MediaCollectionView else { return false }
-        switch event.keyCode {
-        case space where mediaStore.selectedMedia != nil:
-            quickLook()
-            return true
-        case returnKey where mediaStore.selectedMedia != nil:
-            showDetail()
-            return true
-        default:
-            return false
-        }
-    }
-
     func quickLook() {
-        QLPreviewPanel.shared()?.makeKeyAndOrderFront(self)
+        let mediaQuickLook = MediaQuickLook(frame: view.frame)
+        view.addSubview(mediaQuickLook)
+        mediaQuickLook.show()
+        mediaQuickLook.handleClosePreviewPanel = {
+            // Return focus to the collection view after the preview panel has been closed.
+            // That way the collection view is navigatable by keyboard.
+            self.view.window?.makeFirstResponder(self.collectionView)
+        }
     }
 
     func showDetail() {
-        guard let mediaDetailSplitViewController = storyboard?.instantiateController(withIdentifier: "MediaDetailSplitViewController") as? MediaSplitViewController else {
-            return
-        }
-
-        if let mediaToolbar = mediaToolbar, let media = mediaStore.selectedMedia {
-            let configuration = MediaDetailToolbarConfiguration(toolbar: mediaToolbar, isFavorite: media.isFavorite)
-            mediaToolbar.replaceItems(for: configuration)
-        }
-
-        navigationController?.pushViewController(mediaDetailSplitViewController, animated: false)
-    }
-
-    func sortItems(lhs: Media, rhs: Media) -> Bool {
-        if sortOrder == .createdAt {
-            return Date(date: lhs.creationDate).compare(Date(date: rhs.creationDate)) == .orderedDescending
-        } else if sortOrder == .favorites {
-            return lhs.isFavorite
-        }
-
-        return lhs.name.compare(rhs.name) == .orderedDescending
+        mediaDetailCoordinator.createAndShowMediaDetailView()
     }
 }
 
 extension MediaGridViewController: SortOrderMenuDelegate {
 
     func didSelect(sortOrder: SortOrder) {
-        self.sortOrder = sortOrder
-        reloadMediaItems()
+        mediaStore.sortItems(by: sortOrder)
         reloadCollectionView()
     }
 }
@@ -238,39 +207,6 @@ extension MediaGridViewController: NSCollectionViewDataSource {
     }
 }
 
-extension MediaGridViewController: QLPreviewPanelDataSource, QLPreviewPanelDelegate {
-
-    override func acceptsPreviewPanelControl(_ panel: QLPreviewPanel!) -> Bool {
-        return mediaStore.selectedMedia != nil
-    }
-
-    override func beginPreviewPanelControl(_ panel: QLPreviewPanel!) {
-        if let sharedPanel = QLPreviewPanel.shared() {
-            sharedPanel.dataSource = self
-            sharedPanel.delegate = self
-
-            if let index = mediaStore.mediaItems.firstIndex(where: { $0.id == mediaStore.selectedMedia!.id }) {
-                sharedPanel.currentPreviewItemIndex = index
-            }
-        }
-    }
-
-    override func endPreviewPanelControl(_ panel: QLPreviewPanel!) {
-        if let sharedPanel = QLPreviewPanel.shared() {
-            sharedPanel.dataSource = nil
-            sharedPanel.delegate = nil
-        }
-    }
-
-    func numberOfPreviewItems(in panel: QLPreviewPanel!) -> Int {
-        return mediaStore.numberOfItems
-    }
-
-    func previewPanel(_ panel: QLPreviewPanel!, previewItemAt index: Int) -> QLPreviewItem! {
-        return mediaStore.mediaItems[index].originalFileURL as QLPreviewItem
-    }
-}
-
 extension MediaGridViewController: DragViewDelegate {
 
     func didDrag(filePaths: [String]) {
@@ -291,14 +227,25 @@ extension MediaGridViewController: MediaStoreDelegate {
 
         collectionView.deleteItems(at: indexPaths)
     }
+}
 
-    func didSelectPrevious() {
-        navigationController?.popViewController(animated: false)
-        showDetail()
-    }
+extension MediaGridViewController: KeyboardMonitoring {
 
-    func didSelectNext() {
-        navigationController?.popViewController(animated: false)
-        showDetail()
+    func handleKeyDown(with event: NSEvent) -> Bool {
+        // handle keyDown only if current window has focus, i.e. is keyWindow
+
+        guard let locWindow = self.view.window, let firstResponder = view.window?.firstResponder,
+            NSApplication.shared.keyWindow === locWindow,
+            firstResponder is MediaCollectionView else { return false }
+        switch event.keyCode {
+        case space where mediaStore.selectedMedia != nil:
+            quickLook()
+            return true
+        case returnKey where mediaStore.selectedMedia != nil:
+            showDetail()
+            return true
+        default:
+            return false
+        }
     }
 }

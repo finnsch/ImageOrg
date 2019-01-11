@@ -28,14 +28,6 @@
          contextName = "MediaDetailViewController.handleFavoriteButton(_:):MediaDetailViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "MediaDetailViewController.myKeyDown(with:):MediaDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "view.window?.firstResponder">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in MediaSplitViewController.viewDidAppear():MediaSplitViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -44,13 +36,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MediaDetailViewController.myKeyDown(with:):MediaDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.window?.firstResponder">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MediaDetailViewController.viewDidLoad():MediaDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "media.isFavorite">
+               value = "view.window">
             </PersistentString>
             <PersistentString
-               value = "view.window">
+               value = "media.isFavorite">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -105,16 +105,25 @@
          contextName = "MediaGridViewController.didDelete(media:at:):MediaGridViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "MediaGalleryToolbar.init(identifier:):MediaGalleryToolbar.swift">
+         contextName = "MediaWindowController.handleSidebarButton(_:):MediaWindowController.swift">
       </ContextState>
       <ContextState
          contextName = "MediaImporter.getContentsOfDirectory(at:):MediaImporter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaGalleryToolbar.init(identifier:):MediaGalleryToolbar.swift">
       </ContextState>
       <ContextState
          contextName = "MediaImporter.getContentsOfPaths():MediaImporter.swift">
       </ContextState>
       <ContextState
          contextName = "DragView.performDragOperation(_:):DragView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaToolbar.deleteItems():MediaToolbar.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SortToolbarItemView.setupView():SortToolbarItemView.swift">
       </ContextState>
       <ContextState
          contextName = "MediaGridViewController.viewDidLoad():MediaGridViewController.swift">
@@ -136,13 +145,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SortToolbarItemView.setupView():SortToolbarItemView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaToolbar.deleteItems():MediaToolbar.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaWindowController.handleSidebarButton(_:):MediaWindowController.swift">
+         contextName = "MediaQuickLook.init(sender:):MediaQuickLook.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "QLPreviewPanel.shared()">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "closure #1 in DragView.draggingEntered(_:):DragView.swift">
@@ -227,6 +235,17 @@
       </ContextState>
       <ContextState
          contextName = "MediaFactory.createVideo(from:):MediaFactory.swift">
+      </ContextState>
+      <ContextState
+         contextName = "KeyMonitoring.unsubscribeFromKeyEvents():KeyMonitoring.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaQuickLook.init(frame:):MediaQuickLook.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "window">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "MediaDetailViewController.goBack():MediaDetailViewController.swift">
