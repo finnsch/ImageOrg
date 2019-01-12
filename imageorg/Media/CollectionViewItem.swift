@@ -44,6 +44,12 @@ class CollectionViewItem: NSCollectionViewItem {
         }
     }
 
+    override var title: String? {
+        didSet {
+            titleTextField.stringValue = title ?? ""
+        }
+    }
+
     override var isSelected: Bool {
         didSet {
             guard let imageView = imageView as? CustomImageView else {

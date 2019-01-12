@@ -28,6 +28,14 @@
          contextName = "MediaDetailViewController.handleFavoriteButton(_:):MediaDetailViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "closure #1 in MediaGridViewController.loadMedia(at:):MediaGridViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.mediaStore.mediaItems">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in MediaSplitViewController.viewDidAppear():MediaSplitViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -47,10 +55,10 @@
          contextName = "MediaDetailViewController.viewDidLoad():MediaDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "view.window">
+               value = "media.isFavorite">
             </PersistentString>
             <PersistentString
-               value = "media.isFavorite">
+               value = "view.window">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -114,6 +122,14 @@
          contextName = "MediaGalleryToolbar.init(identifier:):MediaGalleryToolbar.swift">
       </ContextState>
       <ContextState
+         contextName = "MediaQuickLook.init(sender:):MediaQuickLook.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "QLPreviewPanel.shared()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MediaImporter.getContentsOfPaths():MediaImporter.swift">
       </ContextState>
       <ContextState
@@ -141,14 +157,6 @@
             </PersistentString>
             <PersistentString
                value = "media.modificationDate">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MediaQuickLook.init(sender:):MediaQuickLook.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "QLPreviewPanel.shared()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -246,6 +254,12 @@
                value = "window">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.importMedia(filePaths:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.loadMedia(at:):MediaGridViewController.swift">
       </ContextState>
       <ContextState
          contextName = "MediaDetailViewController.goBack():MediaDetailViewController.swift">

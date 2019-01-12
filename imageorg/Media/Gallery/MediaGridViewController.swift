@@ -54,6 +54,10 @@ class MediaGridViewController: MediaViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.sortOrderMenu.customDelegate = self
+        collectionView.register(
+            CollectionViewItem.self,
+            forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem")
+        )
     }
 
     private func setupDragView() {
@@ -82,58 +86,67 @@ class MediaGridViewController: MediaViewController {
                                                         navigationController: navigationController)
     }
 
-    func loadMedia() {
-        collectionView.isHidden = true
-        progressIndicator.isHidden = false
-        progressIndicator.startAnimation(self)
-
-        if mediaStore.numberOfItems > 0 {
-            mediaStore.mediaItems = []
-            collectionView.reloadData()
-        }
-
-        // Execute block on a background thread with a high priority
-        DispatchQueue.global(qos: .userInitiated).async {
-            let mediaCoreDataService = MediaCoreDataService()
-            self.mediaStore.mediaItems = mediaCoreDataService.getMediaItems()
-            self.reloadCollectionView()
-        }
-    }
-
-    func reloadCollectionView() {
-        DispatchQueue.global().async {
-            DispatchQueue.main.sync {
-                self.collectionView.reloadData()
-            }
-
-            // Executes after collectionView has been layouted
-            DispatchQueue.main.async {
-                self.collectionView.isHidden = false
-                // Scroll to the top
-                self.collectionView.scroll(NSPoint.zero)
-                self.progressIndicator.isHidden = true
-                self.progressIndicator.stopAnimation(self)
-            }
-        }
-    }
-
     func importMedia(filePaths: [String]) {
         let mediaFactory = MediaFactory()
         let mediaImporter = MediaLocalFileImporter(filePaths: filePaths, mediaFactory: mediaFactory)
-        let _ = mediaImporter.importMedia()
+        let importedMedia = mediaImporter.importMedia()
 
         if let errorDescription = mediaImporter.errorDescription {
             showErrorAlert(with: errorDescription)
             return
         }
 
-        loadMedia()
+        let indexPaths = createIndexPathsToInsertItemsAtTheFront(for: importedMedia)
+        loadMedia(at: indexPaths)
     }
 
-    func showErrorAlert(with errorText: String) {
+    private func showErrorAlert(with errorText: String) {
         let alert = NSAlert()
         alert.messageText = errorText
         alert.beginSheetModal(for: view.window!, completionHandler: nil)
+    }
+
+    private func createIndexPathsToInsertItemsAtTheFront<Item>(for items: [Item]) -> Set<IndexPath> {
+        let indexPaths = items.enumerated().map({ (index, _) -> IndexPath in
+            return IndexPath(item: index, section: 0)
+        })
+
+        return Set(indexPaths)
+    }
+
+    func loadMedia(at indexPaths: Set<IndexPath>? = nil) {
+        enableLoadingState()
+
+        let mediaCoreDataService = MediaCoreDataService()
+        self.mediaStore.mediaItems = mediaCoreDataService.getMediaItems()
+        self.updateCollectionView(at: indexPaths)
+
+        // Executes after collectionView has been layouted
+        DispatchQueue.main.async {
+            self.disableLoadingState()
+            // Scroll to the top
+            self.collectionView.scroll(NSPoint.zero)
+        }
+    }
+
+    func updateCollectionView(at indexPaths: Set<IndexPath>? = nil) {
+        if let indexPaths = indexPaths {
+            self.collectionView.insertItems(at: indexPaths)
+        } else {
+            self.collectionView.reloadData()
+        }
+    }
+
+    private func enableLoadingState() {
+        collectionView.isHidden = true
+        progressIndicator.isHidden = false
+        progressIndicator.startAnimation(self)
+    }
+
+    private func disableLoadingState() {
+        self.collectionView.isHidden = false
+        self.progressIndicator.isHidden = true
+        self.progressIndicator.stopAnimation(self)
     }
 
     func quickLook() {
@@ -156,7 +169,7 @@ extension MediaGridViewController: SortOrderMenuDelegate {
 
     func didSelect(sortOrder: SortOrder) {
         mediaStore.sortItems(by: sortOrder)
-        reloadCollectionView()
+        updateCollectionView()
     }
 }
 

@@ -5,7 +5,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="CollectionViewItem" customModule="imageorg" customModuleProvider="target">
+            <connections>
+                <outlet property="dateTextField" destination="drc-3w-LoI" id="p58-2w-aIf"/>
+                <outlet property="heartView" destination="pl8-dl-jtd" id="Pj4-tH-yOh"/>
+                <outlet property="imageView" destination="dkN-hX-p4d" id="GqE-od-vyj"/>
+                <outlet property="titleTextField" destination="lvF-st-OAu" id="lSo-bq-dv4"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="TJ3-rH-gBG"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY" customClass="NoClippingView" customModule="imageorg" customModuleProvider="target">
@@ -23,9 +31,6 @@
                         <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
-                    <connections>
-                        <binding destination="8QM-IY-zoC" name="value" keyPath="self.dateString" id="Ccd-Nq-XIM"/>
-                    </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lvF-st-OAu">
                     <rect key="frame" x="-2" y="18" width="484" height="17"/>
@@ -34,9 +39,6 @@
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
-                    <connections>
-                        <binding destination="8QM-IY-zoC" name="value" keyPath="self.title" id="5Is-la-bix"/>
-                    </connections>
                 </textField>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="pl8-dl-jtd" customClass="HeartView" customModule="imageorg" customModuleProvider="target">
                     <rect key="frame" x="450" y="237" width="40" height="25"/>
@@ -61,15 +63,7 @@
                 <constraint firstItem="drc-3w-LoI" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="dTB-96-XFW"/>
             </constraints>
         </customView>
-        <collectionViewItem id="8QM-IY-zoC" customClass="CollectionViewItem" customModule="imageorg" customModuleProvider="target">
-            <connections>
-                <outlet property="dateTextField" destination="drc-3w-LoI" id="CjB-O6-QPN"/>
-                <outlet property="heartView" destination="pl8-dl-jtd" id="AO7-tf-oKY"/>
-                <outlet property="imageView" destination="dkN-hX-p4d" id="qTy-K2-T4n"/>
-                <outlet property="titleTextField" destination="lvF-st-OAu" id="2ZF-zN-X52"/>
-                <outlet property="view" destination="Hz6-mo-xeY" id="2Ze-DR-AGg"/>
-            </connections>
-        </collectionViewItem>
+        <collectionViewItem id="8QM-IY-zoC" customClass="CollectionViewItem" customModule="imageorg" customModuleProvider="target"/>
         <userDefaultsController representsSharedInstance="YES" id="pTA-03-xoQ"/>
     </objects>
 </document>
