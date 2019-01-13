@@ -18,6 +18,10 @@ class MediaSplitViewController: NSSplitViewController {
         return splitViewItems.last?.viewController
     }
 
+    var isSidebarEnabled: Bool {
+        return UserDefaults.standard.bool(forKey: UserDefaultKey.isSidebarEnabled.rawValue)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,8 +32,19 @@ class MediaSplitViewController: NSSplitViewController {
     override func viewDidAppear() {
         super.viewDidAppear()
 
+        if isSidebarEnabled {
+            showSidebar()
+        } else {
+            collapseSidebar()
+        }
+
         mediaWindowController?.toggleSidebar = { [weak self] in
-            self?.toggleSidebar(nil)
+            guard let strongSelf = self else {
+                return
+            }
+
+            UserDefaults.standard.set(!strongSelf.isSidebarEnabled, forKey: UserDefaultKey.isSidebarEnabled.rawValue)
+            strongSelf.toggleSidebar(nil)
         }
     }
 

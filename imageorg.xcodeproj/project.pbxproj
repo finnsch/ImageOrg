@@ -57,6 +57,7 @@
 		B696714521D7AEA10083CE9E /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696714421D7AEA10083CE9E /* NSImage+Extensions.swift */; };
 		B696714721D7B9350083CE9E /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696714621D7B9350083CE9E /* LocalFileManager.swift */; };
 		B696714921D91F3F0083CE9E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696714821D91F3F0083CE9E /* Configuration.swift */; };
+		B698068221EBC47C00D32D78 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698068121EBC47C00D32D78 /* UserDefaultKey.swift */; };
 		B699FFB721D65FDD00606792 /* MediaLocalFileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFB621D65FDD00606792 /* MediaLocalFileImporter.swift */; };
 		B699FFB921D6602200606792 /* MediaImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFB821D6602200606792 /* MediaImporterTests.swift */; };
 		B699FFBC21D663E100606792 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFBB21D663E100606792 /* Utilities.swift */; };
@@ -155,6 +156,7 @@
 		B696714421D7AEA10083CE9E /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 		B696714621D7B9350083CE9E /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		B696714821D91F3F0083CE9E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		B698068121EBC47C00D32D78 /* UserDefaultKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
 		B699FFB621D65FDD00606792 /* MediaLocalFileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLocalFileImporter.swift; sourceTree = "<group>"; };
 		B699FFB821D6602200606792 /* MediaImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImporterTests.swift; sourceTree = "<group>"; };
 		B699FFBB21D663E100606792 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				B6676BBF2180CE9B009603E1 /* Protocols */,
 				B6676BBD2180CE11009603E1 /* Views */,
 				B696714821D91F3F0083CE9E /* Configuration.swift */,
+				B698068121EBC47C00D32D78 /* UserDefaultKey.swift */,
 				B6B6DF8721E29C2500322F79 /* Result.swift */,
 				B6180028217CC508003DCFE7 /* AppDelegate.swift */,
 				B618002C217CC50A003DCFE7 /* Assets.xcassets */,
@@ -620,6 +623,7 @@
 				B6CA70D921E778350084CCF9 /* MediaToolbar.swift in Sources */,
 				B6B6DF8A21E29CA800322F79 /* MediaImportError.swift in Sources */,
 				B6CA70DB21E79A3C0084CCF9 /* ButtonCellWithPadding.swift in Sources */,
+				B698068221EBC47C00D32D78 /* UserDefaultKey.swift in Sources */,
 				B671D22321EA9774009DBE11 /* MediaCollectionViewContextMenu.swift in Sources */,
 				B6E1FD8921E69C4F00FA7C6C /* FavoriteButton.swift in Sources */,
 				B62A252A217F8C5D00A098AD /* String+isValidURL.swift in Sources */,
