@@ -11,7 +11,7 @@ import Cocoa
 class ImageThumbnailFactory: ThumbnailFactory {
 
     static var size = NSSize(width: 460, height: 360)
-    static var quality: Float = 1.0
+    static var quality: Float = 0.7
 
     var localFileManager = LocalFileManager()
     var thumbnailCoreDataService = ThumbnailCoreDataService()

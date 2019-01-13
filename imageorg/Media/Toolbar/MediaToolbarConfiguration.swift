@@ -27,24 +27,69 @@ class MediaGalleryToolbarConfiguration: MediaToolbarConfiguration {
 
 class MediaDetailToolbarConfiguration: MediaToolbarConfiguration {
 
-    init(toolbar: NSToolbar, isFavorite: Bool) {
+    var isFavorite: Bool
+    var isImage: Bool
+    var currentIndex: Int = 0
+
+    init(toolbar: NSToolbar, isFavorite: Bool, isImage: Bool) {
+        self.isFavorite = isFavorite
+        self.isImage = isImage
+
         super.init()
 
-        var favoriteItem = MediaToolbarItem(index: 3, identifier: "IsNotFavoriteToolbarItem")
-
-        if isFavorite {
-            favoriteItem = MediaToolbarItem(index: 3, identifier: "IsFavoriteToolbarItem")
-        }
-
         items = [
+            createOuterLeftItems(),
+            createFavoriteItem(),
+            createZoomItems(),
+            createOuterRightItems()
+        ].flatMap({ $0 })
+    }
+
+    func createOuterLeftItems() -> [MediaToolbarItem] {
+        currentIndex = 3
+
+        return [
             MediaToolbarItem(index: 0, identifier: "GoBackToolbarItem"),
             MediaToolbarItem(index: 1, identifier: NSToolbarItem.Identifier.flexibleSpace.rawValue),
-            MediaToolbarItem(index: 2, identifier: "DeleteToolbarItem"),
-            favoriteItem,
-            MediaToolbarItem(index: 4, identifier: "ZoomInToolbarItem"),
-            MediaToolbarItem(index: 5, identifier: "ZoomOutToolbarItem"),
-            MediaToolbarItem(index: 6, identifier: NSToolbarItem.Identifier.flexibleSpace.rawValue),
-            MediaToolbarItem(index: 7, identifier: "SidebarToolbarItem")
+            MediaToolbarItem(index: 2, identifier: "DeleteToolbarItem")
         ]
+    }
+
+    func createFavoriteItem() -> [MediaToolbarItem] {
+        var favoriteItem = MediaToolbarItem(index: currentIndex, identifier: "IsNotFavoriteToolbarItem")
+
+        if isFavorite {
+            favoriteItem = MediaToolbarItem(index: currentIndex, identifier: "IsFavoriteToolbarItem")
+        }
+
+        currentIndex = 4
+
+        return [favoriteItem]
+    }
+
+    func createZoomItems() -> [MediaToolbarItem] {
+        var zoomItems: [MediaToolbarItem] = []
+
+        if isImage {
+            zoomItems = [
+                MediaToolbarItem(index: currentIndex, identifier: "ZoomOutToolbarItem"),
+                MediaToolbarItem(index: currentIndex + 1, identifier: "ZoomInToolbarItem")
+            ]
+
+            currentIndex = 6
+        }
+
+        return zoomItems
+    }
+
+    func createOuterRightItems() -> [MediaToolbarItem] {
+        let items = [
+            MediaToolbarItem(index: currentIndex, identifier: NSToolbarItem.Identifier.flexibleSpace.rawValue),
+            MediaToolbarItem(index: currentIndex + 1, identifier: "SidebarToolbarItem")
+        ]
+
+        currentIndex = 8
+
+        return items
     }
 }

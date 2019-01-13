@@ -26,7 +26,7 @@ class MediaDetailCoordinator {
             return
         }
 
-        let configuration = MediaDetailToolbarConfiguration(toolbar: mediaToolbar, isFavorite: media.isFavorite)
+        let configuration = MediaDetailToolbarConfiguration(toolbar: mediaToolbar, isFavorite: media.isFavorite, isImage: media is Image)
         mediaToolbar.replaceItems(for: configuration)
     }
 

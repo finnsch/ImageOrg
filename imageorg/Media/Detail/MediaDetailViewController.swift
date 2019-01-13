@@ -130,17 +130,9 @@ class MediaDetailViewController: MediaViewController {
             return
         }
 
-        let mediaCoreDataService = MediaCoreDataService()
+        let mediaDestructor = MediaDestructor(mediaItems: [media])
+        mediaDestructor.delete()
 
-        do {
-            try media.deleteFromFileSystem()
-        } catch {
-            print("Could not delete media from file system.")
-            return
-        }
-
-        let _ = mediaStore.delete(media: media)
-        mediaCoreDataService.delete(media: media)
         navigationController?.popViewController(animated: false)
     }
 
@@ -152,7 +144,7 @@ class MediaDetailViewController: MediaViewController {
         media.isFavorite.toggle()
 
         if let mediaToolbar = mediaToolbar {
-            let configuration = MediaDetailToolbarConfiguration(toolbar: mediaToolbar, isFavorite: media.isFavorite)
+            let configuration = MediaDetailToolbarConfiguration(toolbar: mediaToolbar, isFavorite: media.isFavorite, isImage: media is Image)
             mediaToolbar.replaceItems(for: configuration)
         }
 

@@ -53,7 +53,8 @@ class MediaGridViewController: MediaViewController {
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.sortOrderMenu.customDelegate = self
+        collectionView.contextMenu.customDelegate = self
+        collectionView.contextMenu.sortOrderMenu.customDelegate = self
         collectionView.register(
             CollectionViewItem.self,
             forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem")
@@ -162,6 +163,19 @@ class MediaGridViewController: MediaViewController {
 
     func showDetail() {
         mediaDetailCoordinator.createAndShowMediaDetailView()
+    }
+}
+
+extension MediaGridViewController: ContextMenuDelegate {
+
+    func didSelect(item: ContextMenuItem) {
+        if item == .delete {
+            let selectionIndexes = collectionView.selectionIndexPaths.map { $0.item }
+            let mediaItems = mediaStore.getAll(at: selectionIndexes)
+            let mediaDestructor = MediaDestructor(mediaItems: mediaItems)
+            mediaDestructor.delete()
+            collectionView.deleteItems(at: collectionView.selectionIndexPaths)
+        }
     }
 }
 

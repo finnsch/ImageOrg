@@ -51,6 +51,9 @@
 		B6676BB82180B31C009603E1 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6676BB72180B31C009603E1 /* NibLoadable.swift */; };
 		B6676BC42180D7F5009603E1 /* FullscreenImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6676BC22180D7F5009603E1 /* FullscreenImageViewerViewController.swift */; };
 		B6676BC52180D7F5009603E1 /* FullscreenImageViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6676BC32180D7F5009603E1 /* FullscreenImageViewerViewController.xib */; };
+		B671D22121EA9735009DBE11 /* SortOrderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B671D22021EA9735009DBE11 /* SortOrderMenu.swift */; };
+		B671D22321EA9774009DBE11 /* MediaCollectionViewContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B671D22221EA9774009DBE11 /* MediaCollectionViewContextMenu.swift */; };
+		B671D22521EA9CED009DBE11 /* MediaDestructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B671D22421EA9CED009DBE11 /* MediaDestructor.swift */; };
 		B696714521D7AEA10083CE9E /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696714421D7AEA10083CE9E /* NSImage+Extensions.swift */; };
 		B696714721D7B9350083CE9E /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696714621D7B9350083CE9E /* LocalFileManager.swift */; };
 		B696714921D91F3F0083CE9E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696714821D91F3F0083CE9E /* Configuration.swift */; };
@@ -146,6 +149,9 @@
 		B6676BB72180B31C009603E1 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		B6676BC22180D7F5009603E1 /* FullscreenImageViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewerViewController.swift; sourceTree = "<group>"; };
 		B6676BC32180D7F5009603E1 /* FullscreenImageViewerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullscreenImageViewerViewController.xib; sourceTree = "<group>"; };
+		B671D22021EA9735009DBE11 /* SortOrderMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrderMenu.swift; sourceTree = "<group>"; };
+		B671D22221EA9774009DBE11 /* MediaCollectionViewContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewContextMenu.swift; sourceTree = "<group>"; };
+		B671D22421EA9CED009DBE11 /* MediaDestructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDestructor.swift; sourceTree = "<group>"; };
 		B696714421D7AEA10083CE9E /* NSImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 		B696714621D7B9350083CE9E /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		B696714821D91F3F0083CE9E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -337,11 +343,13 @@
 				B62006B321E7BCF1000522B5 /* Toolbar */,
 				B631470321E22D3900D50360 /* MimeType.swift */,
 				B6AF5E5621E530C500625817 /* MediaStore.swift */,
+				B671D22421EA9CED009DBE11 /* MediaDestructor.swift */,
 				B618005A217E7F4E003DCFE7 /* MediaWindowController.swift */,
 				B6180054217D0B56003DCFE7 /* MediaSplitViewController.swift */,
 				B618004E217D0592003DCFE7 /* MediaSidebarViewController.swift */,
 				B6AF5E5421E3DB3B00625817 /* MediaViewController.swift */,
 				B64D91D221E6B0E800DDAB81 /* SortOrder.swift */,
+				B671D22021EA9735009DBE11 /* SortOrderMenu.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -354,6 +362,7 @@
 				B6676BB32180AB9F009603E1 /* DragView.swift */,
 				B6676BB52180B1BC009603E1 /* DragView.xib */,
 				B6E856D52184CF7A0092B146 /* MediaCollectionView.swift */,
+				B671D22221EA9774009DBE11 /* MediaCollectionViewContextMenu.swift */,
 				B6E1FD8821E69C4F00FA7C6C /* FavoriteButton.swift */,
 				B6CA70CA21E750BB0084CCF9 /* HeartView.swift */,
 				B6CA70CC21E750CA0084CCF9 /* HeartView.xib */,
@@ -551,6 +560,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6AF5E5521E3DB3B00625817 /* MediaViewController.swift in Sources */,
+				B671D22121EA9735009DBE11 /* SortOrderMenu.swift in Sources */,
 				B63146F621E22C1600D50360 /* CoreDataStack.swift in Sources */,
 				B6A869D3217F087400D5EE96 /* MediaDetailViewController.swift in Sources */,
 				B62A2528217F866200A098AD /* ClickableTextField.swift in Sources */,
@@ -580,6 +590,7 @@
 				B6676BB82180B31C009603E1 /* NibLoadable.swift in Sources */,
 				B6AF5E5721E530C500625817 /* MediaStore.swift in Sources */,
 				B62A2526217F834200A098AD /* NSMutableAttributedString+setAsLink.swift in Sources */,
+				B671D22521EA9CED009DBE11 /* MediaDestructor.swift in Sources */,
 				B631470121E22CC500D50360 /* Image+CoreDataClass.swift in Sources */,
 				B62A2522217F65BA00A098AD /* URL+Extensions.swift in Sources */,
 				B62A2524217F6F9F00A098AD /* Date+Extensions.swift in Sources */,
@@ -609,6 +620,7 @@
 				B6CA70D921E778350084CCF9 /* MediaToolbar.swift in Sources */,
 				B6B6DF8A21E29CA800322F79 /* MediaImportError.swift in Sources */,
 				B6CA70DB21E79A3C0084CCF9 /* ButtonCellWithPadding.swift in Sources */,
+				B671D22321EA9774009DBE11 /* MediaCollectionViewContextMenu.swift in Sources */,
 				B6E1FD8921E69C4F00FA7C6C /* FavoriteButton.swift in Sources */,
 				B62A252A217F8C5D00A098AD /* String+isValidURL.swift in Sources */,
 				B6C5ED0421E242A000B5B8BF /* Data+Extensions.swift in Sources */,

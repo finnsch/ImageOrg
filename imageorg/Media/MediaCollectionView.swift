@@ -10,27 +10,17 @@ import Cocoa
 
 class MediaCollectionView: NSCollectionView {
 
-    // The index of the item the user clicked.
-    var clickedItemIndex: Int = NSNotFound
-
-    var contextMenu: NSMenu {
-        return createContextMenu()
+    private var isSingleItemSelected: Bool {
+        return selectionIndexPaths.count == 1
     }
-    var sortOrderMenu = SortOrderMenu(title: "")
 
-    private func createContextMenu() -> NSMenu {
-        let contextMenu = NSMenu(title: "")
-        let sortItem = NSMenuItem(title: "Sort by", action: nil, keyEquivalent: "")
-
-        contextMenu.addItem(sortItem)
-        contextMenu.setSubmenu(sortOrderMenu, for: sortItem)
-
-        return contextMenu
+    private var areMultipleItemsSelected: Bool {
+        return selectionIndexPaths.count > 1
     }
+
+    lazy var contextMenu = MediaCollectionViewContextMenu(title: "")
 
     override func menu(for event: NSEvent) -> NSMenu? {
-        clickedItemIndex = NSNotFound
-
         let point = convert(event.locationInWindow, from:nil)
         let count = numberOfItems(inSection: 0)
 
@@ -39,11 +29,25 @@ class MediaCollectionView: NSCollectionView {
             let itemFrame = frameForItem(at: index)
             if NSMouseInRect(point, itemFrame, isFlipped)
             {
-                self.clickedItemIndex = index
+                selectItem(at: index)
                 break
             }
         }
 
         return contextMenu
+    }
+
+    private func selectItem(at index: Int) {
+        deselectPreviousSingleItem()
+        let indexPaths: Set<IndexPath> = [IndexPath(item: index, section: 0)]
+        selectItems(at: indexPaths, scrollPosition: .centeredHorizontally)
+    }
+
+    private func deselectPreviousSingleItem() {
+        guard isSingleItemSelected else {
+            return
+        }
+
+        deselectItems(at: selectionIndexPaths)
     }
 }

@@ -40,6 +40,18 @@ class MediaStore {
     }
     var sortOrder: SortOrder = .createdAt
 
+    func get(at index: Int) -> Media? {
+        guard mediaItems.count > index else {
+            return nil
+        }
+
+        return mediaItems[index]
+    }
+
+    func getAll(at indexes: [Int]) -> [Media] {
+        return indexes.compactMap(get)
+    }
+
     func update(media: Media) {
         guard let index = mediaItems.firstIndex(where: { $0 === media }) else {
             return
@@ -56,6 +68,14 @@ class MediaStore {
 
     func delete(media: Media) -> Bool {
         guard let index = mediaItems.firstIndex(where: { $0 === media }) else {
+            return false
+        }
+
+        return delete(at: index)
+    }
+
+    func delete(at index: Int) -> Bool {
+        guard let media = get(at: index) else {
             return false
         }
 

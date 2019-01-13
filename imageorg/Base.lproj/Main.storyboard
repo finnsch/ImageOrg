@@ -694,7 +694,7 @@
                                     <rect key="frame" x="1" y="1" width="448" height="298"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView selectable="YES" id="Ibs-hx-4gc" customClass="MediaCollectionView" customModule="imageorg" customModuleProvider="target">
+                                        <collectionView selectable="YES" allowsMultipleSelection="YES" id="Ibs-hx-4gc" customClass="MediaCollectionView" customModule="imageorg" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="448" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="Wrm-l3-UnM">
