@@ -20,8 +20,12 @@ protocol KeyboardMonitoring: class {
 extension KeyboardMonitoring {
 
     func subscribeToKeyboardEvents() {
-        keyDownMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: { event in
-            if self.handleKeyDown(with: event) {
+        keyDownMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: { [weak self] event in
+            guard let strongSelf = self else {
+                return nil
+            }
+
+            if strongSelf.handleKeyDown(with: event) {
                 return nil
             } else {
                 return event
