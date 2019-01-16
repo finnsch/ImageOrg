@@ -12,6 +12,8 @@ class MediaDetailViewController: MediaViewController {
 
     @IBOutlet weak var containerView: NSView!
 
+    private let dKey: UInt16 = 0x02
+    private let fKey: UInt16 = 0x03
     private let deleteKey: UInt16 = 0x33
     private let leftArrowKey: UInt16 = 0x7B
     private let rightArrowKey: UInt16 = 0x7C
@@ -189,6 +191,12 @@ extension MediaDetailViewController: KeyboardMonitoring {
             return true
         case rightArrowKey:
             mediaStore.selectNext()
+            return true
+        case dKey:
+            delete()
+            return true
+        case fKey:
+            toggleFavorite()
             return true
         default:
             return false
