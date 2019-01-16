@@ -78,7 +78,7 @@ class VideoViewerViewController: NSViewController {
             return
         }
         let secondsAhead = CMTime(seconds: currentTime.seconds + timeInSeconds, preferredTimescale: currentTime.timescale)
-        player?.seek(to: secondsAhead)
+        player?.seek(to: secondsAhead, toleranceBefore: .zero, toleranceAfter: .zero)
     }
 
     func play() {
