@@ -59,6 +59,7 @@
 		B696714921D91F3F0083CE9E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696714821D91F3F0083CE9E /* Configuration.swift */; };
 		B698068221EBC47C00D32D78 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698068121EBC47C00D32D78 /* UserDefaultKey.swift */; };
 		B698068421EF97EE00D32D78 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698068321EF97EE00D32D78 /* KeyCode.swift */; };
+		B698068721EF9E1100D32D78 /* DeletionConfirmationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698068621EF9E1100D32D78 /* DeletionConfirmationAlert.swift */; };
 		B699FFB721D65FDD00606792 /* MediaLocalFileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFB621D65FDD00606792 /* MediaLocalFileImporter.swift */; };
 		B699FFB921D6602200606792 /* MediaImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFB821D6602200606792 /* MediaImporterTests.swift */; };
 		B699FFBC21D663E100606792 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFBB21D663E100606792 /* Utilities.swift */; };
@@ -159,6 +160,7 @@
 		B696714821D91F3F0083CE9E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		B698068121EBC47C00D32D78 /* UserDefaultKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
 		B698068321EF97EE00D32D78 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
+		B698068621EF9E1100D32D78 /* DeletionConfirmationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletionConfirmationAlert.swift; sourceTree = "<group>"; };
 		B699FFB621D65FDD00606792 /* MediaLocalFileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLocalFileImporter.swift; sourceTree = "<group>"; };
 		B699FFB821D6602200606792 /* MediaImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImporterTests.swift; sourceTree = "<group>"; };
 		B699FFBB21D663E100606792 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 			children = (
 				B6180050217D05A4003DCFE7 /* MediaGridViewController.swift */,
 				B651F1A921E9153400B6D77D /* MediaQuickLook.swift */,
+				B698068621EF9E1100D32D78 /* DeletionConfirmationAlert.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				B696714521D7AEA10083CE9E /* NSImage+Extensions.swift in Sources */,
 				B6CA70D921E778350084CCF9 /* MediaToolbar.swift in Sources */,
 				B6B6DF8A21E29CA800322F79 /* MediaImportError.swift in Sources */,
+				B698068721EF9E1100D32D78 /* DeletionConfirmationAlert.swift in Sources */,
 				B698068421EF97EE00D32D78 /* KeyCode.swift in Sources */,
 				B6CA70DB21E79A3C0084CCF9 /* ButtonCellWithPadding.swift in Sources */,
 				B698068221EBC47C00D32D78 /* UserDefaultKey.swift in Sources */,

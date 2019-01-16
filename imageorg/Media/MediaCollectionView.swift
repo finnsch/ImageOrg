@@ -50,4 +50,20 @@ class MediaCollectionView: NSCollectionView {
 
         deselectItems(at: selectionIndexPaths)
     }
+
+    func showDeletionConfirmationAlert(completionHandler: @escaping () -> ()) {
+        guard areMultipleItemsSelected else {
+            completionHandler()
+            return
+        }
+
+        let alert = DeletionConfirmationAlert(numberOfItems: selectionIndexes.count)
+        alert.beginSheetModal(for: window!) { response in
+            guard response == .OK else {
+                return
+            }
+
+            completionHandler()
+        }
+    }
 }

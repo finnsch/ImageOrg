@@ -136,6 +136,14 @@ class MediaGridViewController: MediaViewController {
         self.progressIndicator.stopAnimation(self)
     }
 
+    func deleteMedia() {
+        let selectionIndexes = collectionView.selectionIndexPaths.map { $0.item }
+        let mediaItems = mediaStore.getAll(at: selectionIndexes)
+        let mediaDestructor = MediaDestructor(mediaItems: mediaItems)
+        mediaDestructor.delete()
+        collectionView.deleteItems(at: collectionView.selectionIndexPaths)
+    }
+
     func quickLook() {
         let mediaQuickLook = MediaQuickLook(frame: view.frame)
         view.addSubview(mediaQuickLook)
@@ -160,11 +168,9 @@ extension MediaGridViewController: ContextMenuDelegate {
 
     func didSelect(item: ContextMenuItem) {
         if item == .delete {
-            let selectionIndexes = collectionView.selectionIndexPaths.map { $0.item }
-            let mediaItems = mediaStore.getAll(at: selectionIndexes)
-            let mediaDestructor = MediaDestructor(mediaItems: mediaItems)
-            mediaDestructor.delete()
-            collectionView.deleteItems(at: collectionView.selectionIndexPaths)
+            collectionView.showDeletionConfirmationAlert {
+                self.deleteMedia()
+            }
         }
     }
 }
