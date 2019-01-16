@@ -20,9 +20,6 @@ class MediaGridViewController: MediaViewController {
         }
     }
 
-    private let space: UInt16 = 0x31
-    private let returnKey: UInt16 = 0x24
-
     var keyDownMonitor: Any!
     var mediaStore = MediaStore.shared
 
@@ -258,10 +255,10 @@ extension MediaGridViewController: KeyboardMonitoring {
             NSApplication.shared.keyWindow === locWindow,
             firstResponder is MediaCollectionView else { return false }
         switch event.keyCode {
-        case space where mediaStore.selectedMedia != nil:
+        case KeyCode.space where mediaStore.selectedMedia != nil:
             quickLook()
             return true
-        case returnKey where mediaStore.selectedMedia != nil:
+        case KeyCode.returnKey where mediaStore.selectedMedia != nil:
             showDetail()
             return true
         default:

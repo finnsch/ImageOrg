@@ -34,10 +34,6 @@ class VideoViewerViewController: NSViewController {
     var currentPlayerStatus: PlayerStatus = .playing
     var keyDownMonitor: Any!
     fileprivate var videoEndObserver: Any?
-    fileprivate let spaceKey: UInt16 = 0x31
-    fileprivate let jKey: UInt16 = 0x26
-    fileprivate let kKey: UInt16 = 0x28
-    fileprivate let lKey: UInt16 = 0x25
 
     @IBOutlet weak var playerView: AVPlayerView!
 
@@ -108,13 +104,13 @@ class VideoViewerViewController: NSViewController {
         guard let locWindow = self.view.window,
             NSApplication.shared.keyWindow === locWindow else { return false }
         switch event.keyCode {
-        case spaceKey, kKey:
+        case KeyCode.space, KeyCode.k:
             togglePlayerStatus()
             return true
-        case jKey:
+        case KeyCode.j:
             seek(timeInSeconds: -5.0)
             return true
-        case lKey:
+        case KeyCode.l:
             seek(timeInSeconds: 5.0)
             return true
         default:

@@ -12,12 +12,6 @@ class MediaDetailViewController: MediaViewController {
 
     @IBOutlet weak var containerView: NSView!
 
-    private let dKey: UInt16 = 0x02
-    private let fKey: UInt16 = 0x03
-    private let deleteKey: UInt16 = 0x33
-    private let leftArrowKey: UInt16 = 0x7B
-    private let rightArrowKey: UInt16 = 0x7C
-
     var keyDownMonitor: Any!
     var imageViewerViewController: ImageViewerViewController?
     var videoViewerViewController: VideoViewerViewController?
@@ -183,19 +177,19 @@ extension MediaDetailViewController: KeyboardMonitoring {
         guard let locWindow = self.view.window,
             NSApplication.shared.keyWindow === locWindow else { return false }
         switch event.keyCode {
-        case deleteKey:
+        case KeyCode.delete:
             navigationController?.popViewController(animated: false)
             return true
-        case leftArrowKey:
+        case KeyCode.leftArrow:
             mediaStore.selectPrevious()
             return true
-        case rightArrowKey:
+        case KeyCode.rightArrow:
             mediaStore.selectNext()
             return true
-        case dKey:
+        case KeyCode.d:
             delete()
             return true
-        case fKey:
+        case KeyCode.f:
             toggleFavorite()
             return true
         default:
