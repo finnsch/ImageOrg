@@ -61,13 +61,11 @@ class MediaSidebarViewController: MediaViewController {
             return
         }
 
-        // bytes to kilobytes
-        let fileSize = Int(media.fileSize / 1000)
         let filePath = media.originalFilePath
 
         fileNameTextField.toolTip = media.name
         fileNameTextField.stringValue = media.name
-        fileSizeTextField.stringValue = "\(fileSize) KB"
+        fileSizeTextField.stringValue = media.fileSizeString
         fileTypeTextField.stringValue = media.mimeType
 
         let filePathParagraphStyle = NSMutableParagraphStyle()
