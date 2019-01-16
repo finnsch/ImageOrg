@@ -27,16 +27,16 @@ class MediaSplitViewController: NSSplitViewController {
 
         mainViewController?.navigationController = navigationController
         sidebarViewController?.navigationController = navigationController
-    }
-
-    override func viewDidAppear() {
-        super.viewDidAppear()
 
         if isSidebarEnabled {
             showSidebar()
         } else {
             collapseSidebar()
         }
+    }
+
+    override func viewDidAppear() {
+        super.viewDidAppear()
 
         mediaWindowController?.toggleSidebar = { [weak self] in
             guard let strongSelf = self else {

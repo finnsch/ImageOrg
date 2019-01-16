@@ -769,8 +769,8 @@
             <objects>
                 <splitViewController storyboardIdentifier="MediaDetailSplitViewController" id="5Ue-GO-gFj" userLabel="Media Detail Split View Controller" customClass="MediaSplitViewController" customModule="imageorg" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
-                        <splitViewItem id="IXZ-O6-5KM"/>
-                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="gkj-aw-mJW"/>
+                        <splitViewItem id="8E7-2M-TgA"/>
+                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="7Iz-1r-Mvj"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="i0f-U6-w0G">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -781,13 +781,13 @@
                     </splitView>
                     <connections>
                         <outlet property="splitView" destination="i0f-U6-w0G" id="BPh-la-k6Y"/>
-                        <segue destination="jSs-cX-BBe" kind="relationship" relationship="splitItems" id="2nJ-9n-tjM"/>
-                        <segue destination="I4U-QQ-QzH" kind="relationship" relationship="splitItems" id="zCY-54-SzV"/>
+                        <segue destination="jSs-cX-BBe" kind="relationship" relationship="splitItems" id="3uM-on-ffy"/>
+                        <segue destination="I4U-QQ-QzH" kind="relationship" relationship="splitItems" id="4B3-uZ-8Ew"/>
                     </connections>
                 </splitViewController>
                 <customObject id="HxO-qP-Cg0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-940" y="1441"/>
+            <point key="canvasLocation" x="-786" y="1463"/>
         </scene>
         <!--Media Sidebar View Controller-->
         <scene sceneID="UB4-8O-HiZ">
@@ -1065,7 +1065,34 @@
                 </viewController>
                 <customObject id="ke4-Nt-eg1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-83" y="1693"/>
+            <point key="canvasLocation" x="-42" y="1713"/>
+        </scene>
+        <!--Media Detail Container View Controller-->
+        <scene sceneID="wIa-3C-zIQ">
+            <objects>
+                <viewController storyboardIdentifier="MediaDetailContainerViewController" id="8fi-e9-7eH" customClass="MediaDetailContainerViewController" customModule="imageorg" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="Ed4-f0-TM1">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="1fy-WX-5mA">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1fy-WX-5mA" secondAttribute="trailing" id="UO2-kF-UXV"/>
+                            <constraint firstItem="1fy-WX-5mA" firstAttribute="leading" secondItem="Ed4-f0-TM1" secondAttribute="leading" id="ai0-qW-Ei2"/>
+                            <constraint firstItem="1fy-WX-5mA" firstAttribute="top" secondItem="Ed4-f0-TM1" secondAttribute="top" id="eO0-MH-Rw7"/>
+                            <constraint firstAttribute="bottom" secondItem="1fy-WX-5mA" secondAttribute="bottom" id="xat-K2-MNp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="1fy-WX-5mA" id="if1-ef-hlo"/>
+                    </connections>
+                </viewController>
+                <customObject id="fRj-Yv-U4g" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1347" y="1463"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -1365,6 +1392,6 @@
         <image name="TrashIcon" width="15" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hUI-JH-O8R"/>
+        <segue reference="4B3-uZ-8Ew"/>
     </inferredMetricsTieBreakers>
 </document>

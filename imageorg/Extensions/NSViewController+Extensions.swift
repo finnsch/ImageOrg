@@ -34,6 +34,10 @@ extension NSViewController {
 extension NSViewController {
 
     public func embedChildViewController(_ vc: NSViewController, container: NSView? = nil) {
+        if let navigationController = self.navigationController {
+            vc.navigationController = navigationController
+        }
+
         addChild(vc)
         vc.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         vc.view.autoresizingMask = [.height, .width]

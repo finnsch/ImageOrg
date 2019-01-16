@@ -21,7 +21,7 @@
 		B618005C217E7F4E003DCFE7 /* MediaWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618005A217E7F4E003DCFE7 /* MediaWindowController.swift */; };
 		B62006B021E7BC7B000522B5 /* MediaToolbarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62006AF21E7BC7B000522B5 /* MediaToolbarConfiguration.swift */; };
 		B62006B221E7BCE4000522B5 /* MediaToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62006B121E7BCE4000522B5 /* MediaToolbarItem.swift */; };
-		B62006B521E90B2C000522B5 /* MediaDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62006B421E90B2C000522B5 /* MediaDetailCoordinator.swift */; };
+		B62006B521E90B2C000522B5 /* MediaDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62006B421E90B2C000522B5 /* MediaDetailContainerViewController.swift */; };
 		B62A251B217F55F700A098AD /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2519217F55F700A098AD /* ImageViewerViewController.swift */; };
 		B62A251C217F55F700A098AD /* ImageViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62A251A217F55F700A098AD /* ImageViewerViewController.xib */; };
 		B62A251F217F5D2000A098AD /* VideoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A251D217F5D2000A098AD /* VideoViewerViewController.swift */; };
@@ -120,7 +120,7 @@
 		B618005A217E7F4E003DCFE7 /* MediaWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowController.swift; sourceTree = "<group>"; };
 		B62006AF21E7BC7B000522B5 /* MediaToolbarConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaToolbarConfiguration.swift; sourceTree = "<group>"; };
 		B62006B121E7BCE4000522B5 /* MediaToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaToolbarItem.swift; sourceTree = "<group>"; };
-		B62006B421E90B2C000522B5 /* MediaDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailCoordinator.swift; sourceTree = "<group>"; };
+		B62006B421E90B2C000522B5 /* MediaDetailContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailContainerViewController.swift; sourceTree = "<group>"; };
 		B62A2519217F55F700A098AD /* ImageViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
 		B62A251A217F55F700A098AD /* ImageViewerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewerViewController.xib; sourceTree = "<group>"; };
 		B62A251D217F5D2000A098AD /* VideoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewerViewController.swift; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				B6A869D2217F087400D5EE96 /* MediaDetailViewController.swift */,
-				B62006B421E90B2C000522B5 /* MediaDetailCoordinator.swift */,
+				B62006B421E90B2C000522B5 /* MediaDetailContainerViewController.swift */,
 				B62A2519217F55F700A098AD /* ImageViewerViewController.swift */,
 				B62A251A217F55F700A098AD /* ImageViewerViewController.xib */,
 				B62A251D217F5D2000A098AD /* VideoViewerViewController.swift */,
@@ -607,7 +607,7 @@
 				B6180051217D05A5003DCFE7 /* MediaGridViewController.swift in Sources */,
 				B63146FD21E22CC500D50360 /* Media+CoreDataClass.swift in Sources */,
 				B631470421E22D3900D50360 /* MimeType.swift in Sources */,
-				B62006B521E90B2C000522B5 /* MediaDetailCoordinator.swift in Sources */,
+				B62006B521E90B2C000522B5 /* MediaDetailContainerViewController.swift in Sources */,
 				B618004C217D00AF003DCFE7 /* CollectionViewItem.swift in Sources */,
 				B6A869D9217F0C5D00D5EE96 /* NSViewController+Extensions.swift in Sources */,
 				B6C5ECF821E238D700B5B8BF /* ImageThumbnailFactory.swift in Sources */,

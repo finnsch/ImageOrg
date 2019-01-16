@@ -25,7 +25,6 @@ class MediaGridViewController: MediaViewController {
 
     var keyDownMonitor: Any!
     var mediaStore = MediaStore.shared
-    var mediaDetailCoordinator: MediaDetailCoordinator!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +41,6 @@ class MediaGridViewController: MediaViewController {
 
         view.window?.makeFirstResponder(collectionView)
 
-        setupMediaDetailCoordinator()
         subscribeToKeyboardEvents()
     }
 
@@ -76,15 +74,6 @@ class MediaGridViewController: MediaViewController {
             dragView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             dragView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         ])
-    }
-
-    private func setupMediaDetailCoordinator() {
-        guard mediaDetailCoordinator == nil else {
-            return
-        }
-
-        mediaDetailCoordinator = MediaDetailCoordinator(mediaToolbar: mediaToolbar,
-                                                        navigationController: navigationController)
     }
 
     func importMedia(filePaths: [String]) {
@@ -162,7 +151,11 @@ class MediaGridViewController: MediaViewController {
     }
 
     func showDetail() {
-        mediaDetailCoordinator.createAndShowMediaDetailView()
+        guard let mediaDetailContainerViewController = NSStoryboard.main?.instantiateController(withIdentifier: "MediaDetailContainerViewController") as? MediaDetailContainerViewController else {
+            return
+        }
+
+        navigationController?.pushViewController(mediaDetailContainerViewController, animated: false)
     }
 }
 

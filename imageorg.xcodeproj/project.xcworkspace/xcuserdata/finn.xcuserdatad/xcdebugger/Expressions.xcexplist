@@ -3,37 +3,140 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "MediaGridViewController.viewDidAppear():MediaGridViewController.swift">
+         contextName = "closure #1 in MediaToolbar.deleteItemsForCurrentConfig():MediaToolbar.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.didSelect(item:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaImporter.getContentsOfPaths():MediaImporter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.myKeyDown(with:):MediaGridViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "view.window">
+               value = "firstResponder">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MediaCoreDataService.getMediaItems():MediaCoreDataService.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaFactory.createImage(from:):MediaFactory.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "image.isValid">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MediaWindowController.toolbar(_:itemForItemIdentifier:willBeInsertedIntoToolbar:):MediaWindowController.swift">
       </ContextState>
       <ContextState
          contextName = "MediaDetailViewController.handleFavoriteButton(_:):MediaDetailViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "closure #1 in MediaGridViewController.loadMedia(at:):MediaGridViewController.swift">
+         contextName = "ImageViewerViewController.setupImageView():ImageViewerViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.mediaStore.mediaItems">
+               value = "image?.originalImage.isValid">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.importMedia(filePaths:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SortToolbarItemView.setupView():SortToolbarItemView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaDetailContainerViewController.createAndShowMediaDetailView():MediaDetailContainerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "KeyMonitoring.unsubscribeFromKeyEvents():KeyMonitoring.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaGalleryToolbar.init(identifier:):MediaGalleryToolbar.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaDetailViewController.goBack():MediaDetailViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(navigationController)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaQuickLook.init(frame:):MediaQuickLook.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "window">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DragView.draggingEntered(_:):DragView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaSidebarViewController.setupView():MediaSidebarViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "print(media)">
+            </PersistentString>
+            <PersistentString
+               value = "media.modificationDate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.didDelete(media:at:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.didDrag(filePaths:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Media.originalFileURL.getter:Media+CustomProperties.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "originalFilePath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.viewDidLoad():MediaGridViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaToolbar.deleteItems():MediaToolbar.swift">
+      </ContextState>
+      <ContextState
+         contextName = "FavoriteButton.updateImage():FavoriteButton.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaWindowController.handleGoBackButton(_:):MediaWindowController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController.topViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Media.init(url:):Media.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url.path">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaWindowController.handleSidebarButton(_:):MediaWindowController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static ObjCAssociation.value&lt;A&gt;(from:forKey:):NSViewController+Extensions.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "objc_getAssociatedObject(object, key)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DragView.performDragOperation(_:):DragView.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in MediaSplitViewController.viewDidAppear():MediaSplitViewController.swift">
@@ -44,10 +147,126 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MediaGridViewController.loadMedia(filePaths:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MediaGridViewController.loadMedia(filePaths:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaQuickLook.init(sender:):MediaQuickLook.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "QLPreviewPanel.shared()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DragView.draggingEntered(_:):DragView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaSplitViewController.viewDidLoad():MediaSplitViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NSNavigationController.popViewController(animated:):NSNavigationController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ImageViewerViewController.image.didset:ImageViewerViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "VideoViewerViewController.video.didset:VideoViewerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fileURL.path">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MediaGridViewController.loadMedia(at:):MediaGridViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.mediaStore.mediaItems">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FileAttributesParser.parse(url:):FileAttributesParser.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaImporter.getContentsOfDirectory(at:):MediaImporter.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaFactory.createImage(from:):MediaFactory.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "image.isValid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "VideoViewerViewController.seek(timeInSeconds:):VideoViewerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "secondsAhead.seconds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaCoreDataService.getMediaItems():MediaCoreDataService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaFactory.createVideo(from:):MediaFactory.swift">
+      </ContextState>
+      <ContextState
          contextName = "MediaDetailViewController.myKeyDown(with:):MediaDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "view.window?.firstResponder">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NSNavigationController.pushViewController(_:animated:):NSNavigationController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewController.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaToolbar.replaceItems(for:):MediaToolbar.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "visibleItems">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MediaToolbar.deleteItems():MediaToolbar.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MediaToolbar.replaceItems(for:):MediaToolbar.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.loadMedia(at:):MediaGridViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.showDetail():MediaGridViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mediaToolbar?.configuration">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaGridViewController.viewDidAppear():MediaGridViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.window">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -63,37 +282,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FavoriteButton.updateImage():FavoriteButton.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaGridViewController.didDrag(filePaths:):MediaGridViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaSidebarViewController.didChangeFileNameTextField(_:):MediaSidebarViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "FileAttributesParser.parse(url:):FileAttributesParser.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaWindowController.handleGoBackButton(_:):MediaWindowController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "navigationController.topViewController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MediaToolbar.replaceItems(for:):MediaToolbar.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "visibleItems">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in MediaGridViewController.loadMedia(filePaths:):MediaGridViewController.swift">
-      </ContextState>
-      <ContextState
          contextName = "MediaDetailViewController.setupVideoViewer():MediaDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -102,91 +290,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ImageViewerViewController.setupImageView():ImageViewerViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "image?.originalImage.isValid">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MediaGridViewController.didDelete(media:at:):MediaGridViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaWindowController.handleSidebarButton(_:):MediaWindowController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaImporter.getContentsOfDirectory(at:):MediaImporter.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaGalleryToolbar.init(identifier:):MediaGalleryToolbar.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaQuickLook.init(sender:):MediaQuickLook.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "QLPreviewPanel.shared()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MediaImporter.getContentsOfPaths():MediaImporter.swift">
-      </ContextState>
-      <ContextState
-         contextName = "DragView.performDragOperation(_:):DragView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaToolbar.deleteItems():MediaToolbar.swift">
-      </ContextState>
-      <ContextState
-         contextName = "SortToolbarItemView.setupView():SortToolbarItemView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaGridViewController.viewDidLoad():MediaGridViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "navigationController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MediaSidebarViewController.setupView():MediaSidebarViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "print(media)">
-            </PersistentString>
-            <PersistentString
-               value = "media.modificationDate">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in DragView.draggingEntered(_:):DragView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "ImageViewerViewController.image.didset:ImageViewerViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "DragView.draggingEntered(_:):DragView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaGridViewController.showDetail():MediaGridViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "mediaToolbar?.configuration">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Media.originalFileURL.getter:Media+CustomProperties.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "originalFilePath">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "URL.mimeType.getter:URL+mimeType.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in MediaWindowController.windowDidLoad():MediaWindowController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaToolbar.toggleGoBackToolbarItem():MediaToolbar.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaDetailContainerViewController.viewDidAppear():MediaDetailContainerViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaWindowController.toolbar(_:itemForItemIdentifier:willBeInsertedIntoToolbar:):MediaWindowController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MediaSidebarViewController.didChangeFileNameTextField(_:):MediaSidebarViewController.swift">
       </ContextState>
       <ContextState
          contextName = "static Media.== infix(_:_:):Media.swift">
@@ -200,72 +319,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Media.init(url:):Media.swift">
+         contextName = "NSViewController.embedChildViewController(_:container:):NSViewController+Extensions.swift">
          <PersistentStrings>
             <PersistentString
-               value = "url.path">
+               value = "vc.navigationController">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "VideoViewerViewController.video.didset:VideoViewerViewController.swift">
-         <PersistentStrings>
             <PersistentString
-               value = "fileURL.path">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "URL.mimeType.getter:URL+mimeType.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaGridViewController.loadMedia(filePaths:):MediaGridViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in MediaToolbar.deleteItemsForCurrentConfig():MediaToolbar.swift">
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in MediaToolbar.deleteItems():MediaToolbar.swift">
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in MediaToolbar.replaceItems(for:):MediaToolbar.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaGridViewController.myKeyDown(with:):MediaGridViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "firstResponder">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MediaToolbar.toggleGoBackToolbarItem():MediaToolbar.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaFactory.createVideo(from:):MediaFactory.swift">
-      </ContextState>
-      <ContextState
-         contextName = "KeyMonitoring.unsubscribeFromKeyEvents():KeyMonitoring.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaQuickLook.init(frame:):MediaQuickLook.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "window">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MediaGridViewController.importMedia(filePaths:):MediaGridViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaGridViewController.loadMedia(at:):MediaGridViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MediaDetailViewController.goBack():MediaDetailViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "view.window?.windowController">
+               value = "self.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
