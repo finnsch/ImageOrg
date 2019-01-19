@@ -60,6 +60,9 @@
 		B698068221EBC47C00D32D78 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698068121EBC47C00D32D78 /* UserDefaultKey.swift */; };
 		B698068421EF97EE00D32D78 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698068321EF97EE00D32D78 /* KeyCode.swift */; };
 		B698068721EF9E1100D32D78 /* DeletionConfirmationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698068621EF9E1100D32D78 /* DeletionConfirmationAlert.swift */; };
+		B698068921EFA56600D32D78 /* MediaImportAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698068821EFA56600D32D78 /* MediaImportAlert.swift */; };
+		B698068B21EFC38700D32D78 /* MediaImportProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698068A21EFC38700D32D78 /* MediaImportProgressView.swift */; };
+		B698068D21EFC39300D32D78 /* MediaImportProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B698068C21EFC39300D32D78 /* MediaImportProgressView.xib */; };
 		B699FFB721D65FDD00606792 /* MediaLocalFileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFB621D65FDD00606792 /* MediaLocalFileImporter.swift */; };
 		B699FFB921D6602200606792 /* MediaImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFB821D6602200606792 /* MediaImporterTests.swift */; };
 		B699FFBC21D663E100606792 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFBB21D663E100606792 /* Utilities.swift */; };
@@ -161,6 +164,9 @@
 		B698068121EBC47C00D32D78 /* UserDefaultKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
 		B698068321EF97EE00D32D78 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
 		B698068621EF9E1100D32D78 /* DeletionConfirmationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletionConfirmationAlert.swift; sourceTree = "<group>"; };
+		B698068821EFA56600D32D78 /* MediaImportAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImportAlert.swift; sourceTree = "<group>"; };
+		B698068A21EFC38700D32D78 /* MediaImportProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImportProgressView.swift; sourceTree = "<group>"; };
+		B698068C21EFC39300D32D78 /* MediaImportProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaImportProgressView.xib; sourceTree = "<group>"; };
 		B699FFB621D65FDD00606792 /* MediaLocalFileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLocalFileImporter.swift; sourceTree = "<group>"; };
 		B699FFB821D6602200606792 /* MediaImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImporterTests.swift; sourceTree = "<group>"; };
 		B699FFBB21D663E100606792 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -461,6 +467,9 @@
 				B6180050217D05A4003DCFE7 /* MediaGridViewController.swift */,
 				B651F1A921E9153400B6D77D /* MediaQuickLook.swift */,
 				B698068621EF9E1100D32D78 /* DeletionConfirmationAlert.swift */,
+				B698068821EFA56600D32D78 /* MediaImportAlert.swift */,
+				B698068A21EFC38700D32D78 /* MediaImportProgressView.swift */,
+				B698068C21EFC39300D32D78 /* MediaImportProgressView.xib */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -555,6 +564,7 @@
 				B6180030217CC50A003DCFE7 /* Main.storyboard in Resources */,
 				B6676BC52180D7F5009603E1 /* FullscreenImageViewerViewController.xib in Resources */,
 				B6676BB62180B1BC009603E1 /* DragView.xib in Resources */,
+				B698068D21EFC39300D32D78 /* MediaImportProgressView.xib in Resources */,
 				B62A251C217F55F700A098AD /* ImageViewerViewController.xib in Resources */,
 				B6CA70CD21E750CA0084CCF9 /* HeartView.xib in Resources */,
 				B618004D217D00AF003DCFE7 /* CollectionViewItem.xib in Resources */,
@@ -591,6 +601,7 @@
 				B63146F121E2295E00D50360 /* imageorg.xcdatamodeld in Sources */,
 				B696714921D91F3F0083CE9E /* Configuration.swift in Sources */,
 				B6C5ECF421E2381A00B5B8BF /* Thumbnail+CoreDataProperties.swift in Sources */,
+				B698068B21EFC38700D32D78 /* MediaImportProgressView.swift in Sources */,
 				B6CA70C921E7503D0084CCF9 /* NoClippingView.swift in Sources */,
 				B631470021E22CC500D50360 /* Video+CoreDataProperties.swift in Sources */,
 				B631470721E22DC200D50360 /* MediaCoreDataService.swift in Sources */,
@@ -636,6 +647,7 @@
 				B696714521D7AEA10083CE9E /* NSImage+Extensions.swift in Sources */,
 				B6CA70D921E778350084CCF9 /* MediaToolbar.swift in Sources */,
 				B6B6DF8A21E29CA800322F79 /* MediaImportError.swift in Sources */,
+				B698068921EFA56600D32D78 /* MediaImportAlert.swift in Sources */,
 				B698068721EF9E1100D32D78 /* DeletionConfirmationAlert.swift in Sources */,
 				B698068421EF97EE00D32D78 /* KeyCode.swift in Sources */,
 				B6CA70DB21E79A3C0084CCF9 /* ButtonCellWithPadding.swift in Sources */,

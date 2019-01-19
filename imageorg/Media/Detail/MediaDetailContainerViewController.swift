@@ -26,6 +26,12 @@ class MediaDetailContainerViewController: NSViewController {
         setupToolbar()
     }
 
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+
+        mediaStore.remove(delegate: self)
+    }
+
     func setupToolbar() {
         guard let mediaToolbar = mediaToolbar, let media = mediaStore.selectedMedia else {
             return

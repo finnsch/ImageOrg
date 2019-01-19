@@ -10,12 +10,15 @@ import Cocoa
 
 class MediaLocalFileImporter {
 
+    typealias CompletionHandler = (Result<[Media], MediaImportError>) -> ()
+
     private let localFileManager = LocalFileManager()
     private var filePaths: [String] = []
     private var fileURLs: [URL] = []
     private var media: [Media] = []
-    private var mediaFactory: MediaFactory
     private var importErrors: [MediaImportError] = []
+
+    var handleProgress: (() -> ())?
 
     var errorDescription: String? {
         guard importErrors.count > 0 else {
@@ -27,16 +30,13 @@ class MediaLocalFileImporter {
             .joined(separator: "\n")
     }
 
-    init(filePaths: [String], mediaFactory: MediaFactory) {
+    init(filePaths: [String]) {
         self.filePaths = filePaths
-        self.mediaFactory = mediaFactory
     }
 
-    func importMedia() -> [Media] {
+    func importMedia(completionHandler handler: @escaping CompletionHandler) {
         getContentsOfPaths()
-        createMedia()
-
-        return self.media
+        createMedia(completionHandler: handler)
     }
 
     private func getContentsOfPaths() {
@@ -50,15 +50,33 @@ class MediaLocalFileImporter {
         }
     }
 
-    private func createMedia() {
-        do {
-            self.media = try self.fileURLs.map({ url in
-                return try mediaFactory.createMedia(from: url)
+    private func createMedia(completionHandler handler: @escaping CompletionHandler) {
+        let dispatchGroup = DispatchGroup()
+
+        fileURLs.forEach({ url in
+            dispatchGroup.enter()
+
+            let mediaFactory = MediaFactory()
+            mediaFactory.createMedia(from: url, completionHandler: { result in
+                guard let media = result.value else {
+                    self.importErrors.append(result.error!)
+                    dispatchGroup.leave()
+
+                    return
+                }
+
+                self.updateProgress()
+                self.media.append(media)
+                dispatchGroup.leave()
             })
-        } catch let error as MediaImportError {
-            self.importErrors = [error]
-        } catch {
-            print(error)
+        })
+
+        dispatchGroup.notify(queue: .main) {
+            handler(.success(self.media))
         }
+    }
+
+    private func updateProgress() {
+        handleProgress?()
     }
 }

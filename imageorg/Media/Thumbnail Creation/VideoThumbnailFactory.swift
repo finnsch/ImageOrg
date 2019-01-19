@@ -17,20 +17,22 @@ class VideoThumbnailFactory: ThumbnailFactory {
     var localFileManager = LocalFileManager()
     var thumbnailCoreDataService = ThumbnailCoreDataService()
 
-    func createThumbnailImage(from filePath: String) -> NSImage? {
-        let asset = AVAsset(url: URL(fileURLWithPath: filePath))
-        let imageGenerator = AVAssetImageGenerator(asset: asset)
-        let time = CMTime(seconds: 1, preferredTimescale: 1)
-        var thumbnailImage: NSImage?
+    func createThumbnailImage(from filePath: String, completionHandler handler: @escaping (Result<NSImage, ThumbnailError>) -> ()) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let asset = AVAsset(url: URL(fileURLWithPath: filePath))
+            let imageGenerator = AVAssetImageGenerator(asset: asset)
+            let time = CMTime(seconds: 1, preferredTimescale: 1)
+            var thumbnailImage: NSImage?
 
-        do {
-            let imageRef = try imageGenerator.copyCGImage(at: time, actualTime: nil)
-            let frame = NSImage(cgImage: imageRef, size: NSZeroSize)
-            thumbnailImage = frame.resized(to: VideoThumbnailFactory.size)
-        } catch let error as NSError {
-            print(error)
+            do {
+                let imageRef = try imageGenerator.copyCGImage(at: time, actualTime: nil)
+                let frame = NSImage(cgImage: imageRef, size: NSZeroSize)
+                thumbnailImage = frame.resized(to: VideoThumbnailFactory.size)
+            } catch {
+                handler(.failure(.notCreated))
+            }
+
+            handler(.success(thumbnailImage!))
         }
-
-        return thumbnailImage
     }
 }

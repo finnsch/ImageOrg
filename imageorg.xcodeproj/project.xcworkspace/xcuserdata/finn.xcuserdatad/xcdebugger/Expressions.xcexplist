@@ -6,7 +6,15 @@
          contextName = "closure #1 in MediaToolbar.deleteItemsForCurrentConfig():MediaToolbar.swift">
       </ContextState>
       <ContextState
-         contextName = "MediaGridViewController.didSelect(item:):MediaGridViewController.swift">
+         contextName = "NSViewController.embedChildViewController(_:container:):NSViewController+Extensions.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "vc.navigationController">
+            </PersistentString>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "MediaImporter.getContentsOfPaths():MediaImporter.swift">
@@ -274,10 +282,10 @@
          contextName = "MediaDetailViewController.viewDidLoad():MediaDetailViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "media.isFavorite">
+               value = "view.window">
             </PersistentString>
             <PersistentString
-               value = "view.window">
+               value = "media.isFavorite">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -286,6 +294,14 @@
          <PersistentStrings>
             <PersistentString
                value = "media.filePath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MediaImportAlert.beginSheetModal(for:completionHandler:):MediaImportAlert.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "accessoryView?.window">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -319,15 +335,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NSViewController.embedChildViewController(_:container:):NSViewController+Extensions.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "vc.navigationController">
-            </PersistentString>
-            <PersistentString
-               value = "self.navigationController">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "MediaGridViewController.didSelect(item:):MediaGridViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

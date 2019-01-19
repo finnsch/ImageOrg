@@ -29,8 +29,7 @@ class MediaDestructor {
         do {
             try media.deleteFromFileSystem()
         } catch {
-            print("Could not delete media from file system.")
-            return
+            print("Could not delete media from file system: \(error)")
         }
 
         let _ = mediaStore.delete(media: media)

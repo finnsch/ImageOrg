@@ -15,3 +15,22 @@ enum Result<Value, Error: Swift.Error> {
     public typealias Success = Value
     public typealias Failure = Error
 }
+
+extension Result {
+
+    var value: Value? {
+        guard case .success(let value) = self else {
+            return nil
+        }
+
+        return value
+    }
+
+    var error: Error? {
+        guard case .failure(let error) = self else {
+            return nil
+        }
+
+        return error
+    }
+}

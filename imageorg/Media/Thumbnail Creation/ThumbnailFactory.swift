@@ -8,6 +8,10 @@
 
 import Cocoa
 
+enum ThumbnailError: Error {
+    case notCreated
+}
+
 protocol ThumbnailFactory {
 
     static var size: NSSize { get }
@@ -15,24 +19,28 @@ protocol ThumbnailFactory {
     var localFileManager: LocalFileManager { get set }
     var thumbnailCoreDataService: ThumbnailCoreDataService { get set }
 
-    func createThumbnail(from filePath: String, saveAt directoryPath: String) -> Thumbnail?
-    func createThumbnailImage(from filePath: String) -> NSImage?
+    func createThumbnail(from filePath: String, saveAt directoryPath: String, completionHandler handler: @escaping (Result<Thumbnail, ThumbnailError>) -> ())
+    func createThumbnailImage(from filePath: String, completionHandler handler: @escaping (Result<NSImage, ThumbnailError>) -> ())
     func persistThumbnail(image: NSImage, to directoryPath: String) -> String
 }
 
 extension ThumbnailFactory {
 
-    func createThumbnail(from filePath: String, saveAt directoryPath: String) -> Thumbnail? {
-        guard let image = createThumbnailImage(from: filePath) else {
-            return nil
+    func createThumbnail(from filePath: String, saveAt directoryPath: String, completionHandler handler: @escaping (Result<Thumbnail, ThumbnailError>) -> ()) {
+        createThumbnailImage(from: filePath) { result in
+            DispatchQueue.main.async {
+                guard let image = result.value else {
+                    return handler(.failure(result.error!))
+                }
+
+                let destinationFilePath = self.persistThumbnail(image: image, to: directoryPath)
+                let thumbnail = self.thumbnailCoreDataService.createThumbnail(filePath: destinationFilePath,
+                                                                         width: Float(image.size.width),
+                                                                         height: Float(image.size.height))
+
+                handler(.success(thumbnail))
+            }
         }
-
-        let destinationFilePath = persistThumbnail(image: image, to: directoryPath)
-        let thumbnail = thumbnailCoreDataService.createThumbnail(filePath: destinationFilePath,
-                                                                 width: Float(image.size.width),
-                                                                 height: Float(image.size.height))
-
-        return thumbnail
     }
 
     func persistThumbnail(image: NSImage, to directoryPath: String) -> String {

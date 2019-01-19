@@ -74,17 +74,33 @@ class MediaGridViewController: MediaViewController {
     }
 
     func importMedia(filePaths: [String]) {
-        let mediaFactory = MediaFactory()
-        let mediaImporter = MediaLocalFileImporter(filePaths: filePaths, mediaFactory: mediaFactory)
-        let importedMedia = mediaImporter.importMedia()
+        let alert = MediaImportAlert(totalItems: filePaths.count)
+        alert.beginSheetModal(for: view.window!)
 
-        if let errorDescription = mediaImporter.errorDescription {
-            showErrorAlert(with: errorDescription)
-            return
+        let mediaImporter = MediaLocalFileImporter(filePaths: filePaths)
+        mediaImporter.handleProgress = {
+            alert.updateProgress()
         }
 
-        let indexPaths = createIndexPathsToInsertItemsAtTheFront(for: importedMedia)
-        loadMedia(at: indexPaths)
+        mediaImporter.importMedia { [weak self] result in
+            guard let strongSelf = self else {
+                return
+            }
+
+            if let errorDescription = mediaImporter.errorDescription {
+                strongSelf.view.window?.endSheet(alert.window)
+                strongSelf.showErrorAlert(with: errorDescription)
+            }
+
+            guard let importedMedia = result.value else {
+                return
+            }
+
+            let indexPaths = strongSelf.createIndexPathsToInsertItemsAtTheFront(for: importedMedia)
+            strongSelf.loadMedia(at: indexPaths)
+
+            strongSelf.view.window?.endSheet(alert.window)
+        }
     }
 
     private func showErrorAlert(with errorText: String) {
@@ -233,6 +249,7 @@ extension MediaGridViewController: NSCollectionViewDataSource {
 extension MediaGridViewController: DragViewDelegate {
 
     func didDrag(filePaths: [String]) {
+        NSApp.activate(ignoringOtherApps: true)
         importMedia(filePaths: filePaths)
     }
 }

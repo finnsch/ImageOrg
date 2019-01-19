@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="MediaImportProgressView" id="c22-O7-iKe" customClass="MediaImportProgressView" customModule="imageorg" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="hRh-kX-FIv">
+                    <rect key="frame" x="0.0" y="5" width="453" height="20"/>
+                </progressIndicator>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hXt-Yf-syF">
+                    <rect key="frame" x="471" y="7" width="11" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="-" id="VnR-Ve-yDB">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="hXt-Yf-syF" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="Cmc-1g-FnE"/>
+                <constraint firstAttribute="trailing" secondItem="hXt-Yf-syF" secondAttribute="trailing" id="a6z-sU-YWT"/>
+                <constraint firstItem="hRh-kX-FIv" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="bt3-Hg-BJr"/>
+                <constraint firstItem="hXt-Yf-syF" firstAttribute="leading" secondItem="hRh-kX-FIv" secondAttribute="trailing" constant="20" id="itY-G4-03W"/>
+                <constraint firstItem="hRh-kX-FIv" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="nKh-GK-yMU"/>
+            </constraints>
+            <connections>
+                <outlet property="progressBar" destination="hRh-kX-FIv" id="kGW-Uf-SQu"/>
+                <outlet property="progressTextField" destination="hXt-Yf-syF" id="9Pq-Sd-v8Y"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="40"/>
+        </customView>
+    </objects>
+</document>

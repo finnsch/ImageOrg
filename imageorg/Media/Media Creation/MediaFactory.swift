@@ -9,6 +9,12 @@
 import Cocoa
 
 class MediaFactory {
+
+    enum MediaError: Error {
+        case notCreated
+    }
+
+    typealias CompletionHandler = (Result<Media, MediaImportError>) -> ()
     
     private var localFileManager = LocalFileManager()
     private var thumbnailFactory: ThumbnailFactory = ImageThumbnailFactory()
@@ -24,52 +30,75 @@ class MediaFactory {
         self.fileAttributesParser = fileAttributesParser
     }
 
-    func createMedia(from url: URL) throws -> Media {
+    func createMedia(from url: URL, completionHandler handler: @escaping CompletionHandler) {
         self.sourceFileURL = url
 
         if url.mimeType.isImage() {
-            thumbnailFactory = ImageThumbnailFactory()
-            return try createImage()
+            return createImage(completionHandler: handler)
         } else if url.mimeType.isVideo() {
-            thumbnailFactory = VideoThumbnailFactory()
-            return try createVideo()
+            return createVideo(completionHandler: handler)
         }
 
-        throw MediaImportError.typeNotSupported
+        handler(.failure(.typeNotSupported))
     }
 
-    private func createImage() throws -> Media {
+    private func createImage(completionHandler handler: @escaping CompletionHandler) {
         let image = NSImage(byReferencing: sourceFileURL)
+        var hashId: String!
+
+        thumbnailFactory = ImageThumbnailFactory()
 
         guard image.isValid else {
-            throw MediaImportError.imageInvalid
+            return handler(.failure(MediaImportError.imageInvalid))
         }
 
-        let hashId = try saveOnlyNewMedia()
-        let thumbnail = try createThumbnail()
+        do {
+            hashId = try self.saveOnlyNewMedia()
+        } catch let error as MediaImportError {
+            return handler(.failure(error))
+        } catch {}
 
-        let createdImage = mediaCoreDataService.createImage(
-            hashId: hashId, name: sourceFileAttributes.name, description: nil,
-            mimeType: sourceFileAttributes.mimeType, fileSize: sourceFileAttributes.size,
-            filePath: destinationFilePath, originalFilePath: sourceFileURL.path,
-            thumbnail: thumbnail
-        )
+        self.createThumbnail { result in
+            guard let thumbnail = result.value else {
+                return handler(.failure(result.error!))
+            }
 
-        return createdImage
+            let createdImage = self.mediaCoreDataService.createImage(
+                hashId: hashId, name: self.sourceFileAttributes.name, description: nil,
+                mimeType: self.sourceFileAttributes.mimeType, fileSize: self.sourceFileAttributes.size,
+                filePath: self.destinationFilePath, originalFilePath: self.sourceFileURL.path,
+                thumbnail: thumbnail
+            )
+
+            handler(.success(createdImage))
+        }
     }
 
-    private func createVideo() throws -> Media {
-        let hashId = try saveOnlyNewMedia()
-        let thumbnail = try createThumbnail()
+    private func createVideo(completionHandler handler: @escaping CompletionHandler) {
+        var hashId: String!
 
-        let createdVideo = mediaCoreDataService.createVideo(
-            hashId: hashId, name: sourceFileAttributes.name, description: nil,
-            mimeType: sourceFileAttributes.mimeType, fileSize: sourceFileAttributes.size,
-            filePath: destinationFilePath, originalFilePath: sourceFileURL.path,
-            thumbnail: thumbnail
-        )
+        thumbnailFactory = VideoThumbnailFactory()
 
-        return createdVideo
+        do {
+            hashId = try self.saveOnlyNewMedia()
+        } catch let error as MediaImportError {
+            return handler(.failure(error))
+        } catch {}
+
+        self.createThumbnail { result in
+            guard let thumbnail = result.value else {
+                return handler(.failure(result.error!))
+            }
+
+            let createdVideo = self.mediaCoreDataService.createVideo(
+                hashId: hashId, name: self.sourceFileAttributes.name, description: nil,
+                mimeType: self.sourceFileAttributes.mimeType, fileSize: self.sourceFileAttributes.size,
+                filePath: self.destinationFilePath, originalFilePath: self.sourceFileURL.path,
+                thumbnail: thumbnail
+            )
+
+            handler(.success(createdVideo))
+        }
     }
 
     private func saveOnlyNewMedia() throws -> String {
@@ -97,12 +126,15 @@ class MediaFactory {
         destinationFilePath = "\(destinationDirectoryPath!)original.\(sourceFileAttributes.fileExtension)"
     }
 
-    private func createThumbnail() throws -> Thumbnail {
-        guard let thumbnail = thumbnailFactory.createThumbnail(from: sourceFileURL.path, saveAt: destinationDirectoryPath) else {
-            throw MediaImportError.couldNotCreateThumbnail
-        }
+    private func createThumbnail(completionHandler handler: @escaping (Result<Thumbnail, MediaImportError>) -> ()) {
+        thumbnailFactory.createThumbnail(from: sourceFileURL.path, saveAt: destinationDirectoryPath) { result in
+            guard let thumbnail = result.value else {
+                handler(.failure(MediaImportError.couldNotCreateThumbnail))
+                return
+            }
 
-        return thumbnail
+            handler(.success(thumbnail))
+        }
     }
 
     private func readFile() -> Data? {
