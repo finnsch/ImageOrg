@@ -17,7 +17,7 @@ class MediaSidebarViewController: MediaViewController {
         }
     }
     @IBOutlet weak var fileSizeTextField: NSTextField!
-    @IBOutlet weak var fileTypeTextField: NSTextField!
+    @IBOutlet weak var fileTypeBadgeStackView: BadgeStackView!
     @IBOutlet weak var filePathTextField: ClickableTextField!
     @IBOutlet weak var whereFromStackView: NSStackView!
     @IBOutlet weak var whereFromUrlTextField: ClickableTextField!
@@ -66,7 +66,7 @@ class MediaSidebarViewController: MediaViewController {
         fileNameTextField.toolTip = media.name
         fileNameTextField.stringValue = media.name
         fileSizeTextField.stringValue = media.fileSizeString
-        fileTypeTextField.stringValue = media.mimeType
+        createFileTypeBadge()
 
         let filePathParagraphStyle = NSMutableParagraphStyle()
         filePathParagraphStyle.alignment = .right
@@ -100,13 +100,23 @@ class MediaSidebarViewController: MediaViewController {
         fileNameTextField.toolTip = nil
         fileNameTextField.stringValue = "-"
         fileSizeTextField.stringValue = "-"
-        fileTypeTextField.stringValue = "-"
+        fileTypeBadgeStackView.badges = []
         filePathTextField.toolTip = nil
         filePathTextField.attributedStringValue = NSAttributedString()
         whereFromUrlTextField.attributedStringValue = NSAttributedString()
         whereFromStackView.isHidden = false
         creationDateTextField.stringValue = "-"
         modificationDateTextField.stringValue = "-"
+    }
+
+    private func createFileTypeBadge() {
+        guard let media = mediaStore.selectedMedia, let mimeType = MimeType(rawValue: media.mimeType) else {
+            return
+        }
+
+        let badge = Badge(title: mimeType.shortDescription, color: mimeType.color)
+
+        fileTypeBadgeStackView.badges = [badge]
     }
 
     @objc func handleClick() {

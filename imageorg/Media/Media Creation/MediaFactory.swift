@@ -31,15 +31,17 @@ class MediaFactory {
     }
 
     func createMedia(from url: URL, completionHandler handler: @escaping CompletionHandler) {
-        self.sourceFileURL = url
-
-        if url.mimeType.isImage() {
-            return createImage(completionHandler: handler)
-        } else if url.mimeType.isVideo() {
-            return createVideo(completionHandler: handler)
+        guard let mimeType = MimeType(rawValue: url.mimeType) else {
+            return handler(.failure(.typeNotSupported))
         }
 
-        handler(.failure(.typeNotSupported))
+        self.sourceFileURL = url
+
+        if mimeType.isImage {
+            return createImage(completionHandler: handler)
+        } else if mimeType.isVideo {
+            return createVideo(completionHandler: handler)
+        }
     }
 
     private func createImage(completionHandler handler: @escaping CompletionHandler) {

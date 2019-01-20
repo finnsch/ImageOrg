@@ -6,26 +6,57 @@
 //  Copyright © 2019 Finn Schlenk. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 
-typealias MimeType = String
+enum MimeType: String {
+    case jpeg = "image/jpeg"
+    case jpg = "image/jpg"
+    case png = "image/png"
+    case gif = "image/gif"
+    case mp4 = "video/mp4"
 
-extension MimeType {
-    func isImage() -> Bool {
-        let imageTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif"]
-
-        return imageTypes.contains(self)
+    var isImage: Bool {
+        switch self {
+        case .jpeg, .jpg, .png:
+            return true
+        default:
+            return false
+        }
     }
 
-    func isAnimatableImage() -> Bool {
-        let imageTypes = ["image/gif"]
-
-        return imageTypes.contains(self)
+    var isAnimatableImage: Bool {
+        return self == .gif
     }
 
-    func isVideo() -> Bool {
-        let videoTypes = ["video/mp4"]
+    var isVideo: Bool {
+        return self == .mp4
+    }
 
-        return videoTypes.contains(self)
+    var shortDescription: String {
+        switch self {
+        case .jpeg:
+            return "jpeg"
+        case .jpg:
+            return "jpg"
+        case .png:
+            return "png"
+        case .gif:
+            return "gif"
+        case .mp4:
+            return "mp4"
+        }
+    }
+
+    var color: NSColor? {
+        switch self {
+        case .jpeg, .jpg:
+            return Colors.red
+        case .png:
+            return Colors.green
+        case .gif:
+            return Colors.blue
+        case .mp4:
+            return Colors.orange
+        }
     }
 }

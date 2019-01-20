@@ -43,6 +43,8 @@
 		B631470221E22CC500D50360 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63146FC21E22CC500D50360 /* Image+CoreDataProperties.swift */; };
 		B631470421E22D3900D50360 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B631470321E22D3900D50360 /* MimeType.swift */; };
 		B631470721E22DC200D50360 /* MediaCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B631470621E22DC200D50360 /* MediaCoreDataService.swift */; };
+		B63A837621F3D70300437007 /* BadgeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A837521F3D70300437007 /* BadgeStackView.swift */; };
+		B63A837821F3D71B00437007 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A837721F3D71B00437007 /* Badge.swift */; };
 		B64D91D321E6B0E800DDAB81 /* SortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D91D221E6B0E800DDAB81 /* SortOrder.swift */; };
 		B651F1A821E912AD00B6D77D /* KeyboardMonitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651F1A721E912AD00B6D77D /* KeyboardMonitoring.swift */; };
 		B651F1AA21E9153400B6D77D /* MediaQuickLook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651F1A921E9153400B6D77D /* MediaQuickLook.swift */; };
@@ -92,6 +94,10 @@
 		B6CA70D921E778350084CCF9 /* MediaToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA70D821E778350084CCF9 /* MediaToolbar.swift */; };
 		B6CA70DB21E79A3C0084CCF9 /* ButtonCellWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA70DA21E79A3C0084CCF9 /* ButtonCellWithPadding.swift */; };
 		B6E1FD8921E69C4F00FA7C6C /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1FD8821E69C4F00FA7C6C /* FavoriteButton.swift */; };
+		B6E4B59C21F3D916002238D4 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E4B59B21F3D916002238D4 /* BadgeView.swift */; };
+		B6E4B59E21F3DD25002238D4 /* BadgeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E4B59D21F3DD25002238D4 /* BadgeView.xib */; };
+		B6E4B5A021F47D07002238D4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E4B59F21F47D07002238D4 /* Colors.swift */; };
+		B6E4B5A221F47D9C002238D4 /* NSColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E4B5A121F47D9C002238D4 /* NSColor+Hex.swift */; };
 		B6E856D62184CF7A0092B146 /* MediaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E856D52184CF7A0092B146 /* MediaCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +153,8 @@
 		B63146FC21E22CC500D50360 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B631470321E22D3900D50360 /* MimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
 		B631470621E22DC200D50360 /* MediaCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCoreDataService.swift; sourceTree = "<group>"; };
+		B63A837521F3D70300437007 /* BadgeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeStackView.swift; sourceTree = "<group>"; };
+		B63A837721F3D71B00437007 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		B64D91D221E6B0E800DDAB81 /* SortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOrder.swift; sourceTree = "<group>"; };
 		B651F1A721E912AD00B6D77D /* KeyboardMonitoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMonitoring.swift; sourceTree = "<group>"; };
 		B651F1A921E9153400B6D77D /* MediaQuickLook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaQuickLook.swift; sourceTree = "<group>"; };
@@ -196,6 +204,10 @@
 		B6CA70D821E778350084CCF9 /* MediaToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaToolbar.swift; sourceTree = "<group>"; };
 		B6CA70DA21E79A3C0084CCF9 /* ButtonCellWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellWithPadding.swift; sourceTree = "<group>"; };
 		B6E1FD8821E69C4F00FA7C6C /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteButton.swift; path = "Thumbnail Creation/FavoriteButton.swift"; sourceTree = "<group>"; };
+		B6E4B59B21F3D916002238D4 /* BadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		B6E4B59D21F3DD25002238D4 /* BadgeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeView.xib; sourceTree = "<group>"; };
+		B6E4B59F21F47D07002238D4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B6E4B5A121F47D9C002238D4 /* NSColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Hex.swift"; sourceTree = "<group>"; };
 		B6E856D52184CF7A0092B146 /* MediaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,6 +259,7 @@
 				B6676BBD2180CE11009603E1 /* Views */,
 				B698068521EF980700D32D78 /* Keyboard Handling */,
 				B696714821D91F3F0083CE9E /* Configuration.swift */,
+				B6E4B59F21F47D07002238D4 /* Colors.swift */,
 				B698068121EBC47C00D32D78 /* UserDefaultKey.swift */,
 				B6B6DF8721E29C2500322F79 /* Result.swift */,
 				B6180028217CC508003DCFE7 /* AppDelegate.swift */,
@@ -314,6 +327,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B63A837921F3D72400437007 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				B63A837721F3D71B00437007 /* Badge.swift */,
+				B63A837521F3D70300437007 /* BadgeStackView.swift */,
+				B6E4B59B21F3D916002238D4 /* BadgeView.swift */,
+				B6E4B59D21F3DD25002238D4 /* BadgeView.xib */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
 		B6676BB92180CD64009603E1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +349,7 @@
 				B62A2521217F65BA00A098AD /* URL+Extensions.swift */,
 				B696714421D7AEA10083CE9E /* NSImage+Extensions.swift */,
 				B6C5ED0321E242A000B5B8BF /* Data+Extensions.swift */,
+				B6E4B5A121F47D9C002238D4 /* NSColor+Hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,6 +380,7 @@
 				B6AF5E4E21E2B63400625817 /* Media Creation */,
 				B6AF5E4D21E2B62600625817 /* Thumbnail Creation */,
 				B62006B321E7BCF1000522B5 /* Toolbar */,
+				B63A837921F3D72400437007 /* Badge */,
 				B631470321E22D3900D50360 /* MimeType.swift */,
 				B6AF5E5621E530C500625817 /* MediaStore.swift */,
 				B671D22421EA9CED009DBE11 /* MediaDestructor.swift */,
@@ -560,6 +586,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E4B59E21F3DD25002238D4 /* BadgeView.xib in Resources */,
 				B618002D217CC50A003DCFE7 /* Assets.xcassets in Resources */,
 				B6180030217CC50A003DCFE7 /* Main.storyboard in Resources */,
 				B6676BC52180D7F5009603E1 /* FullscreenImageViewerViewController.xib in Resources */,
@@ -602,6 +629,7 @@
 				B696714921D91F3F0083CE9E /* Configuration.swift in Sources */,
 				B6C5ECF421E2381A00B5B8BF /* Thumbnail+CoreDataProperties.swift in Sources */,
 				B698068B21EFC38700D32D78 /* MediaImportProgressView.swift in Sources */,
+				B6E4B5A221F47D9C002238D4 /* NSColor+Hex.swift in Sources */,
 				B6CA70C921E7503D0084CCF9 /* NoClippingView.swift in Sources */,
 				B631470021E22CC500D50360 /* Video+CoreDataProperties.swift in Sources */,
 				B631470721E22DC200D50360 /* MediaCoreDataService.swift in Sources */,
@@ -623,6 +651,7 @@
 				B62A2522217F65BA00A098AD /* URL+Extensions.swift in Sources */,
 				B62A2524217F6F9F00A098AD /* Date+Extensions.swift in Sources */,
 				B62006B221E7BCE4000522B5 /* MediaToolbarItem.swift in Sources */,
+				B63A837821F3D71B00437007 /* Badge.swift in Sources */,
 				B6CA70CB21E750BB0084CCF9 /* HeartView.swift in Sources */,
 				B6676BC42180D7F5009603E1 /* FullscreenImageViewerViewController.swift in Sources */,
 				B6C5ED0821E2597700B5B8BF /* ThumbnailFactory.swift in Sources */,
@@ -630,6 +659,7 @@
 				B60EDF5421806ABA00251530 /* CenteredClipView.swift in Sources */,
 				B696714721D7B9350083CE9E /* LocalFileManager.swift in Sources */,
 				B6180051217D05A5003DCFE7 /* MediaGridViewController.swift in Sources */,
+				B6E4B5A021F47D07002238D4 /* Colors.swift in Sources */,
 				B63146FD21E22CC500D50360 /* Media+CoreDataClass.swift in Sources */,
 				B631470421E22D3900D50360 /* MimeType.swift in Sources */,
 				B62006B521E90B2C000522B5 /* MediaDetailContainerViewController.swift in Sources */,
@@ -637,6 +667,7 @@
 				B6A869D9217F0C5D00D5EE96 /* NSViewController+Extensions.swift in Sources */,
 				B6C5ECF821E238D700B5B8BF /* ImageThumbnailFactory.swift in Sources */,
 				B6676BB42180ABA0009603E1 /* DragView.swift in Sources */,
+				B6E4B59C21F3D916002238D4 /* BadgeView.swift in Sources */,
 				B6E856D62184CF7A0092B146 /* MediaCollectionView.swift in Sources */,
 				B6180029217CC508003DCFE7 /* AppDelegate.swift in Sources */,
 				B6B3EC5121D6737A000B35B0 /* FileAttributesParser.swift in Sources */,
@@ -655,6 +686,7 @@
 				B671D22321EA9774009DBE11 /* MediaCollectionViewContextMenu.swift in Sources */,
 				B6E1FD8921E69C4F00FA7C6C /* FavoriteButton.swift in Sources */,
 				B62A252A217F8C5D00A098AD /* String+isValidURL.swift in Sources */,
+				B63A837621F3D70300437007 /* BadgeStackView.swift in Sources */,
 				B6C5ED0421E242A000B5B8BF /* Data+Extensions.swift in Sources */,
 				B6B6DF8821E29C2500322F79 /* Result.swift in Sources */,
 				B62A251F217F5D2000A098AD /* VideoViewerViewController.swift in Sources */,

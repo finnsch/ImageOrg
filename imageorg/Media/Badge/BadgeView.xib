@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="BadgeView" id="c22-O7-iKe" customClass="BadgeView" customModule="imageorg" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="74" height="25"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="5Rq-OR-eyG">
+                    <rect key="frame" x="0.0" y="0.0" width="74" height="25"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hHl-oH-MGL">
+                            <rect key="frame" x="2" y="4" width="70" height="17"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="ZL4-0Q-ZfW">
+                                <font key="font" metaFont="systemBold"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="hHl-oH-MGL" secondAttribute="trailing" constant="4" id="2Po-z3-LOK"/>
+                        <constraint firstItem="hHl-oH-MGL" firstAttribute="centerY" secondItem="5Rq-OR-eyG" secondAttribute="centerY" id="5To-q2-XlS"/>
+                        <constraint firstItem="hHl-oH-MGL" firstAttribute="leading" secondItem="5Rq-OR-eyG" secondAttribute="leading" constant="4" id="7aP-oa-n6q"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hHl-oH-MGL" secondAttribute="bottom" constant="4" id="OJE-vX-m4D"/>
+                        <constraint firstItem="hHl-oH-MGL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5Rq-OR-eyG" secondAttribute="top" constant="4" id="qgd-zf-KX0"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5Rq-OR-eyG" secondAttribute="trailing" id="BEI-U3-ktZ"/>
+                <constraint firstItem="5Rq-OR-eyG" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="SDu-dp-aWH"/>
+                <constraint firstItem="5Rq-OR-eyG" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="Z8i-Tv-iil"/>
+                <constraint firstAttribute="bottom" secondItem="5Rq-OR-eyG" secondAttribute="bottom" id="ejZ-mF-k7k"/>
+            </constraints>
+            <connections>
+                <outlet property="labelTextField" destination="hHl-oH-MGL" id="6He-3b-ynH"/>
+            </connections>
+            <point key="canvasLocation" x="-64" y="46.5"/>
+        </customView>
+    </objects>
+</document>

@@ -809,10 +809,10 @@
                                 </connections>
                             </textField>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b7N-KV-kkH">
-                                <rect key="frame" x="20" y="108" width="260" height="142"/>
+                                <rect key="frame" x="20" y="75" width="260" height="175"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9SI-S7-lYX">
-                                        <rect key="frame" x="0.0" y="125" width="47" height="17"/>
+                                        <rect key="frame" x="0.0" y="158" width="47" height="17"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CWa-UP-6nJ">
                                                 <rect key="frame" x="-2" y="0.0" width="34" height="17"/>
@@ -841,25 +841,26 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dny-TJ-7h0">
-                                        <rect key="frame" x="0.0" y="100" width="49" height="17"/>
+                                        <rect key="frame" x="0.0" y="100" width="260" height="50"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="42m-KT-PnC">
-                                                <rect key="frame" x="-2" y="0.0" width="38" height="17"/>
+                                                <rect key="frame" x="-2" y="33" width="38" height="17"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Type:" id="CBk-HT-erc">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lk4-8D-7pH">
-                                                <rect key="frame" x="40" y="0.0" width="11" height="17"/>
-                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" title="-" usesSingleLineMode="YES" id="fWs-e1-yp1">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hXD-pv-4uK" customClass="BadgeStackView" customModule="imageorg" customModuleProvider="target">
+                                                <rect key="frame" x="42" y="0.0" width="218" height="50"/>
+                                            </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="hXD-pv-4uK" firstAttribute="top" secondItem="dny-TJ-7h0" secondAttribute="top" id="Vin-bc-MKG"/>
+                                            <constraint firstItem="hXD-pv-4uK" firstAttribute="leading" secondItem="42m-KT-PnC" secondAttribute="trailing" constant="8" id="WIe-Wr-wtl"/>
+                                            <constraint firstAttribute="trailing" secondItem="hXD-pv-4uK" secondAttribute="trailing" id="lBn-Pd-0mJ"/>
+                                            <constraint firstItem="hXD-pv-4uK" firstAttribute="height" relation="greaterThanOrEqual" secondItem="42m-KT-PnC" secondAttribute="height" id="m2k-fm-uFl"/>
+                                        </constraints>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
@@ -996,6 +997,7 @@
                                     <constraint firstAttribute="width" constant="260" id="3Vu-cy-glp"/>
                                     <constraint firstAttribute="trailing" secondItem="p2H-1S-a9e" secondAttribute="trailing" id="JYX-qe-1se"/>
                                     <constraint firstAttribute="trailing" secondItem="LTC-88-tDd" secondAttribute="trailing" id="MOZ-EP-Uff"/>
+                                    <constraint firstAttribute="trailing" secondItem="dny-TJ-7h0" secondAttribute="trailing" id="YDE-wd-JQl"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -1029,7 +1031,7 @@
                         <outlet property="fileNameTextField" destination="hPv-nf-9ac" id="QM2-uC-eHs"/>
                         <outlet property="filePathTextField" destination="Stw-Uv-ba3" id="OmH-sV-Dpi"/>
                         <outlet property="fileSizeTextField" destination="lGA-Ec-YcO" id="4aG-Ln-soL"/>
-                        <outlet property="fileTypeTextField" destination="lk4-8D-7pH" id="CNM-yH-wl5"/>
+                        <outlet property="fileTypeBadgeStackView" destination="hXD-pv-4uK" id="oY8-Vi-uHf"/>
                         <outlet property="metaInfoStackView" destination="b7N-KV-kkH" id="Psj-WW-WeD"/>
                         <outlet property="modificationDateTextField" destination="hYn-8E-XN1" id="t4X-wq-OU1"/>
                         <outlet property="whereFromStackView" destination="p2H-1S-a9e" id="EjT-qv-pQQ"/>

@@ -12,7 +12,7 @@ struct FileAttributes {
 
     var creationDate: Date
     var modificationDate: Date
-    var mimeType: MimeType
+    var mimeType: String
     var name: String
     var size: Int
     var url: URL
