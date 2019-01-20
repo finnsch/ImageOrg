@@ -98,6 +98,7 @@
 		B6E4B59E21F3DD25002238D4 /* BadgeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E4B59D21F3DD25002238D4 /* BadgeView.xib */; };
 		B6E4B5A021F47D07002238D4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E4B59F21F47D07002238D4 /* Colors.swift */; };
 		B6E4B5A221F47D9C002238D4 /* NSColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E4B5A121F47D9C002238D4 /* NSColor+Hex.swift */; };
+		B6E4B5A621F48EC2002238D4 /* AutoscrollClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E4B5A521F48EC2002238D4 /* AutoscrollClipView.swift */; };
 		B6E856D62184CF7A0092B146 /* MediaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E856D52184CF7A0092B146 /* MediaCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -208,6 +209,7 @@
 		B6E4B59D21F3DD25002238D4 /* BadgeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeView.xib; sourceTree = "<group>"; };
 		B6E4B59F21F47D07002238D4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B6E4B5A121F47D9C002238D4 /* NSColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Hex.swift"; sourceTree = "<group>"; };
+		B6E4B5A521F48EC2002238D4 /* AutoscrollClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoscrollClipView.swift; sourceTree = "<group>"; };
 		B6E856D52184CF7A0092B146 /* MediaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -413,6 +415,7 @@
 		B6676BBD2180CE11009603E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B6E4B5A521F48EC2002238D4 /* AutoscrollClipView.swift */,
 				B6180048217CDC26003DCFE7 /* CustomImageView.swift */,
 				B6180046217CD5C2003DCFE7 /* FlippedView.swift */,
 				B62A2527217F866200A098AD /* ClickableTextField.swift */,
@@ -690,6 +693,7 @@
 				B6C5ED0421E242A000B5B8BF /* Data+Extensions.swift in Sources */,
 				B6B6DF8821E29C2500322F79 /* Result.swift in Sources */,
 				B62A251F217F5D2000A098AD /* VideoViewerViewController.swift in Sources */,
+				B6E4B5A621F48EC2002238D4 /* AutoscrollClipView.swift in Sources */,
 				B6180055217D0B56003DCFE7 /* MediaSplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
