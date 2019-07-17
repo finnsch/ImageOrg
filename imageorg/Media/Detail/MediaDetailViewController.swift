@@ -37,8 +37,6 @@ class MediaDetailViewController: MediaViewController {
         super.viewWillAppear()
 
         subscribeToKeyboardEvents()
-        NotificationCenter.default.addObserver(self, selector: #selector(handleEnterFullScreen), name: NSWindow.didEnterFullScreenNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleExitFullScreen), name: NSWindow.willExitFullScreenNotification, object: nil)
     }
 
     override func viewWillDisappear() {
@@ -50,8 +48,6 @@ class MediaDetailViewController: MediaViewController {
         }
 
         unsubscribeFromKeyboardEvents()
-        NotificationCenter.default.removeObserver(self, name: NSWindow.didEnterFullScreenNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSWindow.willExitFullScreenNotification, object: nil)
     }
 
     override func viewDidAppear() {
@@ -106,17 +102,6 @@ class MediaDetailViewController: MediaViewController {
         ])
     }
 
-    func setupFullscreenImageViewer() {
-        guard let image = mediaStore.selectedMedia as? Image else {
-            return
-        }
-
-        let fullscreenImageViewerViewController = FullscreenImageViewerViewController(nibName: "FullscreenImageViewerViewController", bundle: Bundle.main)
-        fullscreenImageViewerViewController.setup(with: image)
-
-        navigationController?.pushViewController(fullscreenImageViewerViewController, animated: false)
-    }
-
     func goBack() {
         navigationController?.popViewController(animated: false)
     }
@@ -155,14 +140,6 @@ class MediaDetailViewController: MediaViewController {
 
     func zoomOut() {
         imageViewerViewController?.zoomOut()
-    }
-
-    @objc func handleEnterFullScreen(_ notification: NSNotification) {
-        setupFullscreenImageViewer()
-    }
-
-    @objc func handleExitFullScreen(_ notification: NSNotification) {
-        navigationController?.popViewController(animated: false)
     }
 }
 
