@@ -31,7 +31,6 @@
 		B62A2526217F834200A098AD /* NSMutableAttributedString+setAsLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2525217F834200A098AD /* NSMutableAttributedString+setAsLink.swift */; };
 		B62A2528217F866200A098AD /* ClickableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2527217F866200A098AD /* ClickableTextField.swift */; };
 		B62A252A217F8C5D00A098AD /* String+isValidURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A2529217F8C5D00A098AD /* String+isValidURL.swift */; };
-		B63146EB21DA46B000D50360 /* MockImageThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63146EA21DA46B000D50360 /* MockImageThumbnail.swift */; };
 		B63146ED21DFEF8D00D50360 /* MediaFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63146EC21DFEF8D00D50360 /* MediaFactory.swift */; };
 		B63146F121E2295E00D50360 /* imageorg.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B63146EF21E2295E00D50360 /* imageorg.xcdatamodeld */; };
 		B63146F421E22B3C00D50360 /* ImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63146F321E22B3C00D50360 /* ImageTransformer.swift */; };
@@ -66,8 +65,6 @@
 		B698068B21EFC38700D32D78 /* MediaImportProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698068A21EFC38700D32D78 /* MediaImportProgressView.swift */; };
 		B698068D21EFC39300D32D78 /* MediaImportProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B698068C21EFC39300D32D78 /* MediaImportProgressView.xib */; };
 		B699FFB721D65FDD00606792 /* MediaLocalFileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFB621D65FDD00606792 /* MediaLocalFileImporter.swift */; };
-		B699FFB921D6602200606792 /* MediaImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFB821D6602200606792 /* MediaImporterTests.swift */; };
-		B699FFBC21D663E100606792 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699FFBB21D663E100606792 /* Utilities.swift */; };
 		B6A869D3217F087400D5EE96 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A869D2217F087400D5EE96 /* MediaDetailViewController.swift */; };
 		B6A869D6217F0BCC00D5EE96 /* NSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A869D4217F0BCC00D5EE96 /* NSNavigationController.swift */; };
 		B6A869D9217F0C5D00D5EE96 /* NSViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A869D8217F0C5D00D5EE96 /* NSViewController+Extensions.swift */; };
@@ -75,7 +72,6 @@
 		B6AF5E5721E530C500625817 /* MediaStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AF5E5621E530C500625817 /* MediaStore.swift */; };
 		B6B3EC5121D6737A000B35B0 /* FileAttributesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3EC5021D6737A000B35B0 /* FileAttributesParser.swift */; };
 		B6B3EC5321D673F2000B35B0 /* FileAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3EC5221D673F2000B35B0 /* FileAttributes.swift */; };
-		B6B3EC5521D6769D000B35B0 /* MockFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3EC5421D6769D000B35B0 /* MockFileManager.swift */; };
 		B6B6DF8821E29C2500322F79 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B6DF8721E29C2500322F79 /* Result.swift */; };
 		B6B6DF8A21E29CA800322F79 /* MediaImportError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B6DF8921E29CA800322F79 /* MediaImportError.swift */; };
 		B6C5ECF321E2381A00B5B8BF /* Thumbnail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5ECF121E2381A00B5B8BF /* Thumbnail+CoreDataClass.swift */; };
@@ -142,7 +138,6 @@
 		B62A2525217F834200A098AD /* NSMutableAttributedString+setAsLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+setAsLink.swift"; sourceTree = "<group>"; };
 		B62A2527217F866200A098AD /* ClickableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableTextField.swift; sourceTree = "<group>"; };
 		B62A2529217F8C5D00A098AD /* String+isValidURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValidURL.swift"; sourceTree = "<group>"; };
-		B63146EA21DA46B000D50360 /* MockImageThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageThumbnail.swift; sourceTree = "<group>"; };
 		B63146EC21DFEF8D00D50360 /* MediaFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaFactory.swift; sourceTree = "<group>"; };
 		B63146F021E2295E00D50360 /* imageorg.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = imageorg.xcdatamodel; sourceTree = "<group>"; };
 		B63146F321E22B3C00D50360 /* ImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransformer.swift; sourceTree = "<group>"; };
@@ -177,8 +172,6 @@
 		B698068A21EFC38700D32D78 /* MediaImportProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImportProgressView.swift; sourceTree = "<group>"; };
 		B698068C21EFC39300D32D78 /* MediaImportProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaImportProgressView.xib; sourceTree = "<group>"; };
 		B699FFB621D65FDD00606792 /* MediaLocalFileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLocalFileImporter.swift; sourceTree = "<group>"; };
-		B699FFB821D6602200606792 /* MediaImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImporterTests.swift; sourceTree = "<group>"; };
-		B699FFBB21D663E100606792 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B6A869D2217F087400D5EE96 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailViewController.swift; sourceTree = "<group>"; };
 		B6A869D4217F0BCC00D5EE96 /* NSNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNavigationController.swift; sourceTree = "<group>"; };
 		B6A869D8217F0C5D00D5EE96 /* NSViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -186,7 +179,6 @@
 		B6AF5E5621E530C500625817 /* MediaStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaStore.swift; path = imageorg/Media/MediaStore.swift; sourceTree = SOURCE_ROOT; };
 		B6B3EC5021D6737A000B35B0 /* FileAttributesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAttributesParser.swift; sourceTree = "<group>"; };
 		B6B3EC5221D673F2000B35B0 /* FileAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAttributes.swift; sourceTree = "<group>"; };
-		B6B3EC5421D6769D000B35B0 /* MockFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFileManager.swift; sourceTree = "<group>"; };
 		B6B6DF8721E29C2500322F79 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B6B6DF8921E29CA800322F79 /* MediaImportError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImportError.swift; sourceTree = "<group>"; };
 		B6C5ECF121E2381A00B5B8BF /* Thumbnail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thumbnail+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -277,9 +269,6 @@
 		B618003A217CC50B003DCFE7 /* imageorgTests */ = {
 			isa = PBXGroup;
 			children = (
-				B63146EE21DFFDE600D50360 /* Mocks */,
-				B699FFBB21D663E100606792 /* Utilities.swift */,
-				B699FFB821D6602200606792 /* MediaImporterTests.swift */,
 				B618003D217CC50B003DCFE7 /* Info.plist */,
 			);
 			path = imageorgTests;
@@ -293,15 +282,6 @@
 				B62006B121E7BCE4000522B5 /* MediaToolbarItem.swift */,
 			);
 			path = Toolbar;
-			sourceTree = "<group>";
-		};
-		B63146EE21DFFDE600D50360 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				B6B3EC5421D6769D000B35B0 /* MockFileManager.swift */,
-				B63146EA21DA46B000D50360 /* MockImageThumbnail.swift */,
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 		B63146F221E22B2E00D50360 /* CoreData */ = {
@@ -702,10 +682,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B699FFB921D6602200606792 /* MediaImporterTests.swift in Sources */,
-				B63146EB21DA46B000D50360 /* MockImageThumbnail.swift in Sources */,
-				B6B3EC5521D6769D000B35B0 /* MockFileManager.swift in Sources */,
-				B699FFBC21D663E100606792 /* Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
