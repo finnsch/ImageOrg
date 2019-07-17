@@ -13,7 +13,7 @@ extension Date {
         self.init(timeIntervalSinceReferenceDate: date.timeIntervalSinceReferenceDate)
     }
 
-    func toString(dateFormat format: String? = "dd.MM.yyyy - hh:mm") -> String {
+    func toString(dateFormat format: String? = "dd.MM.yyyy - HH:mm") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
