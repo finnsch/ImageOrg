@@ -10,7 +10,10 @@ import Foundation
 
 struct Configuration {
 
-    static let importPath: String = "/Users/finn/Pictures/Downloads/"
-    static let destinationPath: String = "/Users/finn/Pictures/imageorg/"
-    static let thumbnailPath: String = "\(Configuration.importPath)thumbnails/"
+    /// Path where the imported files are saved at
+    ///
+    /// This configuration will be available in a settings screen
+    /// in the future.
+    /// Example: /Users/finn/Pictures/imageorg/
+    static let destinationPath: String = <#"/Users/finn/Pictures/imageorg/"#>
 }
