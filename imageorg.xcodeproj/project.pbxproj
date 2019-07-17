@@ -860,7 +860,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = biz.schlenk.imageorg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -878,7 +878,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = biz.schlenk.imageorg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -898,7 +898,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = biz.schlenk.imageorgTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/imageorg.app/Contents/MacOS/imageorg";
 			};
 			name = Debug;
@@ -919,7 +919,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = biz.schlenk.imageorgTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/imageorg.app/Contents/MacOS/imageorg";
 			};
 			name = Release;

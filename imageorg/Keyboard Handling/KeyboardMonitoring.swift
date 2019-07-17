@@ -34,6 +34,6 @@ extension KeyboardMonitoring {
     }
 
     func unsubscribeFromKeyboardEvents() {
-        NSEvent.removeMonitor(keyDownMonitor)
+        NSEvent.removeMonitor(keyDownMonitor!)
     }
 }

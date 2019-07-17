@@ -56,7 +56,7 @@ class VideoViewerViewController: NSViewController {
     }
 
     override func viewDidDisappear() {
-        NSEvent.removeMonitor(keyDownMonitor)
+        NSEvent.removeMonitor(keyDownMonitor!)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player!.currentItem)
 
         player?.pause()
