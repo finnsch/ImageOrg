@@ -1184,9 +1184,9 @@
                                                     <rect key="frame" x="5" y="10" width="41" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="c0b-p9-5S5"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="zqK-f1-3jf"/>
+                                                        <constraint firstAttribute="width" constant="37" id="zqK-f1-3jf"/>
                                                     </constraints>
-                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="TrashIcon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="K7T-6w-zsF" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="TrashIcon" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="K7T-6w-zsF" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                         <userDefinedRuntimeAttributes>
@@ -1219,10 +1219,10 @@
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F7L-1W-wPJ">
                                                     <rect key="frame" x="5" y="10" width="41" height="29"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="qZN-ly-5CI"/>
+                                                        <constraint firstAttribute="width" constant="37" id="qZN-ly-5CI"/>
                                                         <constraint firstAttribute="height" constant="24" id="ux6-yD-OnJ"/>
                                                     </constraints>
-                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="HeartIcon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F3l-tA-FIl" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="HeartIcon" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F3l-tA-FIl" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                         <userDefinedRuntimeAttributes>
@@ -1256,9 +1256,9 @@
                                                     <rect key="frame" x="5" y="10" width="41" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="fW4-Ea-I5K"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="lnN-R0-5tY"/>
+                                                        <constraint firstAttribute="width" constant="37" id="lnN-R0-5tY"/>
                                                     </constraints>
-                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="HeartOutlineIcon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l37-m5-bOJ" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="HeartOutlineIcon" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l37-m5-bOJ" customClass="ButtonCellWithPadding" customModule="imageorg" customModuleProvider="target">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                         <userDefinedRuntimeAttributes>
@@ -1385,13 +1385,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HeartIcon" width="20" height="20"/>
-        <image name="HeartOutlineIcon" width="20" height="20"/>
+        <image name="HeartIcon" width="104" height="100"/>
+        <image name="HeartOutlineIcon" width="104" height="100"/>
         <image name="NSGoBackTemplate" width="9" height="12"/>
         <image name="NSSidebarTemplate" width="15" height="12"/>
         <image name="NSTouchBarAddTemplate" width="14" height="30"/>
         <image name="NSTouchBarRemoveTemplate" width="14" height="30"/>
-        <image name="TrashIcon" width="15" height="20"/>
+        <image name="TrashIcon" width="72" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4B3-uZ-8Ew"/>

@@ -10,11 +10,19 @@ import Cocoa
 
 class CustomImageView: NSImageView {
 
+    private var borderColor: NSColor {
+        if NSAppearance.current.isDarkMode {
+            return NSColor.controlAccentColor.withAlphaComponent(0.8)
+        }
+
+        return NSColor.controlAccentColor
+    }
+
     var isSelected: Bool = false {
         didSet {
             if isSelected {
                 layer?.borderWidth = 2.0
-                layer?.borderColor = NSColor.controlAccentColor.withAlphaComponent(0.8).cgColor
+                layer?.borderColor = borderColor.cgColor
             } else {
                 layer?.borderWidth = 0.0
             }
@@ -31,14 +39,6 @@ class CustomImageView: NSImageView {
         super.init(coder: coder)
 
         setupView()
-    }
-
-    override func draw(_ dirtyRect: NSRect) {
-        // Draw background before drawing the rest of the view
-        NSColor.black.setFill()
-        bounds.fill()
-
-        super.draw(dirtyRect)
     }
 
     func setupView() {

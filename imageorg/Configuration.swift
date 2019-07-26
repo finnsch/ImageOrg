@@ -15,5 +15,5 @@ struct Configuration {
     /// This configuration will be available in a settings screen
     /// in the future.
     /// Example: /Users/finn/Pictures/imageorg/
-    static let destinationPath: String = <#"/Users/finn/Pictures/imageorg/"#>
+    static let destinationPath: String = "/Users/finn/Pictures/imageorg/"
 }

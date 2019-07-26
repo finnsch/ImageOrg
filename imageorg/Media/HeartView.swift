@@ -34,7 +34,7 @@ class HeartView: NSView, NibLoadable {
 
     func setupView() {
         backgroundView.wantsLayer = true
-        backgroundView.layer?.backgroundColor = NSColor.white.cgColor
+        backgroundView.layer?.backgroundColor = NSColor.heartViewBackgroundColor.cgColor
         backgroundView.layer?.cornerRadius = 12.0
     }
 }

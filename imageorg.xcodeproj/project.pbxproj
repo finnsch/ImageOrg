@@ -89,6 +89,8 @@
 		B6CA70CD21E750CA0084CCF9 /* HeartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6CA70CC21E750CA0084CCF9 /* HeartView.xib */; };
 		B6CA70D921E778350084CCF9 /* MediaToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA70D821E778350084CCF9 /* MediaToolbar.swift */; };
 		B6CA70DB21E79A3C0084CCF9 /* ButtonCellWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA70DA21E79A3C0084CCF9 /* ButtonCellWithPadding.swift */; };
+		B6DCD8AA22EB5800007CC063 /* NSAppearance+isDarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCD8A922EB5800007CC063 /* NSAppearance+isDarkMode.swift */; };
+		B6DCD8AC22EB5A14007CC063 /* NSColor+AssetCatalogColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DCD8AB22EB5A14007CC063 /* NSColor+AssetCatalogColors.swift */; };
 		B6E1FD8921E69C4F00FA7C6C /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1FD8821E69C4F00FA7C6C /* FavoriteButton.swift */; };
 		B6E4B59C21F3D916002238D4 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E4B59B21F3D916002238D4 /* BadgeView.swift */; };
 		B6E4B59E21F3DD25002238D4 /* BadgeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E4B59D21F3DD25002238D4 /* BadgeView.xib */; };
@@ -196,6 +198,8 @@
 		B6CA70CC21E750CA0084CCF9 /* HeartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartView.xib; sourceTree = "<group>"; };
 		B6CA70D821E778350084CCF9 /* MediaToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaToolbar.swift; sourceTree = "<group>"; };
 		B6CA70DA21E79A3C0084CCF9 /* ButtonCellWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellWithPadding.swift; sourceTree = "<group>"; };
+		B6DCD8A922EB5800007CC063 /* NSAppearance+isDarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAppearance+isDarkMode.swift"; sourceTree = "<group>"; };
+		B6DCD8AB22EB5A14007CC063 /* NSColor+AssetCatalogColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+AssetCatalogColors.swift"; sourceTree = "<group>"; };
 		B6E1FD8821E69C4F00FA7C6C /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteButton.swift; path = "Thumbnail Creation/FavoriteButton.swift"; sourceTree = "<group>"; };
 		B6E4B59B21F3D916002238D4 /* BadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		B6E4B59D21F3DD25002238D4 /* BadgeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeView.xib; sourceTree = "<group>"; };
@@ -332,6 +336,8 @@
 				B696714421D7AEA10083CE9E /* NSImage+Extensions.swift */,
 				B6C5ED0321E242A000B5B8BF /* Data+Extensions.swift */,
 				B6E4B5A121F47D9C002238D4 /* NSColor+Hex.swift */,
+				B6DCD8AB22EB5A14007CC063 /* NSColor+AssetCatalogColors.swift */,
+				B6DCD8A922EB5800007CC063 /* NSAppearance+isDarkMode.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -610,6 +616,7 @@
 				B63146ED21DFEF8D00D50360 /* MediaFactory.swift in Sources */,
 				B63146F121E2295E00D50360 /* imageorg.xcdatamodeld in Sources */,
 				B696714921D91F3F0083CE9E /* Configuration.swift in Sources */,
+				B6DCD8AA22EB5800007CC063 /* NSAppearance+isDarkMode.swift in Sources */,
 				B6C5ECF421E2381A00B5B8BF /* Thumbnail+CoreDataProperties.swift in Sources */,
 				B698068B21EFC38700D32D78 /* MediaImportProgressView.swift in Sources */,
 				B6E4B5A221F47D9C002238D4 /* NSColor+Hex.swift in Sources */,
@@ -654,6 +661,7 @@
 				B6E856D62184CF7A0092B146 /* MediaCollectionView.swift in Sources */,
 				B6180029217CC508003DCFE7 /* AppDelegate.swift in Sources */,
 				B6B3EC5121D6737A000B35B0 /* FileAttributesParser.swift in Sources */,
+				B6DCD8AC22EB5A14007CC063 /* NSColor+AssetCatalogColors.swift in Sources */,
 				B699FFB721D65FDD00606792 /* MediaLocalFileImporter.swift in Sources */,
 				B64D91D321E6B0E800DDAB81 /* SortOrder.swift in Sources */,
 				B6C5ECFA21E239AF00B5B8BF /* Media+CustomProperties.swift in Sources */,

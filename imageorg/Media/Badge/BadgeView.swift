@@ -29,8 +29,9 @@ class BadgeView: NSView, NibLoadable {
         contentView.wantsLayer = true
         contentView.layer?.backgroundColor = badge.color?.cgColor
         contentView.layer?.cornerRadius = 3.0
+        labelTextField.textColor = .white
         labelTextField.drawsBackground = true
-        labelTextField.backgroundColor = NSColor.clear
+        labelTextField.backgroundColor = .clear
         labelTextField.stringValue = badge.title.uppercased()
     }
 }
