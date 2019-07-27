@@ -29,9 +29,9 @@ class MediaSplitViewController: NSSplitViewController {
         sidebarViewController?.navigationController = navigationController
 
         if isSidebarEnabled {
-            showSidebar()
+            showSidebar(animating: false)
         } else {
-            collapseSidebar()
+            collapseSidebar(animating: false)
         }
     }
 
@@ -43,17 +43,38 @@ class MediaSplitViewController: NSSplitViewController {
                 return
             }
 
+            if strongSelf.isSidebarEnabled {
+                strongSelf.collapseSidebar()
+            } else {
+                strongSelf.showSidebar()
+            }
+
             UserDefaults.standard.set(!strongSelf.isSidebarEnabled, forKey: UserDefaultKey.isSidebarEnabled.rawValue)
-            strongSelf.toggleSidebar(nil)
         }
     }
 
-    func showSidebar() {
-        splitViewItems.last?.isCollapsed = false
+    func showSidebar(animating: Bool = true) {
+        guard var sidebar = self.splitViewItems.last, sidebar.isCollapsed else {
+            return
+        }
+
+        if animating {
+            sidebar = sidebar.animator()
+        }
+
+        sidebar.isCollapsed = false
     }
 
-    func collapseSidebar() {
-        splitViewItems.last?.isCollapsed = true
+    func collapseSidebar(animating: Bool = true) {
+        guard var sidebar = self.splitViewItems.last, !sidebar.isCollapsed else {
+            return
+        }
+
+        if animating {
+            sidebar = sidebar.animator()
+        }
+
+        sidebar.isCollapsed = true
     }
 }
 
