@@ -241,6 +241,10 @@ extension MediaGridViewController: NSCollectionViewDataSource {
             self?.mediaStore.selectedMedia = media
             self?.showDetail()
         }
+        collectionViewItem.heartView.handleClick = { [weak self] in
+            media.isFavorite.toggle()
+            self?.mediaStore.update(media: media)
+        }
 
         return collectionViewItem
     }

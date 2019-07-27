@@ -844,7 +844,7 @@
                                         <rect key="frame" x="0.0" y="100" width="260" height="50"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="42m-KT-PnC">
-                                                <rect key="frame" x="-2" y="33" width="38" height="17"/>
+                                                <rect key="frame" x="-2" y="17" width="38" height="17"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Type:" id="CBk-HT-erc">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -860,6 +860,7 @@
                                             <constraint firstItem="hXD-pv-4uK" firstAttribute="leading" secondItem="42m-KT-PnC" secondAttribute="trailing" constant="8" id="WIe-Wr-wtl"/>
                                             <constraint firstAttribute="trailing" secondItem="hXD-pv-4uK" secondAttribute="trailing" id="lBn-Pd-0mJ"/>
                                             <constraint firstItem="hXD-pv-4uK" firstAttribute="height" relation="greaterThanOrEqual" secondItem="42m-KT-PnC" secondAttribute="height" id="m2k-fm-uFl"/>
+                                            <constraint firstItem="42m-KT-PnC" firstAttribute="centerY" secondItem="hXD-pv-4uK" secondAttribute="centerY" id="oR1-5o-ZqN"/>
                                         </constraints>
                                         <visibilityPriorities>
                                             <integer value="1000"/>

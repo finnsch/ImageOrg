@@ -65,7 +65,6 @@ class CollectionViewItem: NSCollectionViewItem {
 
         view.wantsLayer = true
         view.layer?.cornerRadius = 2.0
-        view.layer?.masksToBounds = true
     }
 
     override func mouseDown(with theEvent: NSEvent) {
